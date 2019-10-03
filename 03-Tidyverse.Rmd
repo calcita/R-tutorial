@@ -7,9 +7,10 @@ Accedemos a los datos desde la url.
 ```{r}
 listings <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/listings.csv"))
 
-reviews <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv"))
-
-neighbour <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv"))
+ratings <- readr::read_csv("data/ratings.csv")
+# reviews <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv"))
+# 
+# neighbour <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv"))
 
 # "http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson"
 ```
@@ -143,6 +144,12 @@ berlin <- listings %>% mutate(neighbourhood_group = stri_replace(str = small,reg
 table(unique(berlin$neighbourhood_group) %in% barrios$BezName)
 ```
 
+Uno los data frame listings  y ratings para agregar la variable 'review_score'
+
+```{r}
+berlin <- left_join(berlin, ratings, by = "id")
+```
+
 
 ## ggplot2
 ```{r}
@@ -196,10 +203,16 @@ El orden de los comandos es importante.
 ```{r eval=FALSE}
 library(leaflet)
 
+contenido <- paste(sep = "<br/>",
+               paste0("<img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Estadio_Centenario_%28vista_a%C3%A9rea%29.jpg", "' />"),
+               paste0("<b>Name: </b>", "Estadio Centenario"),
+               paste0("<b>Place: </b>", "Montevideo, Uruguay"),
+               paste0("<a href='https://es.wikipedia.org/wiki/Estadio_Centenario", "'>Link</a>"))
+
 mapa <- leaflet() %>%
         addTiles() %>%
         addMarkers(lng = -56.159158, lat = -34.888494,
-                   popup ="UCU")
+                   popup = contenido)
 mapa
 ```
 

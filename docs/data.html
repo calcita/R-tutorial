@@ -47,6 +47,14 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -110,6 +118,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#gds"><i class="fa fa-check"></i><b>3.1</b> GDS</a></li>
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#paquetes"><i class="fa fa-check"></i><b>3.2</b> Paquetes</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#sf"><i class="fa fa-check"></i><b>3.3</b> sf</a></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#st_read"><i class="fa fa-check"></i><b>3.4</b> st_read()</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#importar-shapes"><i class="fa fa-check"></i><b>3.5</b> Importar shapes</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#mapa-de-coropletas"><i class="fa fa-check"></i><b>3.6</b> Mapa de coropletas</a></li>
+<li class="chapter" data-level="3.7" data-path="data.html"><a href="data.html#encoding"><i class="fa fa-check"></i><b>3.7</b> Encoding</a></li>
+<li class="chapter" data-level="3.8" data-path="data.html"><a href="data.html#expresiones-regulares"><i class="fa fa-check"></i><b>3.8</b> Expresiones regulares</a></li>
+<li class="chapter" data-level="3.9" data-path="data.html"><a href="data.html#ggplot2"><i class="fa fa-check"></i><b>3.9</b> ggplot2</a></li>
+<li class="chapter" data-level="3.10" data-path="data.html"><a href="data.html#leaflet"><i class="fa fa-check"></i><b>3.10</b> leaflet</a></li>
+<li class="chapter" data-level="3.11" data-path="data.html"><a href="data.html#leaflet-1"><i class="fa fa-check"></i><b>3.11</b> leaflet()</a></li>
+<li class="chapter" data-level="3.12" data-path="data.html"><a href="data.html#leaflet-2"><i class="fa fa-check"></i><b>3.12</b> leaflet</a></li>
+<li class="chapter" data-level="3.13" data-path="data.html"><a href="data.html#mapa"><i class="fa fa-check"></i><b>3.13</b> Mapa</a></li>
+<li class="chapter" data-level="3.14" data-path="data.html"><a href="data.html#alojamientos-berlin"><i class="fa fa-check"></i><b>3.14</b> Alojamientos Berlin</a></li>
+<li class="chapter" data-level="3.15" data-path="data.html"><a href="data.html#alojamientos-berlin-1"><i class="fa fa-check"></i><b>3.15</b> Alojamientos Berlin</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -155,19 +175,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##   calculated_host_listings_count = col_double(),
 ##   availability_365 = col_double()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">reviews &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="st">&quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ratings &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;data/ratings.csv&quot;</span>)</code></pre></div>
 <pre><code>## Parsed with column specification:
 ## cols(
-##   listing_id = col_double(),
-##   date = col_date(format = &quot;&quot;)
+##   id = col_double(),
+##   review_scores_rating = col_double()
 ## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">neighbour &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="st">&quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv&quot;</span>))</code></pre></div>
-<pre><code>## Parsed with column specification:
-## cols(
-##   neighbourhood_group = col_character(),
-##   neighbourhood = col_character()
-## )</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># &quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson&quot;</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># reviews &lt;- readr::read_csv(url(&quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv&quot;))</span>
+<span class="co"># </span>
+<span class="co"># neighbour &lt;- readr::read_csv(url(&quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv&quot;))</span>
+
+<span class="co"># &quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson&quot;</span></code></pre></div>
 <div id="gds" class="section level2">
 <h2><span class="header-section-number">3.1</span> GDS</h2>
 <ul>
@@ -225,177 +243,212 @@ objeto.sp &lt;-<span class="st"> </span><span class="kw">as</span>(objeto.sf, <s
 <p>Convertir objetos <strong>sp</strong> a <strong>sf</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Para transformar de SP a SF</span>
 objeto.sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(objeto.sp)</code></pre></div>
-<!-- --- -->
-<!-- # st_read() -->
-<!-- - Los objetos sf tienen una clase que combina **'data.frame'** y **'sf'**  -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- - Los objetos sf también tienen una columna especial que contiene los datos de geometría, usualmente llamado 'geom' o **'geometry'**. -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- - Las funciones del paquete **dplyr** se pueden aplicar. Para saber la totalidad de funciones que son aplicables a un objeto de **clase 'sf'** consultar **methods()**. -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- - Para la unión de objetos espaciales se usa **st_join(x, y)**. El método de join utilizado es siempre left join, manteniendo los registros del primer atributo. -->
-<!-- --- -->
-<!-- # Importar shapes -->
-<!-- ```{r } -->
-<!-- # cargo paquete -->
-<!-- library(sf) -->
-<!-- # importo shapes -->
-<!-- barrios = st_read("shapes/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp",stringsAsFactors = FALSE) -->
-<!-- # consulto clase -->
-<!-- class(barrios) -->
-<!-- ``` -->
-<!-- ```{r eval=FALSE} -->
-<!-- # consulto métodos -->
-<!-- methods(class = "sf")  -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # Mapa de coropletas -->
-<!-- - [Buenas prácticas](https://blog.datawrapper.de/choroplethmaps/)  -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- - Es un **mapa temático** en el que las regiones se colorean de un motivo que muestra una **medida estadística**. -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- ```{r} -->
-<!-- # cargo datos -->
-<!-- load("berlin.Rdata") -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # Encoding -->
-<!-- ```{r } -->
-<!-- library(stringi) -->
-<!-- ``` -->
-<!-- ```{r eval=FALSE} -->
-<!-- # con qué encoding vienen los datos?  -->
-<!-- stri_enc_mark(barrios$BezName) -->
-<!-- ``` -->
-<!-- ```{r } -->
-<!-- library(dplyr) -->
-<!-- # defino que los lea como 'ISO-8859-1' y pase a 'UTF-8' -->
-<!-- barrios <- barrios %>%  -->
-<!--            mutate(BezName = stri_conv(BezName, from = 'ISO-8859-1', to = 'UTF-8', to_raw = FALSE)) -->
-<!-- head(barrios$BezName,12) -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # Expresiones regulares -->
-<!-- ```{r} -->
-<!-- # los barrios están escritos igual? -->
-<!-- table(unique(berlin$neighbourhood_group) %in% barrios$BezName) -->
-<!-- # busco la expresión y reemplazo -->
-<!-- library(stringr) -->
-<!-- large <- barrios$BezName -->
-<!-- small <- berlin$neighbourhood_group -->
-<!-- berlin <- berlin %>% mutate(neighbourhood_group = stri_replace(str = small,regex = small, replacement = large , mode="all")) -->
-<!-- # chequeo -->
-<!-- table(unique(berlin$neighbourhood_group) %in% barrios$BezName) -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # ggplot2 -->
-<!-- ```{r} -->
-<!-- # cuento la cantidad de alojamientos por barrios -->
-<!-- bn <- berlin %>% -->
-<!--   group_by(neighbourhood_group) %>%  -->
-<!--   summarise(median_price = median(price)) -->
-<!-- # uno berlin con el objeto espacial barrios -->
-<!-- bn <- left_join(bn, barrios, by = c("neighbourhood_group"="BezName")) -->
-<!-- # calculo centroides de los polígonos -->
-<!-- latlong_mean <-  barrios %>% st_centroid(geometry) -->
-<!-- # convierto la geometría en 2 vectores -->
-<!-- latlong_mean <- st_coordinates(latlong_mean$geometry) -->
-<!-- latlong_mean <- tibble(latlong_mean[,1], latlong_mean[,2]) -->
-<!-- names(latlong_mean) <- c('lat', 'lon') -->
-<!-- bn <- bind_cols(bn, latlong_mean)  -->
-<!-- library(ggplot2) -->
-<!-- mapa<- ggplot(bn) + -->
-<!--        geom_sf(aes(fill = median_price)) + -->
-<!--        geom_text(aes(x = lat, y = lon, label = neighbourhood_group),  size = 3, hjust = 0.5)+ -->
-<!--       scale_fill_viridis_c("# Alojamientos", option = "D") + -->
-<!--       ggtitle("Alojamientos Airbnb por barrios de Berlin") + -->
-<!--       theme_void()  -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # ggplot2 -->
-<!-- ```{r echo=FALSE} -->
-<!-- mapa -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # leaflet -->
-<!-- - El paquete leaflet es una extensión java script para R que permite hacer mapas interactivos. -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- - [Tutorial](https://rstudio.github.io/leaflet/) para comenzar. -->
-<!-- <br><br> -->
-<!-- -- -->
-<!-- --- -->
-<!-- # leaflet() -->
-<!-- | Función      | Descripción | -->
-<!-- |---------------|:-------------:| -->
-<!-- | leaflet()    |crea el objeto leaflet  |    -->
-<!-- | addTiles() |  define el mapa de base, por defecto utiliza OpenStreetMap. [Opciones](http://leaflet-extras.github.io/leaflet-providers/preview/) | -->
-<!-- | setView() | define por centroide y zoom | -->
-<!-- | addMarkers() | marcadores a partir de una capa espacial o de pares de coordenadas.| -->
-<!-- El orden de los comandos es importante.  -->
-<!-- --- -->
-<!-- # leaflet -->
-<!-- ```{r eval=FALSE} -->
-<!-- library(leaflet) -->
-<!-- mapa <- leaflet() %>% -->
-<!--         addTiles() %>%  -->
-<!--         addMarkers(lng = -56.159158, lat = -34.888494,  -->
-<!--                    popup ="UCU") -->
-<!-- mapa -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # Mapa -->
-<!-- ```{r echo=FALSE} -->
-<!-- library(leaflet) -->
-<!-- mapa <- leaflet() %>% -->
-<!--         addTiles() %>%  -->
-<!--         addMarkers(lng = -56.159158, lat = -34.888494,  -->
-<!--                    popup ="UCU") -->
-<!-- mapa -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # Alojamientos Berlin -->
-<!-- ```{r eval=FALSE} -->
-<!-- # Alojamientos caros de Airbnb en Berlin -->
-<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
-<!-- # de sf a sp -->
-<!-- barrios.sp <- as(barrios, "Spatial") -->
-<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
-<!-- library(leaflet) -->
-<!-- airbnb = makeIcon("/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb.png","/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb@2x.png", 18, -->
-<!--            18)  -->
-<!-- mapa <- leaflet(data = barrios.sp) %>% -->
-<!--         #setView() -->
-<!--         addTiles() %>% -->
-<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb)   -->
-<!--         #addCircles()  -->
-<!--         #addLegend() -->
-<!-- mapa      -->
-<!-- ``` -->
-<!-- --- -->
-<!-- # Alojamientos Berlin -->
-<!-- ```{r echo=FALSE} -->
-<!-- # Alojamientos caros de Airbnb en Berlin -->
-<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
-<!-- # de sf a sp -->
-<!-- barrios.sp <- as(barrios, "Spatial") -->
-<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
-<!-- library(leaflet) -->
-<!-- airbnb = makeIcon("/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb.png","/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb@2x.png", 18, -->
-<!--            18)  -->
-<!-- mapa <- leaflet(data = barrios.sp) %>% -->
-<!--         #setView() -->
-<!--         addTiles() %>% -->
-<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb)   -->
-<!--         #addCircles()  -->
-<!--         #addLegend() -->
-<!-- mapa     -->
-<!-- ``` -->
+</div>
+<div id="st_read" class="section level2">
+<h2><span class="header-section-number">3.4</span> st_read()</h2>
+<p>Los objetos sf tienen una clase que combina <strong>‘data.frame’</strong> y <strong>‘sf’</strong></p>
+<p>Los objetos sf también tienen una columna especial que contiene los datos de geometría, usualmente llamado ‘geom’ o <strong>‘geometry’</strong>.</p>
+<p>Las funciones del paquete <strong>dplyr</strong> se pueden aplicar. Para saber la totalidad de funciones que son aplicables a un objeto de <strong>clase ‘sf’</strong> consultar <strong>methods()</strong>.</p>
+<p>Para la unión de objetos espaciales se usa <strong>st_join(x, y)</strong>. El método de join utilizado es siempre left join, manteniendo los registros del primer atributo.</p>
+</div>
+<div id="importar-shapes" class="section level2">
+<h2><span class="header-section-number">3.5</span> Importar shapes</h2>
+<p>Los shapes con límites de los barrios de Berlin los obtenemos <a href="http://geoserver01.uit.tufts.edu/wfs?outputformat=SHAPE-ZIP&amp;request=GetFeature&amp;service=wfs&amp;srsName=EPSG%3A4326&amp;typeName=sde%3AGISPORTAL.GISOWNER01.BERLIN_BEZIRKE_BOROUGHS01&amp;version=2.0.0">aquí</a>.</p>
+<p>Para trabajar descomprimimos el zip y dejamos los 5 archivos en una misma carpeta.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cargo paquete</span>
+<span class="kw">library</span>(sf)</code></pre></div>
+<pre><code>## Linking to GEOS 3.5.1, GDAL 2.2.2, PROJ 4.9.2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># importo shapes</span>
+<span class="kw">unzip</span>(<span class="st">&quot;data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.zip&quot;</span>, <span class="dt">exdir =</span> <span class="st">&quot;data/&quot;</span>) 
+barrios &lt;-<span class="st"> </span><span class="kw">st_read</span>(<span class="st">&quot;data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</code></pre></div>
+<pre><code>## Reading layer `GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01&#39; from data source `/home/calcita/MEGA/R/github.io/R-tutorial/R-tutorial/data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp&#39; using driver `ESRI Shapefile&#39;
+## Simple feature collection with 12 features and 3 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 13.08835 ymin: 52.33824 xmax: 13.76114 ymax: 52.67551
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># consulto clase </span>
+<span class="kw">class</span>(barrios)</code></pre></div>
+<pre><code>## [1] &quot;sf&quot;         &quot;data.frame&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># consulto métodos</span>
+<span class="kw">methods</span>(<span class="dt">class =</span> <span class="st">&quot;sf&quot;</span>)</code></pre></div>
+</div>
+<div id="mapa-de-coropletas" class="section level2">
+<h2><span class="header-section-number">3.6</span> Mapa de coropletas</h2>
+<ul>
+<li><p><a href="https://blog.datawrapper.de/choroplethmaps/">Buenas prácticas</a></p></li>
+<li><p>Es un <strong>mapa temático</strong> en el que las regiones se colorean de un motivo que muestra una <strong>medida estadística</strong>.</p></li>
+</ul>
+</div>
+<div id="encoding" class="section level2">
+<h2><span class="header-section-number">3.7</span> Encoding</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(stringi)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># con qué encoding vienen los datos?</span>
+<span class="kw">stri_enc_mark</span>(barrios<span class="op">$</span>BezName)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)</code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># defino que los lea como &#39;ISO-8859-1&#39; y pase a &#39;UTF-8&#39;</span>
+barrios &lt;-<span class="st"> </span>barrios <span class="op">%&gt;%</span>
+<span class="st">           </span><span class="kw">mutate</span>(<span class="dt">BezName =</span> <span class="kw">stri_conv</span>(BezName, <span class="dt">from =</span> <span class="st">&#39;ISO-8859-1&#39;</span>, <span class="dt">to =</span> <span class="st">&#39;UTF-8&#39;</span>, <span class="dt">to_raw =</span> <span class="ot">FALSE</span>))
+<span class="kw">head</span>(barrios<span class="op">$</span>BezName,<span class="dv">12</span>)</code></pre></div>
+<pre><code>##  [1] &quot;Mitte&quot;                      &quot;Friedrichshain-Kreuzberg&quot;  
+##  [3] &quot;Pankow&quot;                     &quot;Charlottenburg-Wilmersdorf&quot;
+##  [5] &quot;Spandau&quot;                    &quot;Steglitz-Zehlendorf&quot;       
+##  [7] &quot;Tempelhof-Schöneberg&quot;       &quot;Neukölln&quot;                  
+##  [9] &quot;Treptow-Köpenick&quot;           &quot;Marzahn-Hellersdorf&quot;       
+## [11] &quot;Lichtenberg&quot;                &quot;Reinickendorf&quot;</code></pre>
+</div>
+<div id="expresiones-regulares" class="section level2">
+<h2><span class="header-section-number">3.8</span> Expresiones regulares</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># los barrios están escritos igual?</span>
+<span class="kw">table</span>(<span class="kw">unique</span>(listings<span class="op">$</span>neighbourhood_group) <span class="op">%in%</span><span class="st"> </span>barrios<span class="op">$</span>BezName)</code></pre></div>
+<pre><code>## 
+## FALSE  TRUE 
+##     5     7</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># busco la expresión y reemplazo</span>
+<span class="kw">library</span>(stringr)
+large &lt;-<span class="st"> </span>barrios<span class="op">$</span>BezName
+small &lt;-<span class="st"> </span>listings<span class="op">$</span>neighbourhood_group
+
+berlin &lt;-<span class="st"> </span>listings <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(<span class="dt">neighbourhood_group =</span> <span class="kw">stri_replace</span>(<span class="dt">str =</span> small,<span class="dt">regex =</span> small, <span class="dt">replacement =</span> large , <span class="dt">mode=</span><span class="st">&quot;all&quot;</span>))</code></pre></div>
+<pre><code>## Warning in stri_replace_all_regex(str, regex, replacement, ...): longer
+## object length is not a multiple of shorter object length</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># chequeo</span>
+<span class="kw">table</span>(<span class="kw">unique</span>(berlin<span class="op">$</span>neighbourhood_group) <span class="op">%in%</span><span class="st"> </span>barrios<span class="op">$</span>BezName)</code></pre></div>
+<pre><code>## 
+## TRUE 
+##   12</code></pre>
+<p>Uno los data frame listings y ratings para agregar la variable ‘review_score’</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">berlin &lt;-<span class="st"> </span><span class="kw">left_join</span>(berlin, ratings, <span class="dt">by =</span> <span class="st">&quot;id&quot;</span>)</code></pre></div>
+</div>
+<div id="ggplot2" class="section level2">
+<h2><span class="header-section-number">3.9</span> ggplot2</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cuento la cantidad de alojamientos por barrios</span>
+bn &lt;-<span class="st"> </span>berlin <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(neighbourhood_group) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">median_price =</span> <span class="kw">median</span>(price))
+
+<span class="co"># uno berlin con el objeto espacial barrios</span>
+bn &lt;-<span class="st"> </span><span class="kw">left_join</span>(bn, barrios, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;neighbourhood_group&quot;</span>=<span class="st">&quot;BezName&quot;</span>))
+
+<span class="co"># calculo centroides de los polígonos</span>
+latlong_mean &lt;-<span class="st">  </span>barrios <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">st_centroid</span>(geometry)</code></pre></div>
+<pre><code>## Warning in st_centroid.sf(., geometry): st_centroid assumes attributes are
+## constant over geometries of x</code></pre>
+<pre><code>## Warning in st_centroid.sfc(st_geometry(x), of_largest_polygon =
+## of_largest_polygon): st_centroid does not give correct centroids for
+## longitude/latitude data</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># convierto la geometría en 2 vectores</span>
+latlong_mean &lt;-<span class="st"> </span><span class="kw">st_coordinates</span>(latlong_mean<span class="op">$</span>geometry)
+latlong_mean &lt;-<span class="st"> </span><span class="kw">tibble</span>(latlong_mean[,<span class="dv">1</span>], latlong_mean[,<span class="dv">2</span>])
+<span class="kw">names</span>(latlong_mean) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;lat&#39;</span>, <span class="st">&#39;lon&#39;</span>)
+bn &lt;-<span class="st"> </span><span class="kw">bind_cols</span>(bn, latlong_mean)
+
+<span class="kw">library</span>(ggplot2)
+mapa&lt;-<span class="st"> </span><span class="kw">ggplot</span>(bn) <span class="op">+</span>
+<span class="st">       </span><span class="kw">geom_sf</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> median_price)) <span class="op">+</span>
+<span class="st">       </span><span class="kw">geom_text</span>(<span class="kw">aes</span>(<span class="dt">x =</span> lat, <span class="dt">y =</span> lon, <span class="dt">label =</span> neighbourhood_group),  <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">hjust =</span> <span class="fl">0.5</span>)<span class="op">+</span>
+<span class="st">      </span><span class="kw">scale_fill_viridis_c</span>(<span class="st">&quot;# Alojamientos&quot;</span>, <span class="dt">option =</span> <span class="st">&quot;D&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">ggtitle</span>(<span class="st">&quot;Alojamientos Airbnb por barrios de Berlin&quot;</span>) <span class="op">+</span>
+<span class="st">      </span><span class="kw">theme_void</span>()
+mapa</code></pre></div>
+<p><img src="03-Tidyverse_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+<div id="leaflet" class="section level2">
+<h2><span class="header-section-number">3.10</span> leaflet</h2>
+<ul>
+<li><p>El paquete leaflet es una extensión java script para R que permite hacer mapas interactivos.</p></li>
+<li><p><a href="https://rstudio.github.io/leaflet/">Tutorial</a> para comenzar.</p></li>
+</ul>
+</div>
+<div id="leaflet-1" class="section level2">
+<h2><span class="header-section-number">3.11</span> leaflet()</h2>
+<table style="width:44%;">
+<colgroup>
+<col width="22%" />
+<col width="22%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Función</th>
+<th align="center">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>leaflet()</td>
+<td align="center">crea el objeto leaflet</td>
+</tr>
+<tr class="even">
+<td>addTiles()</td>
+<td align="center">define el mapa de base, por defecto utiliza OpenStreetMap. <a href="http://leaflet-extras.github.io/leaflet-providers/preview/">Opciones</a></td>
+</tr>
+<tr class="odd">
+<td>setView()</td>
+<td align="center">define por centroide y zoom</td>
+</tr>
+<tr class="even">
+<td>addMarkers()</td>
+<td align="center">marcadores a partir de una capa espacial o de pares de coordenadas.</td>
+</tr>
+</tbody>
+</table>
+<p>El orden de los comandos es importante.</p>
+</div>
+<div id="leaflet-2" class="section level2">
+<h2><span class="header-section-number">3.12</span> leaflet</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(leaflet)
+
+contenido &lt;-<span class="st"> </span><span class="kw">paste</span>(<span class="dt">sep =</span> <span class="st">&quot;&lt;br/&gt;&quot;</span>,
+               <span class="kw">paste0</span>(<span class="st">&quot;&lt;img src=&#39;https://upload.wikimedia.org/wikipedia/commons/4/45/Estadio_Centenario_%28vista_a%C3%A9rea%29.jpg&quot;</span>, <span class="st">&quot;&#39; /&gt;&quot;</span>),
+               <span class="kw">paste0</span>(<span class="st">&quot;&lt;b&gt;Name: &lt;/b&gt;&quot;</span>, <span class="st">&quot;Estadio Centenario&quot;</span>),
+               <span class="kw">paste0</span>(<span class="st">&quot;&lt;b&gt;Place: &lt;/b&gt;&quot;</span>, <span class="st">&quot;Montevideo, Uruguay&quot;</span>),
+               <span class="kw">paste0</span>(<span class="st">&quot;&lt;a href=&#39;https://es.wikipedia.org/wiki/Estadio_Centenario&quot;</span>, <span class="st">&quot;&#39;&gt;Link&lt;/a&gt;&quot;</span>))
+
+mapa &lt;-<span class="st"> </span><span class="kw">leaflet</span>() <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">addTiles</span>() <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">addMarkers</span>(<span class="dt">lng =</span> <span class="op">-</span><span class="fl">56.159158</span>, <span class="dt">lat =</span> <span class="op">-</span><span class="fl">34.888494</span>,
+                   <span class="dt">popup =</span> contenido)
+mapa</code></pre></div>
+</div>
+<div id="mapa" class="section level2">
+<h2><span class="header-section-number">3.13</span> Mapa</h2>
+<div id="htmlwidget-50b0b75712bbc6816c23" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-50b0b75712bbc6816c23">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[-34.89445,-56.15253,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Estadio Centenario",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-34.89445,-34.89445],"lng":[-56.15253,-56.15253]}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="alojamientos-berlin" class="section level2">
+<h2><span class="header-section-number">3.14</span> Alojamientos Berlin</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Alojamientos caros de Airbnb en Berlin</span>
+top &lt;-<span class="st"> </span><span class="kw">filter</span>(berlin, price <span class="op">&gt;</span><span class="st"> </span><span class="dv">500</span> <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(review_scores_rating))
+
+<span class="co"># de sf a sp</span>
+barrios.sp &lt;-<span class="st"> </span><span class="kw">as</span>(barrios, <span class="st">&quot;Spatial&quot;</span>)
+
+barrios.sp<span class="op">@</span>data &lt;-<span class="st"> </span><span class="kw">merge</span>(barrios.sp<span class="op">@</span>data, top, <span class="dt">by.x =</span><span class="st">&quot;BezName&quot;</span> , <span class="dt">by.y=</span><span class="st">&quot;neighbourhood_group&quot;</span>)
+
+<span class="kw">library</span>(leaflet)
+airbnb =<span class="st"> </span><span class="kw">makeIcon</span>(<span class="st">&quot;https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png&quot;</span>,<span class="st">&quot;/https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png&quot;</span>, <span class="dv">18</span>, <span class="dv">18</span>)
+
+mapa &lt;-<span class="st"> </span><span class="kw">leaflet</span>(<span class="dt">data =</span> barrios.sp) <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="co">#setView()</span>
+<span class="st">        </span><span class="kw">addTiles</span>() <span class="op">%&gt;%</span>
+<span class="st">        </span><span class="kw">addMarkers</span>(<span class="dt">lng =</span> <span class="op">~</span>longitude, <span class="dt">lat =</span> <span class="op">~</span>latitude, <span class="dt">icon =</span> airbnb)
+        <span class="co">#addCircles()</span>
+        <span class="co">#addLegend()</span>
+mapa</code></pre></div>
+</div>
+<div id="alojamientos-berlin-1" class="section level2">
+<h2><span class="header-section-number">3.15</span> Alojamientos Berlin</h2>
+<div id="htmlwidget-af171f747decd02a8c8b" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-af171f747decd02a8c8b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[52.46973,52.54012,52.49941,52.50779,52.49349,52.53905,52.48998,52.50619,52.48922,52.51729,52.49798,52.5471,52.54283,52.50027,52.53235,52.50398,52.53064,52.49006,52.50267,52.5331,52.54067,52.54344,52.52187,52.53498,52.53952,52.50453,52.49851,52.54038,52.48878],[13.39235,13.42193,13.42529,13.4226,13.42049,13.40173,13.33085,13.37759,13.33131,13.4121,13.33444,13.37089,13.42292,13.45813,13.32715,13.48594,13.28734,13.33171,13.36451,13.32778,13.35579,13.4213,13.39967,13.43383,13.42362,13.41376,13.34073,13.42299,13.42196],{"iconUrl":{"data":"https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","index":0},"iconRetinaUrl":{"data":"https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png","index":0},"iconWidth":18,"iconHeight":18},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[52.46973,52.5471],"lng":[13.28734,13.48594]}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>
