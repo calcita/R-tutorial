@@ -1,3 +1,16 @@
-# Technical Details
+# Data
 
-Now I'll teach you some crazy math, but I need to work it out first...
+Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Berlin, Alemania, disponibles en [Inside Airbnb](http://data.insideairbnb.com/germany/be/berlin/2019-07-11/data/listings.csv.gz)
+
+Accedemos a los datos desde la url. 
+
+```{r}
+listings <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/listings.csv"))
+
+reviews <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv"))
+
+neighbour <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv"))
+
+# "http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson"
+```
+
