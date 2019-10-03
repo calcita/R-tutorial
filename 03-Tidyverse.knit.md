@@ -4,13 +4,58 @@ Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Berlin, Ale
 
 Accedemos a los datos desde la url. 
 
-```{r}
+
+```r
 listings <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/listings.csv"))
+```
 
+```
+## Parsed with column specification:
+## cols(
+##   id = col_double(),
+##   name = col_character(),
+##   host_id = col_double(),
+##   host_name = col_character(),
+##   neighbourhood_group = col_character(),
+##   neighbourhood = col_character(),
+##   latitude = col_double(),
+##   longitude = col_double(),
+##   room_type = col_character(),
+##   price = col_double(),
+##   minimum_nights = col_double(),
+##   number_of_reviews = col_double(),
+##   last_review = col_date(format = ""),
+##   reviews_per_month = col_double(),
+##   calculated_host_listings_count = col_double(),
+##   availability_365 = col_double()
+## )
+```
+
+```r
 reviews <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv"))
+```
 
+```
+## Parsed with column specification:
+## cols(
+##   listing_id = col_double(),
+##   date = col_date(format = "")
+## )
+```
+
+```r
 neighbour <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv"))
+```
 
+```
+## Parsed with column specification:
+## cols(
+##   neighbourhood_group = col_character(),
+##   neighbourhood = col_character()
+## )
+```
+
+```r
 # "http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson"
 ```
 
@@ -54,14 +99,16 @@ Muchos paquetes espaciales de R todavía dependen del paquete sp, por lo tanto, 
 
 Convertir objetos  **sf** a **sp**
 
-```{r eval=FALSE}
+
+```r
 # Para transformar de SF a SP
 objeto.sp <- as(objeto.sf, "Spatial")
 ```
 
 Convertir objetos  **sp** a **sf**
 
-```{r eval=FALSE}
+
+```r
 # Para transformar de SP a SF
 objeto.sf <- st_as_sf(objeto.sp)
 ```
@@ -84,18 +131,42 @@ Los shapes con límites de los barrios de Berlin los obtenemos [aquí](http://ge
 
 Para trabajar descomprimimos el zip y dejamos los 5 archivos en una misma carpeta.
 
-```{r }
+
+```r
 # cargo paquete
 library(sf)
+```
 
+```
+## Linking to GEOS 3.5.1, GDAL 2.2.2, PROJ 4.9.2
+```
+
+```r
 # importo shapes
 unzip("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.zip", exdir = "data/") 
 barrios <- st_read("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp", stringsAsFactors = FALSE)
+```
 
+```
+## Reading layer `GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01' from data source `/home/calcita/MEGA/R/github.io/R-tutorial/R-tutorial/data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp' using driver `ESRI Shapefile'
+## Simple feature collection with 12 features and 3 fields
+## geometry type:  MULTIPOLYGON
+## dimension:      XY
+## bbox:           xmin: 13.08835 ymin: 52.33824 xmax: 13.76114 ymax: 52.67551
+## epsg (SRID):    4326
+## proj4string:    +proj=longlat +datum=WGS84 +no_defs
+```
+
+```r
 # consulto clase 
 class(barrios)
 ```
-```{r eval=FALSE}
+
+```
+## [1] "sf"         "data.frame"
+```
+
+```r
 # consulto métodos
 methods(class = "sf")
 ```
@@ -110,42 +181,97 @@ methods(class = "sf")
 
 ## Encoding
 
-```{r }
+
+```r
 library(stringi)
 ```
-```{r eval=FALSE}
+
+```r
 # con qué encoding vienen los datos?
 stri_enc_mark(barrios$BezName)
 ```
-```{r }
+
+```r
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 # defino que los lea como 'ISO-8859-1' y pase a 'UTF-8'
 barrios <- barrios %>%
            mutate(BezName = stri_conv(BezName, from = 'ISO-8859-1', to = 'UTF-8', to_raw = FALSE))
 head(barrios$BezName,12)
 ```
 
+```
+##  [1] "Mitte"                      "Friedrichshain-Kreuzberg"  
+##  [3] "Pankow"                     "Charlottenburg-Wilmersdorf"
+##  [5] "Spandau"                    "Steglitz-Zehlendorf"       
+##  [7] "Tempelhof-Schöneberg"       "Neukölln"                  
+##  [9] "Treptow-Köpenick"           "Marzahn-Hellersdorf"       
+## [11] "Lichtenberg"                "Reinickendorf"
+```
+
 
 ## Expresiones regulares
 
-```{r}
+
+```r
 # los barrios están escritos igual?
 table(unique(listings$neighbourhood_group) %in% barrios$BezName)
+```
 
+```
+## 
+## FALSE  TRUE 
+##     5     7
+```
+
+```r
 # busco la expresión y reemplazo
 library(stringr)
 large <- barrios$BezName
 small <- listings$neighbourhood_group
 
 berlin <- listings %>% mutate(neighbourhood_group = stri_replace(str = small,regex = small, replacement = large , mode="all"))
+```
 
+```
+## Warning in stri_replace_all_regex(str, regex, replacement, ...): longer
+## object length is not a multiple of shorter object length
+```
+
+```r
 # chequeo
 table(unique(berlin$neighbourhood_group) %in% barrios$BezName)
 ```
 
+```
+## 
+## TRUE 
+##   12
+```
+
 
 ## ggplot2
-```{r}
+
+```r
 # cuento la cantidad de alojamientos por barrios
 bn <- berlin %>%
   group_by(neighbourhood_group) %>%
@@ -156,7 +282,20 @@ bn <- left_join(bn, barrios, by = c("neighbourhood_group"="BezName"))
 
 # calculo centroides de los polígonos
 latlong_mean <-  barrios %>% st_centroid(geometry)
+```
 
+```
+## Warning in st_centroid.sf(., geometry): st_centroid assumes attributes are
+## constant over geometries of x
+```
+
+```
+## Warning in st_centroid.sfc(st_geometry(x), of_largest_polygon =
+## of_largest_polygon): st_centroid does not give correct centroids for
+## longitude/latitude data
+```
+
+```r
 # convierto la geometría en 2 vectores
 latlong_mean <- st_coordinates(latlong_mean$geometry)
 latlong_mean <- tibble(latlong_mean[,1], latlong_mean[,2])
@@ -172,6 +311,8 @@ mapa<- ggplot(bn) +
       theme_void()
 mapa
 ```
+
+<img src="03-Tidyverse_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 
 ## leaflet
 
@@ -193,7 +334,8 @@ El orden de los comandos es importante.
 
 ## leaflet
 
-```{r eval=FALSE}
+
+```r
 library(leaflet)
 
 mapa <- leaflet() %>%
@@ -207,20 +349,14 @@ mapa
 
 ## Mapa
 
-```{r echo=FALSE}
-library(leaflet)
-
-mapa <- leaflet() %>%
-        addTiles() %>%
-        addMarkers(lng = -56.15253, lat = -34.89445,
-                   popup ="Estadio Centenario")
-mapa
-```
+<!--html_preserve--><div id="htmlwidget-3965441882c1e616e9d6" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3965441882c1e616e9d6">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[-34.89445,-56.15253,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Estadio Centenario",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-34.89445,-34.89445],"lng":[-56.15253,-56.15253]}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 
 ## Alojamientos Berlin
 
-```{r eval=FALSE}
+
+```r
 # Alojamientos caros de Airbnb en Berlin
 top <- filter(berlin, price > 500 & !is.na(review_scores_rating))
 
@@ -244,25 +380,5 @@ mapa
 
 ## Alojamientos Berlin
 
-```{r echo=FALSE}
-# Alojamientos caros de Airbnb en Berlin
-top <- filter(berlin, price > 500 & !is.na(review_scores_rating))
 
-# de sf a sp
-barrios.sp <- as(barrios, "Spatial")
-
-barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group")
-
-library(leaflet)
-airbnb = makeIcon("https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png", 18,
-           18)
-
-mapa <- leaflet(data = barrios.sp) %>%
-        #setView()
-        addTiles() %>%
-        addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb)
-        #addCircles()
-        #addLegend()
-mapa
-```
 

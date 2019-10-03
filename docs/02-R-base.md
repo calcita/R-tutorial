@@ -2,7 +2,7 @@
 
 Now let's talk details.
 
-# xfun
+xfun
 
 https://cran.r-project.org/web/packages/xfun/vignettes/xfun.html
 

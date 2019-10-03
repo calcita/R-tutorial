@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Data | R para análisis de datos y publicaciones</title>
+  <title>Chapter 3 Data | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.11.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Data | R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Chapter 3 Data | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Data | R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Chapter 3 Data | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="xfun.html">
+<link rel="prev" href="r-base-concepts.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -106,8 +106,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="r-base-concepts.html"><a href="r-base-concepts.html"><i class="fa fa-check"></i><b>2</b> R-base concepts</a></li>
-<li class="chapter" data-level="3" data-path="xfun.html"><a href="xfun.html"><i class="fa fa-check"></i><b>3</b> xfun</a></li>
-<li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> Data</a></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Data</a><ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#gds"><i class="fa fa-check"></i><b>3.1</b> GDS</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#paquetes"><i class="fa fa-check"></i><b>3.2</b> Paquetes</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#sf"><i class="fa fa-check"></i><b>3.3</b> sf</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -129,7 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="data" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> Data</h1>
+<h1><span class="header-section-number">Chapter 3</span> Data</h1>
 <p>Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Berlin, Alemania, disponibles en <a href="http://data.insideairbnb.com/germany/be/berlin/2019-07-11/data/listings.csv.gz">Inside Airbnb</a></p>
 <p>Accedemos a los datos desde la url.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">listings &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="kw">url</span>(<span class="st">&quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/listings.csv&quot;</span>))</code></pre></div>
@@ -165,14 +168,243 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##   neighbourhood = col_character()
 ## )</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># &quot;http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson&quot;</span></code></pre></div>
+<div id="gds" class="section level2">
+<h2><span class="header-section-number">3.1</span> GDS</h2>
+<ul>
+<li><p>R no es un SIG (Sistemas de Información Geográficos)</p></li>
+<li><p>R permite hacer Ciencia de Datos Geográficos (SDG)</p></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Atributos</th>
+<th align="center">SIG</th>
+<th align="center">SDG</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Disciplinas</td>
+<td align="center">Geografía</td>
+<td align="center">Geografía, Computación, Estadística</td>
+</tr>
+<tr class="even">
+<td>Foco</td>
+<td align="center">Interfaz Gráfica</td>
+<td align="center">Código</td>
+</tr>
+<tr class="odd">
+<td>Reproducibilidad</td>
+<td align="center">Mínimo</td>
+<td align="center">Máximo</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="paquetes" class="section level2">
+<h2><span class="header-section-number">3.2</span> Paquetes</h2>
+<ul>
+<li>sp, sf: para manejar información espacial vectorial</li>
+<li><p>raster: para trabajar con rasters</p></li>
+<li><p>ggplot2, rasterVis, tmap, leaflet, o mapview: para visualizar información espacial</p></li>
+<li><p>Es sencillo conectar R con programas SIG: GRASS GIS (rgrass7), SAGA (RSAGA), QGIS (RQGIS y qgisremote), incluso ArcGIS (arcgisbinding).</p></li>
+</ul>
+</div>
+<div id="sf" class="section level2">
+<h2><span class="header-section-number">3.3</span> sf</h2>
+<p>Combina las funcionalidades de 3 paquetes: <strong>sp</strong>, <strong>rgeos</strong> y <strong>rgdal</strong></p>
+<p>Ventajas respecto a otros paquetes:</p>
+<p>Mayor <strong>velocidad</strong> para importar y exportar los datos</p>
+<p>Más tipos de <strong>geometrías</strong> soportadas</p>
+<p><strong>Compatibilidad</strong> con tidyverse. Funciona el pipe!</p>
+<p>El paquete <strong>sp</strong> es predecesor de sf.</p>
+<p>Muchos paquetes espaciales de R todavía dependen del paquete sp, por lo tanto, es importante saber cómo <strong>convertir</strong>.</p>
+<p>Convertir objetos <strong>sf</strong> a <strong>sp</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Para transformar de SF a SP</span>
+objeto.sp &lt;-<span class="st"> </span><span class="kw">as</span>(objeto.sf, <span class="st">&quot;Spatial&quot;</span>)</code></pre></div>
+<p>Convertir objetos <strong>sp</strong> a <strong>sf</strong></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Para transformar de SP a SF</span>
+objeto.sf &lt;-<span class="st"> </span><span class="kw">st_as_sf</span>(objeto.sp)</code></pre></div>
+<!-- --- -->
+<!-- # st_read() -->
+<!-- - Los objetos sf tienen una clase que combina **'data.frame'** y **'sf'**  -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- - Los objetos sf también tienen una columna especial que contiene los datos de geometría, usualmente llamado 'geom' o **'geometry'**. -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- - Las funciones del paquete **dplyr** se pueden aplicar. Para saber la totalidad de funciones que son aplicables a un objeto de **clase 'sf'** consultar **methods()**. -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- - Para la unión de objetos espaciales se usa **st_join(x, y)**. El método de join utilizado es siempre left join, manteniendo los registros del primer atributo. -->
+<!-- --- -->
+<!-- # Importar shapes -->
+<!-- ```{r } -->
+<!-- # cargo paquete -->
+<!-- library(sf) -->
+<!-- # importo shapes -->
+<!-- barrios = st_read("shapes/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp",stringsAsFactors = FALSE) -->
+<!-- # consulto clase -->
+<!-- class(barrios) -->
+<!-- ``` -->
+<!-- ```{r eval=FALSE} -->
+<!-- # consulto métodos -->
+<!-- methods(class = "sf")  -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Mapa de coropletas -->
+<!-- - [Buenas prácticas](https://blog.datawrapper.de/choroplethmaps/)  -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- - Es un **mapa temático** en el que las regiones se colorean de un motivo que muestra una **medida estadística**. -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- ```{r} -->
+<!-- # cargo datos -->
+<!-- load("berlin.Rdata") -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Encoding -->
+<!-- ```{r } -->
+<!-- library(stringi) -->
+<!-- ``` -->
+<!-- ```{r eval=FALSE} -->
+<!-- # con qué encoding vienen los datos?  -->
+<!-- stri_enc_mark(barrios$BezName) -->
+<!-- ``` -->
+<!-- ```{r } -->
+<!-- library(dplyr) -->
+<!-- # defino que los lea como 'ISO-8859-1' y pase a 'UTF-8' -->
+<!-- barrios <- barrios %>%  -->
+<!--            mutate(BezName = stri_conv(BezName, from = 'ISO-8859-1', to = 'UTF-8', to_raw = FALSE)) -->
+<!-- head(barrios$BezName,12) -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Expresiones regulares -->
+<!-- ```{r} -->
+<!-- # los barrios están escritos igual? -->
+<!-- table(unique(berlin$neighbourhood_group) %in% barrios$BezName) -->
+<!-- # busco la expresión y reemplazo -->
+<!-- library(stringr) -->
+<!-- large <- barrios$BezName -->
+<!-- small <- berlin$neighbourhood_group -->
+<!-- berlin <- berlin %>% mutate(neighbourhood_group = stri_replace(str = small,regex = small, replacement = large , mode="all")) -->
+<!-- # chequeo -->
+<!-- table(unique(berlin$neighbourhood_group) %in% barrios$BezName) -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # ggplot2 -->
+<!-- ```{r} -->
+<!-- # cuento la cantidad de alojamientos por barrios -->
+<!-- bn <- berlin %>% -->
+<!--   group_by(neighbourhood_group) %>%  -->
+<!--   summarise(median_price = median(price)) -->
+<!-- # uno berlin con el objeto espacial barrios -->
+<!-- bn <- left_join(bn, barrios, by = c("neighbourhood_group"="BezName")) -->
+<!-- # calculo centroides de los polígonos -->
+<!-- latlong_mean <-  barrios %>% st_centroid(geometry) -->
+<!-- # convierto la geometría en 2 vectores -->
+<!-- latlong_mean <- st_coordinates(latlong_mean$geometry) -->
+<!-- latlong_mean <- tibble(latlong_mean[,1], latlong_mean[,2]) -->
+<!-- names(latlong_mean) <- c('lat', 'lon') -->
+<!-- bn <- bind_cols(bn, latlong_mean)  -->
+<!-- library(ggplot2) -->
+<!-- mapa<- ggplot(bn) + -->
+<!--        geom_sf(aes(fill = median_price)) + -->
+<!--        geom_text(aes(x = lat, y = lon, label = neighbourhood_group),  size = 3, hjust = 0.5)+ -->
+<!--       scale_fill_viridis_c("# Alojamientos", option = "D") + -->
+<!--       ggtitle("Alojamientos Airbnb por barrios de Berlin") + -->
+<!--       theme_void()  -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # ggplot2 -->
+<!-- ```{r echo=FALSE} -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # leaflet -->
+<!-- - El paquete leaflet es una extensión java script para R que permite hacer mapas interactivos. -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- - [Tutorial](https://rstudio.github.io/leaflet/) para comenzar. -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- --- -->
+<!-- # leaflet() -->
+<!-- | Función      | Descripción | -->
+<!-- |---------------|:-------------:| -->
+<!-- | leaflet()    |crea el objeto leaflet  |    -->
+<!-- | addTiles() |  define el mapa de base, por defecto utiliza OpenStreetMap. [Opciones](http://leaflet-extras.github.io/leaflet-providers/preview/) | -->
+<!-- | setView() | define por centroide y zoom | -->
+<!-- | addMarkers() | marcadores a partir de una capa espacial o de pares de coordenadas.| -->
+<!-- El orden de los comandos es importante.  -->
+<!-- --- -->
+<!-- # leaflet -->
+<!-- ```{r eval=FALSE} -->
+<!-- library(leaflet) -->
+<!-- mapa <- leaflet() %>% -->
+<!--         addTiles() %>%  -->
+<!--         addMarkers(lng = -56.159158, lat = -34.888494,  -->
+<!--                    popup ="UCU") -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Mapa -->
+<!-- ```{r echo=FALSE} -->
+<!-- library(leaflet) -->
+<!-- mapa <- leaflet() %>% -->
+<!--         addTiles() %>%  -->
+<!--         addMarkers(lng = -56.159158, lat = -34.888494,  -->
+<!--                    popup ="UCU") -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Alojamientos Berlin -->
+<!-- ```{r eval=FALSE} -->
+<!-- # Alojamientos caros de Airbnb en Berlin -->
+<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
+<!-- # de sf a sp -->
+<!-- barrios.sp <- as(barrios, "Spatial") -->
+<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
+<!-- library(leaflet) -->
+<!-- airbnb = makeIcon("/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb.png","/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb@2x.png", 18, -->
+<!--            18)  -->
+<!-- mapa <- leaflet(data = barrios.sp) %>% -->
+<!--         #setView() -->
+<!--         addTiles() %>% -->
+<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb)   -->
+<!--         #addCircles()  -->
+<!--         #addLegend() -->
+<!-- mapa      -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Alojamientos Berlin -->
+<!-- ```{r echo=FALSE} -->
+<!-- # Alojamientos caros de Airbnb en Berlin -->
+<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
+<!-- # de sf a sp -->
+<!-- barrios.sp <- as(barrios, "Spatial") -->
+<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
+<!-- library(leaflet) -->
+<!-- airbnb = makeIcon("/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb.png","/home/calcita/MEGA/R/JOBS/UCU/Clases/programming-in-r/Slides/img/airbnb@2x.png", 18, -->
+<!--            18)  -->
+<!-- mapa <- leaflet(data = barrios.sp) %>% -->
+<!--         #setView() -->
+<!--         addTiles() %>% -->
+<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb)   -->
+<!--         #addCircles()  -->
+<!--         #addLegend() -->
+<!-- mapa     -->
+<!-- ``` -->
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="xfun.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-base-concepts.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
