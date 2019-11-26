@@ -1,8 +1,12 @@
-# R-base concepts
+# R y Rstudio
 
-Now let's talk details.
+## Instalación 
 
-xfun
+## Actualización de versiones
 
-https://cran.r-project.org/web/packages/xfun/vignettes/xfun.html
+<!-- Now let's talk details. -->
+
+<!-- xfun -->
+
+<!-- https://cran.r-project.org/web/packages/xfun/vignettes/xfun.html -->
 

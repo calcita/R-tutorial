@@ -1,7 +1,7 @@
 --- 
 title: "R para análisis de datos y publicaciones"
 author: "Gabriela Mathieu"
-date: "2019-10-03"
+date: "2019-11-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]

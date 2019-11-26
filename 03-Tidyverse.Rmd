@@ -152,7 +152,7 @@ berlin <- left_join(berlin, ratings, by = "id")
 
 
 ## ggplot2
-```{r}
+```{r eval=FALSE}
 # cuento la cantidad de alojamientos por barrios
 bn <- berlin %>%
   group_by(neighbourhood_group) %>%
@@ -189,7 +189,7 @@ mapa
 ## leaflet()
 
 | Función      | Descripción |
-|---------------|:-------------:|
+|---------------|:---------------------------------------:|
 | leaflet()    |crea el objeto leaflet  |
 | addTiles() |  define el mapa de base, por defecto utiliza OpenStreetMap. [Opciones](http://leaflet-extras.github.io/leaflet-providers/preview/) |
 | setView() | define por centroide y zoom |
