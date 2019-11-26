@@ -14,11 +14,11 @@
 
 ## Nuevo script
 
-![](img/newscript.gif) 
+![](images/newscript.gif) 
 
 ## Primeros comandos
 
-![](img/sendcode.gif)
+![](images/sendcode.gif)
 
 ## Consejos
 
@@ -36,4 +36,4 @@
 
 ## Atajos de teclado
 
-![](img/teclas.png)
+![](images/teclas.png)
