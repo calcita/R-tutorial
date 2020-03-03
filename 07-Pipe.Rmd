@@ -17,14 +17,14 @@ En lugar de f(x): x %>% f()
 
 **¿Preparar el mate con o sin 'pipe'?**
 
-
+<div class = "row">
+<div class = "col-md-6">
 ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/icons8-mate-96.png)
-
-<br><br><br><br>
+</div>
+<div class = "col-md-6">
 ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/icons8-mate-100.png)
-
-
-
+</div>
+</div>
 
 
 ```{r eval=FALSE}

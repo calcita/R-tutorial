@@ -37,7 +37,7 @@ La cantidad de clases de objetos es muy grande y crece permanentemente a medida 
 | Lista   | length() | diferentes |<!--html_preserve--><i class="fas  fa-circle " style="color:red;"></i><!--/html_preserve--> <br> <!--html_preserve--><i class="fas  fa-circle " style="color:blue;"></i><!--/html_preserve--> <br> <!--html_preserve--><i class="fas  fa-circle " style="color:green;"></i><!--/html_preserve-->| 
 
 
-# c()
+## c()
 
 - Crea un vector
 
@@ -48,7 +48,7 @@ La cantidad de clases de objetos es muy grande y crece permanentemente a medida 
 - Con la función **class()** compruebo que tipo de objeto es
 
 
-# Vector
+## Vector
 
 
 ```r
@@ -87,7 +87,7 @@ class(y) # numeric porque contiene decimales
 ```
 
 
-# Vector
+## Vector
 
 Para el caso de "palabras" ("strings"), la clase "character" es la que utiliza R para manejar este tipo de objetos. Al igual que en la mayoría de los lenguajes de programación, R utiliza las comillas 
 dobles (") o simples (') para delimitar un string. 
@@ -135,7 +135,7 @@ class(w)
 
 
 
-# Data frame
+## Data frame
 
 - Puede verse como un conjunto de vectores de diferente tipo pero de igual largo.
 

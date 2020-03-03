@@ -2,37 +2,37 @@
 
 ¿Qué es R?
 
-<!--html_preserve--><i class="fas  fa-chart-area fa-2x " style="color:#756bb1;"></i><!--/html_preserve-->  Programa estadístico: análisis 
+<!--html_preserve--><i class="fas  fa-chart-area fa-2x " style="color:#756bb1;"></i><!--/html_preserve-->  &nbsp; Programa estadístico: análisis 
 
 
-<!--html_preserve--><i class="fas  fa-code fa-2x " style="color:#2c7fb8;"></i><!--/html_preserve-->  Lenguaje de programación: sintaxis
+<!--html_preserve--><i class="fas  fa-code fa-2x " style="color:#2c7fb8;"></i><!--/html_preserve-->  &nbsp; Lenguaje de programación: sintaxis
 
 
-<!--html_preserve--><i class="fab  fa-creative-commons-nc fa-2x " style="color:#636363;"></i><!--/html_preserve--> Software gratuito, se desacarga desde [CRAN](http://www.r-project.org)
+<!--html_preserve--><i class="fab  fa-creative-commons-nc fa-2x " style="color:#636363;"></i><!--/html_preserve--> &nbsp; Software gratuito, se desacarga desde [CRAN](http://www.r-project.org)
 
 
-<!--html_preserve--><i class="fab  fa-osi fa-2x " style="color:#31a354;"></i><!--/html_preserve--> Software libre: licencia [GNU](https://es.wikipedia.org/wiki/GNU_General_Public_License). Libertad de uso, modificación y  distribución.
+<!--html_preserve--><i class="fab  fa-osi fa-2x " style="color:#31a354;"></i><!--/html_preserve--> &nbsp; Software libre: licencia [GNU](https://es.wikipedia.org/wiki/GNU_General_Public_License). Libertad de uso, modificación y  distribución.
 
 
-<!--html_preserve--><i class="fab  fa-github fa-2x "></i><!--/html_preserve--> Comunidad mundial: lo usa y mejora. Casi 20.000 paquetes en [CRAN]((https://cran.r-project.org/web/packages/)) y [github](https://github.com/)
+<!--html_preserve--><i class="fab  fa-github fa-2x "></i><!--/html_preserve--> &nbsp; Comunidad mundial: lo usa y mejora. Casi 20.000 paquetes en [CRAN]((https://cran.r-project.org/web/packages/)) y [github](https://github.com/)
 
 
-<!--html_preserve--><i class="fab  fa-meetup fa-2x " style="color:#de2d26;"></i><!--/html_preserve--> Comunidad en Uruguay: [meetup R-Ladies](https://www.meetup.com/es-ES/rladies-montevideo/) y [meetup GURU](https://www.meetup.com/es-ES/GURU-mvd/)
+<!--html_preserve--><i class="fab  fa-meetup fa-2x " style="color:#de2d26;"></i><!--/html_preserve--> &nbsp; Comunidad en Uruguay: [meetup R-Ladies](https://www.meetup.com/es-ES/rladies-montevideo/) y [meetup GURU](https://www.meetup.com/es-ES/GURU-mvd/)
 
 
-# Curva de aprendizaje
+## Curva de aprendizaje
 
 Al inicio suele ser empinada
 
 <iframe src="https://giphy.com/embed/xT5LMNsvvJzIB77S0g" width="680" height="366" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-9-the-simpsons-9x23-xT5LMNsvvJzIB77S0g"></a></p>
 
-# Ayuda
+## Ayuda
 
 Espero este tutorial te sirva de ayuda.
 
 <iframe src="https://giphy.com/embed/l2Jee8WOulPSBZwaI" width="680" height="366" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/season-9-the-simpsons-9x23-l2Jee8WOulPSBZwaI"></a></p>
 
-# Consola
+## Consola
 
 Al abrir R - varía según el sistema operativo- aparece la consola donde se ejecuta el código R, es decir, las órdenes para que el programa ejecute. En las primeras líneas aparece un mensaje de bienvenida donde se puede leer la versión de R que se está usando.
 
@@ -43,7 +43,7 @@ Esta imagen muestra como se ve R en Linux.
 
 <!--html_preserve--><i class="fas  fa-greater-than "></i><!--/html_preserve--> El símbolo de 'mayor' indica que R está listo para recibir una orden
 
-# Rstudio
+## Rstudio
 
 Para facilitar el uso de R se utilizan editores de sintaxis que hacen todo más fácil. Desde hace algunos años el más popular mundialmente es Rstudio.
 
@@ -61,7 +61,7 @@ En realidad, Rstudio es mucho más que un simple editor de sintaxis, es un IDE (
 Un recurso muy útil para empezar a usarlo es la [cheatsheet](https://resources.rstudio.com/the-essentials-of-data-science/rstudio-ide)
 
 
-# Script
+## Script
 
 - Un script permite volver a reproducir nuestro análisis o que otra persona lo haga.
 - Un archivo donde se escribe la sintaxis.
@@ -77,7 +77,7 @@ Un recurso muy útil para empezar a usarlo es la [cheatsheet](https://resources.
 
 ![](images/newscript.gif) 
 
-# ¿Cómo interactuamos con R?
+## ¿Cómo interactuamos con R?
 
 - Las órdenes elementales de R consisten en expresiones o asignaciones. 
 
@@ -129,8 +129,7 @@ Si son varias líneas de código: **seleccionarlas todas** y ejecutar **Ctrl + E
 ![](images/sendcode2.gif)
 
 
----
-# Calculadora
+## Calculadora
 
 
 - R se puede usar como calculadora
@@ -179,8 +178,8 @@ sqrt(9)
 ## [1] 3
 ```
 
----
-# Funciones
+
+## Funciones
 
 
 Una  función  es un  conjunto  de  **instrucciones**  que  operan  sobre unos **argumentos** y producen un **resultado**.
@@ -204,7 +203,7 @@ help("sqrt")
 
 <!-- Las funciones de R son los comandos de Stata pero a diferencia de este último, se necesitan paréntesis rectos para llamarlas. -->
 
-# Paquetes
+## Paquetes
 
 Por defecto vienen precargadas una serie de funciones que están en el paquete 'base'.
 

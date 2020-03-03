@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 Tidyverse | R para análisis de datos y publicaciones</title>
+  <title>Chapter 3 Tidyverse | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 Tidyverse | R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Chapter 3 Tidyverse | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 Tidyverse | R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Chapter 3 Tidyverse | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="data-frame.html"/>
+<link rel="prev" href="objetos.html"/>
 <link rel="next" href="trabajar-en-proyecto.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -133,49 +133,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
-<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="curva-de-aprendizaje.html"><a href="curva-de-aprendizaje.html"><i class="fa fa-check"></i><b>2</b> Curva de aprendizaje</a></li>
-<li class="chapter" data-level="3" data-path="ayuda.html"><a href="ayuda.html"><i class="fa fa-check"></i><b>3</b> Ayuda</a></li>
-<li class="chapter" data-level="4" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>4</b> Consola</a><ul>
-<li class="chapter" data-level="4.1" data-path="consola.html"><a href="consola.html#prompt"><i class="fa fa-check"></i><b>4.1</b> Prompt</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
+<li class="chapter" data-level="1.1" data-path="introducción.html"><a href="introducción.html#curva-de-aprendizaje"><i class="fa fa-check"></i><b>1.1</b> Curva de aprendizaje</a></li>
+<li class="chapter" data-level="1.2" data-path="introducción.html"><a href="introducción.html#ayuda"><i class="fa fa-check"></i><b>1.2</b> Ayuda</a></li>
+<li class="chapter" data-level="1.3" data-path="introducción.html"><a href="introducción.html#consola"><i class="fa fa-check"></i><b>1.3</b> Consola</a></li>
+<li class="chapter" data-level="1.4" data-path="introducción.html"><a href="introducción.html#prompt"><i class="fa fa-check"></i><b>1.4</b> Prompt</a></li>
+<li class="chapter" data-level="1.5" data-path="introducción.html"><a href="introducción.html#rstudio"><i class="fa fa-check"></i><b>1.5</b> Rstudio</a></li>
+<li class="chapter" data-level="1.6" data-path="introducción.html"><a href="introducción.html#script"><i class="fa fa-check"></i><b>1.6</b> Script</a></li>
+<li class="chapter" data-level="1.7" data-path="introducción.html"><a href="introducción.html#nuevo-script"><i class="fa fa-check"></i><b>1.7</b> Nuevo script</a></li>
+<li class="chapter" data-level="1.8" data-path="introducción.html"><a href="introducción.html#cómo-interactuamos-con-r"><i class="fa fa-check"></i><b>1.8</b> ¿Cómo interactuamos con R?</a></li>
+<li class="chapter" data-level="1.9" data-path="introducción.html"><a href="introducción.html#primeros-comandos"><i class="fa fa-check"></i><b>1.9</b> Primeros comandos</a></li>
+<li class="chapter" data-level="1.10" data-path="introducción.html"><a href="introducción.html#calculadora"><i class="fa fa-check"></i><b>1.10</b> Calculadora</a></li>
+<li class="chapter" data-level="1.11" data-path="introducción.html"><a href="introducción.html#funciones"><i class="fa fa-check"></i><b>1.11</b> Funciones</a></li>
+<li class="chapter" data-level="1.12" data-path="introducción.html"><a href="introducción.html#paquetes"><i class="fa fa-check"></i><b>1.12</b> Paquetes</a></li>
+<li class="chapter" data-level="1.13" data-path="introducción.html"><a href="introducción.html#consejos"><i class="fa fa-check"></i><b>1.13</b> Consejos</a></li>
+<li class="chapter" data-level="1.14" data-path="introducción.html"><a href="introducción.html#atajos-de-teclado"><i class="fa fa-check"></i><b>1.14</b> Atajos de teclado</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>5</b> Rstudio</a></li>
-<li class="chapter" data-level="6" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>6</b> Script</a><ul>
-<li class="chapter" data-level="6.1" data-path="script.html"><a href="script.html#nuevo-script"><i class="fa fa-check"></i><b>6.1</b> Nuevo script</a></li>
+<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Objetos</a><ul>
+<li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#tipo-de-objetos"><i class="fa fa-check"></i><b>2.1</b> Tipo de objetos</a></li>
+<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#c"><i class="fa fa-check"></i><b>2.2</b> c()</a></li>
+<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>2.3</b> Vector</a></li>
+<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>2.4</b> Vector</a></li>
+<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>2.5</b> Data frame</a></li>
+<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>2.6</b> Explorar los datos</a></li>
+<li class="chapter" data-level="2.7" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>2.7</b> Guardar objeto en formato Rdata</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="cómo-interactuamos-con-r.html"><a href="cómo-interactuamos-con-r.html"><i class="fa fa-check"></i><b>7</b> ¿Cómo interactuamos con R?</a><ul>
-<li class="chapter" data-level="7.1" data-path="cómo-interactuamos-con-r.html"><a href="cómo-interactuamos-con-r.html#primeros-comandos"><i class="fa fa-check"></i><b>7.1</b> Primeros comandos</a></li>
+<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a><ul>
+<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#paquetes-1"><i class="fa fa-check"></i><b>3.1</b> Paquetes</a></li>
+<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>8</b> Funciones</a></li>
-<li class="chapter" data-level="9" data-path="paquetes.html"><a href="paquetes.html"><i class="fa fa-check"></i><b>9</b> Paquetes</a><ul>
-<li class="chapter" data-level="9.1" data-path="paquetes.html"><a href="paquetes.html#consejos"><i class="fa fa-check"></i><b>9.1</b> Consejos</a></li>
-<li class="chapter" data-level="9.2" data-path="paquetes.html"><a href="paquetes.html#atajos-de-teclado"><i class="fa fa-check"></i><b>9.2</b> Atajos de teclado</a></li>
+<li class="chapter" data-level="4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>4</b> Trabajar en proyecto</a><ul>
+<li class="chapter" data-level="4.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>4.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="4.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>4.2</b> Abrir proyecto</a></li>
+<li class="chapter" data-level="4.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>4.3</b> Crear script</a></li>
+<li class="chapter" data-level="4.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>4.4</b> Flujo de trabajo</a></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>10</b> Objetos</a><ul>
-<li class="chapter" data-level="10.1" data-path="objetos.html"><a href="objetos.html#tipo-de-objetos"><i class="fa fa-check"></i><b>10.1</b> Tipo de objetos</a></li>
-</ul></li>
-<li class="chapter" data-level="11" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>11</b> c()</a></li>
-<li class="chapter" data-level="12" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>12</b> Vector</a></li>
-<li class="chapter" data-level="13" data-path="vector-1.html"><a href="vector-1.html"><i class="fa fa-check"></i><b>13</b> Vector</a></li>
-<li class="chapter" data-level="14" data-path="data-frame.html"><a href="data-frame.html"><i class="fa fa-check"></i><b>14</b> Data frame</a><ul>
-<li class="chapter" data-level="14.1" data-path="data-frame.html"><a href="data-frame.html#explorar-los-datos"><i class="fa fa-check"></i><b>14.1</b> Explorar los datos</a></li>
-<li class="chapter" data-level="14.2" data-path="data-frame.html"><a href="data-frame.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>14.2</b> Guardar objeto en formato Rdata</a></li>
-</ul></li>
-<li class="chapter" data-level="15" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>15</b> Tidyverse</a><ul>
-<li class="chapter" data-level="15.1" data-path="tidyverse.html"><a href="tidyverse.html#paquetes-1"><i class="fa fa-check"></i><b>15.1</b> Paquetes</a></li>
-<li class="chapter" data-level="15.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>15.2</b> dplyr</a></li>
-</ul></li>
-<li class="chapter" data-level="16" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>16</b> Trabajar en proyecto</a><ul>
-<li class="chapter" data-level="16.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>16.1</b> Crear proyecto</a></li>
-<li class="chapter" data-level="16.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>16.2</b> Abrir proyecto</a></li>
-<li class="chapter" data-level="16.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>16.3</b> Crear script</a></li>
-<li class="chapter" data-level="16.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>16.4</b> Flujo de trabajo</a></li>
-</ul></li>
-<li class="chapter" data-level="17" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>17</b> Análisis de datos</a></li>
-<li class="chapter" data-level="18" data-path="paquetes-2.html"><a href="paquetes-2.html"><i class="fa fa-check"></i><b>18</b> Paquetes</a></li>
-<li class="chapter" data-level="19" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>19</b> Pipe: <strong>%&gt;%</strong></a><ul>
-<li class="chapter" data-level="19.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>19.1</b> ¿Cómo sería preparar un mate en R?</a></li>
-<li class="chapter" data-level="19.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>19.2</b> %&gt;%</a></li>
+<li class="chapter" data-level="5" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Análisis de datos</a></li>
+<li class="chapter" data-level="6" data-path="paquetes-2.html"><a href="paquetes-2.html"><i class="fa fa-check"></i><b>6</b> Paquetes</a></li>
+<li class="chapter" data-level="7" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>7</b> Pipe: <strong>%&gt;%</strong></a><ul>
+<li class="chapter" data-level="7.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Cómo sería preparar un mate en R?</a></li>
+<li class="chapter" data-level="7.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>7.2</b> %&gt;%</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -198,12 +195,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="tidyverse" class="section level1">
-<h1><span class="header-section-number">Chapter 15</span> Tidyverse</h1>
+<h1><span class="header-section-number">Chapter 3</span> Tidyverse</h1>
 <p>tidyverse proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete base.</p>
 <p>.center[
 <img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyverse.png" width="300px" />]</p>
 <div id="paquetes-1" class="section level2">
-<h2><span class="header-section-number">15.1</span> Paquetes</h2>
+<h2><span class="header-section-number">3.1</span> Paquetes</h2>
 <p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/readr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/haven.png" width="70px" /></p>
 <p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/dplyr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyr.png" width="70px" /></p>
 <p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/stringr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/labelled.png" width="70px" /></p>
@@ -221,12 +218,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Inferencia</strong>: <a href="http://gdfe.co/srvyr/"><strong>estimaciones</strong></a> puntuales y por intervalo</p>
 </div>
 <div id="dplyr" class="section level2">
-<h2><span class="header-section-number">15.2</span> dplyr</h2>
+<h2><span class="header-section-number">3.2</span> dplyr</h2>
 <p>La estructura de datos más importante en R es el <strong>data frame</strong>.</p>
 <p>Permite representar la información en forma de tabla, donde cada <strong>fila</strong> representa una <strong>observación</strong> y cada <strong>columna</strong> represente una <strong>variable</strong>.</p>
 <p>El paquete dplyr no provee ninguna funcionalidad que no pueda ser realizada con las funciones del paquete base, sin embargo, es más <strong>simple</strong> y <strong>rápido</strong> (está escrito en C++).</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
-<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <!-- - Todas las funciones del paquete tiene la particularidad de que su primer argumento es el data frame al que le realizará la operación, mientras que los subsiguiente argumentos describen como realizar tal operación. Finalmente el resultado de todas estas funciones es un nuevo data frame. -->
 <!-- # dplyr::verbo() -->
 <!-- ```{r out.width = "500px" ,fig.align="center", echo=FALSE} -->
@@ -372,7 +369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="data-frame.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="objetos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="trabajar-en-proyecto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
