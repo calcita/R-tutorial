@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R para análisis de datos y publicaciones</title>
+  <title>Chapter 19 Pipe: %&gt;% | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Chapter 19 Pipe: %&gt;% | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Chapter 19 Pipe: %&gt;% | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="paquetes-2.html"/>
 
-<link rel="next" href="introducción.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -197,22 +197,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R para análisis de datos y publicaciones</h1>
-<p class="author"><em>Gabriela Mathieu</em></p>
-<p class="date"><em>2020-03-03</em></p>
+<div id="pipe" class="section level1">
+<h1><span class="header-section-number">Chapter 19</span> Pipe: <strong>%&gt;%</strong></h1>
+<p>El <strong>‘pipe’</strong> -por su nombre en inglés- estructura una secuencia de operaciones sobre los datos de izquierda a derecha.</p>
+<p>A diferencia de la anidación de funciones que implica operaciones de adentro para afuera.</p>
+<p>En lugar de f(x): x %&gt;% f()</p>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/pipe-shortcut.png" /></p>
+<div id="cómo-sería-preparar-un-mate-en-r" class="section level2">
+<h2><span class="header-section-number">19.1</span> ¿Cómo sería preparar un mate en R?</h2>
+<iframe src="https://giphy.com/embed/2x0UnZn4CNObIedrqG" width="600" height="480" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/emoji-mate-emojidelmate-2x0UnZn4CNObIedrqG"></a>
+</p>
 </div>
-<div id="prefacio" class="section level1 unnumbered">
-<h1>Prefacio</h1>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">19.2</span> %&gt;%</h2>
+<p><strong>¿Preparar el mate con o sin ‘pipe’?</strong></p>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/icons8-mate-96.png" /></p>
+<p><br><br><br><br>
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/icons8-mate-100.png" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># Mate con &#39;pipe&#39;</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">mate <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4"><span class="st">        </span><span class="kw">poner_yerba</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-5" data-line-number="5"><span class="st">        </span><span class="kw">hinchar</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-6" data-line-number="6"><span class="st">        </span><span class="kw">colocar_bombilla</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb38-7" data-line-number="7"><span class="st">        </span><span class="kw">cebar</span>()</a></code></pre></div>
+<p><br><br></p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="co"># Mate sin &#39;pipe&#39;</span></a>
+<a class="sourceLine" id="cb39-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb39-3" data-line-number="3"><span class="kw">cebar</span>(<span class="kw">colocar_bombilla</span>(<span class="kw">hinchar</span>(<span class="kw">poner_yerba</span>(mate))))</a></code></pre></div>
+<p><br><br>
+¿Cuál código te parece más claro?
+<!-- --- -->
+<!-- # Equivalencias --></p>
+<!-- ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/equivalencias.png) -->
+<!-- Y hay otros varios operadores útiles de la librería [magrittr](https://github.com/tidyverse/magrittr/blob/master/vignettes/magrittr.Rmd) -->
+<!-- # %<>% -->
+<!-- - La librería `magrittr` trae también entre sus funciones y operadores, un pipe de asignación. -->
+<!-- <br><br> -->
+<!-- -- -->
+<!-- - Con el operador `%<>%` además de conectar nuestro objeto con las funciones subsiguientes, sobreescribe con el resultado de todo el proceso el objeto inicial. -->
+<!-- -- -->
+<!-- ```{r eval=FALSE} -->
+<!-- h2018 <- h2018 %>% filter(dpto == 1) -->
+<!-- ``` -->
+<!-- -- -->
+<!-- Es lo mismo que... -->
+<!-- ```{r} -->
+<!-- library(magrittr) -->
+<!-- h2018 %<>% filter(dpto == 1) -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # <i class="fas  fa-user-friends " style="color:#fc9272;"></i>  dplyr::group_by() -->
+<!-- ```{r eval=FALSE} -->
+<!-- h2018_sub %>% -->
+<!--   group_by(region_3) %>% -->
+<!--   summarise(promedio_y = mean(ht11)) -->
+<!-- ``` -->
+<!-- Sin el pipe teníamos: -->
+<!-- ```{r eval=FALSE} -->
+<!-- # promedio de ingresos por cada Región -->
+<!-- summarise(group_by(h2018, region_3), promedio = mean(ht11)) -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # <i class="fas  fa-user-friends " style="color:#fc9272;"></i>  dplyr::ungroup() -->
+<!-- La función `ungroup()` te permitirá desagrupar para volver agrupar por otra variable dentro de la misma concatenación de acciones. -->
+<!-- ```{r eval=FALSE} -->
+<!-- h2018_sub %>% -->
+<!--   group_by(region_3) %>% -->
+<!--   mutate(media_y_region = mean(ht11)) %>% -->
+<!--   ungroup() %>% -->
+<!--   group_by(dpto) %>% -->
+<!--   mutate(media_y_dpto = mean(ht11)) -->
+<!-- ``` -->
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
+<a href="paquetes-2.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

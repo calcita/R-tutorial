@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R para análisis de datos y publicaciones</title>
+  <title>Chapter 15 Tidyverse | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Chapter 15 Tidyverse | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Chapter 15 Tidyverse | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción.html"/>
+<link rel="prev" href="data-frame.html"/>
+<link rel="next" href="trabajar-en-proyecto.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -197,22 +197,183 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R para análisis de datos y publicaciones</h1>
-<p class="author"><em>Gabriela Mathieu</em></p>
-<p class="date"><em>2020-03-03</em></p>
+<div id="tidyverse" class="section level1">
+<h1><span class="header-section-number">Chapter 15</span> Tidyverse</h1>
+<p>tidyverse proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete base.</p>
+<p>.center[
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyverse.png" width="300px" />]</p>
+<div id="paquetes-1" class="section level2">
+<h2><span class="header-section-number">15.1</span> Paquetes</h2>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/readr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/haven.png" width="70px" /></p>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/dplyr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyr.png" width="70px" /></p>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/stringr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/labelled.png" width="70px" /></p>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/ggplot2.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/sf.gif" width="70px" /></p>
+<p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/srvyr.png" width="70px" /></p>
+<p><br><br>
+<strong><a href="https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/data-import-cheatsheet_Spanish.pdf">Importar archivos</a></strong>: csv, txt, dta, sav, etc.
+<br><br><br></p>
+<p><strong><a href="https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf">Limpiar</a> y <a href="https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf">transformar</a></strong>
+<br><br><br><br></p>
+<p><strong>Manipular <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/strings_Spanish.pdf">texto</a> y <a href="http://larmarange.github.io/labelled/index.html">etiquetas</a></strong>
+<br><br><br><br></p>
+<p><strong>Visualización: <a href="https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/ggplot2.pdf">gráficos</a> y <a href="https://github.com/rstudio/cheatsheets/raw/master/sf.pdf">mapas</a></strong>
+<br><br></p>
+<p><strong>Inferencia</strong>: <a href="http://gdfe.co/srvyr/"><strong>estimaciones</strong></a> puntuales y por intervalo</p>
 </div>
-<div id="prefacio" class="section level1 unnumbered">
-<h1>Prefacio</h1>
+<div id="dplyr" class="section level2">
+<h2><span class="header-section-number">15.2</span> dplyr</h2>
+<p>La estructura de datos más importante en R es el <strong>data frame</strong>.</p>
+<p>Permite representar la información en forma de tabla, donde cada <strong>fila</strong> representa una <strong>observación</strong> y cada <strong>columna</strong> represente una <strong>variable</strong>.</p>
+<p>El paquete dplyr no provee ninguna funcionalidad que no pueda ser realizada con las funciones del paquete base, sin embargo, es más <strong>simple</strong> y <strong>rápido</strong> (está escrito en C++).</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<!-- - Todas las funciones del paquete tiene la particularidad de que su primer argumento es el data frame al que le realizará la operación, mientras que los subsiguiente argumentos describen como realizar tal operación. Finalmente el resultado de todas estas funciones es un nuevo data frame. -->
+<!-- # dplyr::verbo() -->
+<!-- ```{r out.width = "500px" ,fig.align="center", echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/dplyr_schema.png") -->
+<!-- ``` -->
+<!-- # <i class="fas  fa-hand-pointer " style="color:#fc9272;"></i> dplyr::select() -->
+<!-- Selecciona variables/columnas -->
+<!-- ```{r eval =FALSE} -->
+<!-- # selecciono las variables "dpto", "ht11", "secc" -->
+<!-- h2018_sub <- select(h2018, dpto, region_3, ht11, secc, pobre06) -->
+<!-- h2018_sub -->
+<!-- ``` -->
+<!-- # ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/pizza.png) dplyr::slice() -->
+<!-- Selecciona observaciones/filas según su posición -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono las filas 1 y 5 -->
+<!-- slice(h2018_sub, 1, 5) -->
+<!-- ``` -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono las filas de 1 a 5 -->
+<!-- slice(h2018_sub, 1:5) -->
+<!-- ``` -->
+<!-- # <i class="fas  fa-filter " style="color:#fc9272;"></i> dplyr::filter() -->
+<!-- Selecciona observaciones/filas según una condición -->
+<!-- ```{r eval=FALSE} -->
+<!-- mvd <- filter(h2018_sub, dpto == 1) -->
+<!-- mvd -->
+<!-- ``` -->
+<!-- ## Operadores -->
+<!-- <!-- https://github.com/jumanbar/Curso-R/blob/master/lecciones/2.1a-operadores-relacionales-y-logicos.R -->
+<p>–&gt;</p>
+<!--  O lógico: **|** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los datos de Montevideo(1) y Canelones(3) -->
+<!-- filter(h2018_sub, dpto == 1 | dpto == 3) -->
+<!-- ``` -->
+<!--  Y lógico: **&** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los datos de hogares de Montevideo(1) y que pertenezcan a la sección "01" -->
+<!-- filter(h2018_sub, dpto == 1 & secc == "01") -->
+<!-- ``` -->
+<!--  No lógico: <i class="fas  fa-exclamation "></i> -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los hogares que no pertenezcan a la sección "01" -->
+<!-- filter(h2018_sub, !secc == "01") -->
+<!-- ``` -->
+<!-- -- -->
+<!--  inclusión: **%in%** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los datos en que el código de dpto esté incluido en el vector c(1,3,5) -->
+<!-- filter(h2018_sub, dpto %in% c(1, 3, 5)) -->
+<!-- ``` -->
+<!-- # <i class="fas  fa-sort " style="color:#fc9272;"></i> dplyr::arrange() -->
+<!-- Ordena las observaciones según una variable -->
+<!-- ```{r eval=FALSE} -->
+<!-- arrange(h2018_sub, dpto) -->
+<!-- ``` -->
+<!-- Para ordenar de manera decreciente: -->
+<!-- ```{r eval=FALSE} -->
+<!-- arrange(h2018_sub, desc(dpto)) -->
+<!-- ``` -->
+<!-- Para ordenar por más de una variable: -->
+<!-- ```{r eval=FALSE} -->
+<!-- arrange(h2018_sub, desc(dpto), secc) -->
+<!-- ``` -->
+<!-- ```{r echo=FALSE} -->
+<!-- head(arrange(h2018_sub,desc(dpto), secc)) -->
+<!-- ``` -->
+<!-- # <i class="fas  fa-calculator " style="color:#fc9272;"></i> dplyr::top_n() -->
+<!-- En el segundo caso el valor `0` iguala a 6 casos, y R devuelve todos los casos que impliquen empates para que el usuario decida como resolverlo.   -->
+<!-- # <i class="fas  fa-calculator " style="color:#fc9272;"></i> dplyr::summarise() -->
+<!-- Calcula resumen de variables. -->
+<!-- Se puede utilizar cualquier función que cumpla con que lo datos de entrada sean numéricos y como salida se entregue una constante. -->
+<!-- Si la variable tiene datos faltantes se puede calcular el promedio sin considerarlos -->
+<!-- # ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/function.png) dplyr::mutate() -->
+<!-- Crea nuevas variables -->
+<!-- Es lo mismo que... -->
+<!-- - Para categorizar lo no incluido en las clases se puede usar:  `TRUE ~` (Ver ?case_when) -->
+<!-- # <i class="fas  fa-table " style="color:#fc9272;"></i> dplyr::count() -->
+<!-- Calcula una tabla de frecuencias -->
+<!-- ## tally -->
+<!-- # <i class="fas  fa-user-friends " style="color:#fc9272;"></i>  dplyr::group_by() -->
+<!-- - Permite hacer operaciones por grupos -->
+<!-- - Anidar funciones vuelve confuso el código... -->
+<!-- <img style="float: rigth;" src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tool.png"> -->
+<!-- # ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/function.png) dplyr::n() -->
+<!-- - Esta función se implementa específicamente para cada fuente de datos y sólo se puede utilizar desde dentro de `summarise()`, `mutate()` y `filter()`. -->
+<!-- --- -->
+<!-- # join (merge) data frames -->
+<!-- .pull-left[ -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/full_join.png") -->
+<!-- ``` -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/left_join.png") -->
+<!-- ``` -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/inner_join.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- .pull-rigth[ -->
+<!-- <br> -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/anti_join.png") -->
+<!-- ``` -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/rigth_join.png") -->
+<!-- ``` -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/semi_join.png") -->
+<!-- ``` -->
+<!-- ] -->
+<!-- --- -->
+<!-- # dplyr::full_join -->
+<!-- ```{r out.width = "600px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://github.com/gadenbuie/tidyexplain/blob/master/images/full-join.gif?raw=true") -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # dplyr::semi_join() -->
+<!-- ```{r out.width = "600px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://github.com/gadenbuie/tidyexplain/blob/master/images/semi-join.gif?raw=true") -->
+<!-- ``` -->
+<!-- --- -->
+<!-- # Join base personas y hogares -->
+<!-- Variable que identifica las observaciones en base hogares: 'numero' -->
+<!-- Variable que identifica las observaciones en base personas: 'numero' e 'id' -->
+<!-- ```{r eval = FALSE} -->
+<!-- # importo base de personas -->
+<!-- p2018 <- haven::read_sav("data/P_2018_Terceros.sav") -->
+<!-- # reviso dimensiones -->
+<!-- dim(p2018) -->
+<!-- dim(h2018) -->
+<!-- # fusiono las bases por la variable 'numero' -->
+<!-- hp2018 <- left_join(h2018, p2018, by = "numero") -->
+<!-- # reviso dimensiones -->
+<!-- dim(hp2018) -->
+<!-- ``` -->
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-frame.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="trabajar-en-proyecto.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

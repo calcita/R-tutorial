@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R para análisis de datos y publicaciones</title>
+  <title>Chapter 7 ¿Cómo interactuamos con R? | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Chapter 7 ¿Cómo interactuamos con R? | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Chapter 7 ¿Cómo interactuamos con R? | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción.html"/>
+<link rel="prev" href="script.html"/>
+<link rel="next" href="funciones.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -197,22 +197,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R para análisis de datos y publicaciones</h1>
-<p class="author"><em>Gabriela Mathieu</em></p>
-<p class="date"><em>2020-03-03</em></p>
+<div id="cómo-interactuamos-con-r" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> ¿Cómo interactuamos con R?</h1>
+<ul>
+<li><p>Las órdenes elementales de R consisten en expresiones o asignaciones.</p></li>
+<li><p>Una <strong>expresión</strong>, se evalúa, se imprime el resultado y su valor se pierde.</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<ul>
+<li>Una <strong>asignación</strong>, crea un objeto y no se imprime el resultado.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span></a></code></pre></div>
+<ul>
+<li><p>Una asignación se hace utilizando el símbolo: <i class="fas  fa-less-than "></i><i class="fas  fa-minus "></i> o también con el símbolo <strong>=</strong></p></li>
+<li><p>Otros programas estadísticos muestran directamente los resultados, R los guarda en un <strong>‘objeto’</strong>.</p></li>
+<li><p>Ejecuto el nombre del objeto para imprimir el resultado</p></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">x </a></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div id="primeros-comandos" class="section level2">
+<h2><span class="header-section-number">7.1</span> Primeros comandos</h2>
+<p>¿Cómo enviamos el código del script a la consola?</p>
+<p>Para ejecutar una sola línea: colocar el <strong>cursor sobre esa línea</strong> y ejecutar <strong>Ctrl + ENTER</strong>.</p>
+<p><img src="images/sendcode1.gif" /></p>
+<p>Si son varias líneas de código: <strong>seleccionarlas todas</strong> y ejecutar <strong>Ctrl + ENTER</strong>.</p>
+<p><img src="images/sendcode2.gif" /></p>
 </div>
-<div id="prefacio" class="section level1 unnumbered">
-<h1>Prefacio</h1>
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="script.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="funciones.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>R para análisis de datos y publicaciones</title>
+  <title>Chapter 10 Objetos | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Chapter 10 Objetos | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Chapter 10 Objetos | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="introducción.html"/>
+<link rel="prev" href="paquetes.html"/>
+<link rel="next" href="c.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -197,22 +197,68 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">R para análisis de datos y publicaciones</h1>
-<p class="author"><em>Gabriela Mathieu</em></p>
-<p class="date"><em>2020-03-03</em></p>
+<div id="objetos" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Objetos</h1>
+<p>R es un programa <strong>‘orientado a objetos’</strong>: variables, datos, funciones, resultados, etc., se guardan en la memoria RAM en forma de objetos con un nombre específico sin usar archivos temporales.</p>
+<p>Cada clase de objeto tiene diferentes atributos que determinan la forma en que trabajan dentro de R, es decir, define cuáles funciones se le pueden aplicar.</p>
+<p>Estos objetos se pueden modificar o manipular con <strong>operadores</strong> y <strong>funciones</strong> –que a su vez son objetos–.</p>
+<p>Bajo este término se esconde la simplicidad y flexibilidad de R.</p>
+<p>Algunas de las clases más comunes de objetos son: ‘integer’, ‘numeric’, ‘character’,
+‘logical’ (son vectores), ‘matrix’, ‘data.frame’, ‘list’ y ‘function’.</p>
+<div id="tipo-de-objetos" class="section level2">
+<h2><span class="header-section-number">10.1</span> Tipo de objetos</h2>
+<p>La cantidad de clases de objetos es muy grande y crece permanentemente a medida que se crean nuevos paquetes.</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="32%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Objeto</th>
+<th align="center">Dimensión o largo</th>
+<th align="center">Tipo de elementos</th>
+<th align="center">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vector</td>
+<td align="center">length()</td>
+<td align="center">similares</td>
+<td align="center"><i class="fas  fa-ellipsis-v fa-3x " style="color:red;"></i></td>
+</tr>
+<tr class="even">
+<td>Matriz</td>
+<td align="center">dim()</td>
+<td align="center">similares</td>
+<td align="center"><i class="fas  fa-ellipsis-v fa-3x " style="color:red;"></i><i class="fas  fa-ellipsis-v fa-3x " style="color:red;"></i></td>
+</tr>
+<tr class="odd">
+<td>Marco de datos</td>
+<td align="center">dim()</td>
+<td align="center">diferentes</td>
+<td align="center"><i class="fas  fa-ellipsis-v fa-3x " style="color:red;"></i><i class="fas  fa-ellipsis-v fa-3x " style="color:blue;"></i> <i class="fas  fa-ellipsis-v fa-3x " style="color:green;"></i></td>
+</tr>
+<tr class="even">
+<td>Lista</td>
+<td align="center">length()</td>
+<td align="center">diferentes</td>
+<td align="center"><i class="fas  fa-circle " style="color:red;"></i> <br> <i class="fas  fa-circle " style="color:blue;"></i> <br> <i class="fas  fa-circle " style="color:green;"></i></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="prefacio" class="section level1 unnumbered">
-<h1>Prefacio</h1>
-
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="introducción.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="paquetes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="c.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

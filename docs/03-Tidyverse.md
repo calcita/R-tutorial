@@ -1,375 +1,272 @@
-# Data
+# Tidyverse
 
-Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Berlin, Alemania, disponibles en [Inside Airbnb](http://data.insideairbnb.com/germany/be/berlin/2019-07-11/data/listings.csv.gz)
+tidyverse proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete base.
 
-Accedemos a los datos desde la url. 
+.center[
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyverse.png" width="300px" />
+]
 
-
-```r
-listings <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/listings.csv"))
-```
-
-```
-## Parsed with column specification:
-## cols(
-##   id = col_double(),
-##   name = col_character(),
-##   host_id = col_double(),
-##   host_name = col_character(),
-##   neighbourhood_group = col_character(),
-##   neighbourhood = col_character(),
-##   latitude = col_double(),
-##   longitude = col_double(),
-##   room_type = col_character(),
-##   price = col_double(),
-##   minimum_nights = col_double(),
-##   number_of_reviews = col_double(),
-##   last_review = col_date(format = ""),
-##   reviews_per_month = col_double(),
-##   calculated_host_listings_count = col_double(),
-##   availability_365 = col_double()
-## )
-```
-
-```r
-ratings <- readr::read_csv("data/ratings.csv")
-```
-
-```
-## Parsed with column specification:
-## cols(
-##   id = col_double(),
-##   review_scores_rating = col_double()
-## )
-```
-
-```r
-# reviews <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/reviews.csv"))
-# 
-# neighbour <- readr::read_csv(url("http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.csv"))
-
-# "http://data.insideairbnb.com/germany/be/berlin/2019-07-11/visualisations/neighbourhoods.geojson"
-```
-
-## GDS
-
-- R no es un SIG (Sistemas de Información Geográficos)
-
-- R permite hacer Ciencia de Datos Geográficos (SDG)
-
-| Atributos     | SIG | SDG |
-|---------------|:-------------:|:-------------:|
-|Disciplinas | Geografía | Geografía, Computación, Estadística|
-| Foco | Interfaz Gráfica | Código |
-| Reproducibilidad | Mínimo | Máximo |
+## Paquetes 
 
 
-## Paquetes
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/readr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/haven.png" width="70px" />
 
-- sp, sf: para manejar información espacial vectorial
-- raster: para trabajar con rasters
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/dplyr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyr.png" width="70px" />
 
-- ggplot2, rasterVis, tmap, leaflet, o mapview: para visualizar información espacial
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/stringr.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/labelled.png" width="70px" />
 
-- Es sencillo conectar R con programas SIG: GRASS GIS (rgrass7), SAGA (RSAGA), QGIS (RQGIS y qgisremote), incluso ArcGIS (arcgisbinding).
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/ggplot2.png" width="70px" /><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/sf.gif" width="70px" />
 
-## sf 
+<img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/srvyr.png" width="70px" />
 
-Combina las funcionalidades de 3 paquetes: **sp**, **rgeos** y **rgdal**
 
-Ventajas respecto a otros paquetes: 
+<br><br>
+**[Importar archivos](https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/data-import-cheatsheet_Spanish.pdf)**: csv, txt, dta, sav, etc.
+<br><br><br>
 
-Mayor **velocidad** para importar y exportar los datos
+**[Limpiar](https://github.com/rstudio/cheatsheets/raw/master/data-import.pdf) y [transformar](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf)**
+<br><br><br><br>
 
-Más tipos de **geometrías** soportadas
+**Manipular [texto](https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/strings_Spanish.pdf) y [etiquetas](http://larmarange.github.io/labelled/index.html)**
+<br><br><br><br>
 
-**Compatibilidad** con tidyverse. Funciona el pipe!
+**Visualización: [gráficos](https://github.com/rstudio/cheatsheets/raw/master/translations/spanish/ggplot2.pdf) y [mapas](https://github.com/rstudio/cheatsheets/raw/master/sf.pdf)**
+<br><br>
 
-El paquete **sp** es predecesor de sf.
+**Inferencia**: [**estimaciones**](http://gdfe.co/srvyr/) puntuales y por intervalo
 
-Muchos paquetes espaciales de R todavía dependen del paquete sp, por lo tanto, es importante saber cómo **convertir**.
 
-Convertir objetos  **sf** a **sp**
+## dplyr
+
+
+
+La estructura de datos más importante en R es el **data frame**.
+
+Permite representar la información en forma de tabla, donde cada **fila** representa una **observación** y cada **columna** represente una **variable**.
+
+El paquete dplyr no provee ninguna funcionalidad que no pueda ser realizada con las funciones del paquete base, sin embargo, es más **simple** y **rápido** (está escrito en C++).
 
 
 ```r
-# Para transformar de SF a SP
-objeto.sp <- as(objeto.sf, "Spatial")
-```
-
-Convertir objetos  **sp** a **sf**
-
-
-```r
-# Para transformar de SP a SF
-objeto.sf <- st_as_sf(objeto.sp)
-```
-
-
-
-## st_read()
-
-Los objetos sf tienen una clase que combina **'data.frame'** y **'sf'**
-
-Los objetos sf también tienen una columna especial que contiene los datos de geometría, usualmente llamado 'geom' o **'geometry'**.
-
-Las funciones del paquete **dplyr** se pueden aplicar. Para saber la totalidad de funciones que son aplicables a un objeto de **clase 'sf'** consultar **methods()**.
-
-Para la unión de objetos espaciales se usa **st_join(x, y)**. El método de join utilizado es siempre left join, manteniendo los registros del primer atributo.
-
-## Importar shapes
-
-Los shapes con límites de los barrios de Berlin los obtenemos [aquí](http://geoserver01.uit.tufts.edu/wfs?outputformat=SHAPE-ZIP&request=GetFeature&service=wfs&srsName=EPSG%3A4326&typeName=sde%3AGISPORTAL.GISOWNER01.BERLIN_BEZIRKE_BOROUGHS01&version=2.0.0).
-
-Para trabajar descomprimimos el zip y dejamos los 5 archivos en una misma carpeta.
-
-
-```r
-# cargo paquete
-library(sf)
-```
-
-```
-## Linking to GEOS 3.5.1, GDAL 2.2.2, PROJ 4.9.2
-```
-
-```r
-# importo shapes
-unzip("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.zip", exdir = "data/") 
-barrios <- st_read("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp", stringsAsFactors = FALSE)
-```
-
-```
-## Reading layer `GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01' from data source `/home/calcita/MEGA/R/github.io/R-tutorial/R-tutorial/data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp' using driver `ESRI Shapefile'
-## Simple feature collection with 12 features and 3 fields
-## geometry type:  MULTIPOLYGON
-## dimension:      XY
-## bbox:           xmin: 13.08835 ymin: 52.33824 xmax: 13.76114 ymax: 52.67551
-## epsg (SRID):    4326
-## proj4string:    +proj=longlat +datum=WGS84 +no_defs
-```
-
-```r
-# consulto clase 
-class(barrios)
-```
-
-```
-## [1] "sf"         "data.frame"
-```
-
-```r
-# consulto métodos
-methods(class = "sf")
-```
-
-
-## Mapa de coropletas
-
-- [Buenas prácticas](https://blog.datawrapper.de/choroplethmaps/)
-
-- Es un **mapa temático** en el que las regiones se colorean de un motivo que muestra una **medida estadística**.
-
-
-## Encoding
-
-
-```r
-library(stringi)
-```
-
-```r
-# con qué encoding vienen los datos?
-stri_enc_mark(barrios$BezName)
-```
-
-```r
+# install.packages("dplyr")
 library(dplyr)
 ```
 
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
-# defino que los lea como 'ISO-8859-1' y pase a 'UTF-8'
-barrios <- barrios %>%
-           mutate(BezName = stri_conv(BezName, from = 'ISO-8859-1', to = 'UTF-8', to_raw = FALSE))
-head(barrios$BezName,12)
-```
-
-```
-##  [1] "Mitte"                      "Friedrichshain-Kreuzberg"  
-##  [3] "Pankow"                     "Charlottenburg-Wilmersdorf"
-##  [5] "Spandau"                    "Steglitz-Zehlendorf"       
-##  [7] "Tempelhof-Schöneberg"       "Neukölln"                  
-##  [9] "Treptow-Köpenick"           "Marzahn-Hellersdorf"       
-## [11] "Lichtenberg"                "Reinickendorf"
-```
+<!-- - Todas las funciones del paquete tiene la particularidad de que su primer argumento es el data frame al que le realizará la operación, mientras que los subsiguiente argumentos describen como realizar tal operación. Finalmente el resultado de todas estas funciones es un nuevo data frame. -->
 
 
-## Expresiones regulares
+<!-- # dplyr::verbo() -->
 
+<!-- ```{r out.width = "500px" ,fig.align="center", echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/dplyr_schema.png") -->
+<!-- ``` -->
 
-```r
-# los barrios están escritos igual?
-table(unique(listings$neighbourhood_group) %in% barrios$BezName)
-```
+<!-- # <!--html_preserve--><i class="fas  fa-hand-pointer " style="color:#fc9272;"></i><!--/html_preserve--> dplyr::select() -->
 
-```
-## 
-## FALSE  TRUE 
-##     5     7
-```
+<!-- Selecciona variables/columnas -->
 
-```r
-# busco la expresión y reemplazo
-library(stringr)
-large <- barrios$BezName
-small <- listings$neighbourhood_group
-
-berlin <- listings %>% mutate(neighbourhood_group = stri_replace(str = small,regex = small, replacement = large , mode="all"))
-```
-
-```
-## Warning in stri_replace_all_regex(str, regex, replacement, ...): longer
-## object length is not a multiple of shorter object length
-```
-
-```r
-# chequeo
-table(unique(berlin$neighbourhood_group) %in% barrios$BezName)
-```
-
-```
-## 
-## TRUE 
-##   12
-```
-
-Uno los data frame listings  y ratings para agregar la variable 'review_score'
-
-
-```r
-berlin <- left_join(berlin, ratings, by = "id")
-```
-
-
-## ggplot2
-
-```r
-# cuento la cantidad de alojamientos por barrios
-bn <- berlin %>%
-  group_by(neighbourhood_group) %>%
-  summarise(median_price = median(price))
-
-# uno berlin con el objeto espacial barrios
-bn <- left_join(bn, barrios, by = c("neighbourhood_group"="BezName"))
-
-# calculo centroides de los polígonos
-latlong_mean <-  barrios %>% st_centroid(geometry)
-
-# convierto la geometría en 2 vectores
-latlong_mean <- st_coordinates(latlong_mean$geometry)
-latlong_mean <- tibble(latlong_mean[,1], latlong_mean[,2])
-names(latlong_mean) <- c('lat', 'lon')
-bn <- bind_cols(bn, latlong_mean)
-
-library(ggplot2)
-mapa<- ggplot(bn) +
-       geom_sf(aes(fill = median_price)) +
-       geom_text(aes(x = lat, y = lon, label = neighbourhood_group),  size = 3, hjust = 0.5)+
-      scale_fill_viridis_c("# Alojamientos", option = "D") +
-      ggtitle("Alojamientos Airbnb por barrios de Berlin") +
-      theme_void()
-mapa
-```
-
-## leaflet
-
-- El paquete leaflet es una extensión java script para R que permite hacer mapas interactivos.
-
-- [Tutorial](https://rstudio.github.io/leaflet/) para comenzar.
-
-## leaflet()
-
-| Función      | Descripción |
-|---------------|:---------------------------------------:|
-| leaflet()    |crea el objeto leaflet  |
-| addTiles() |  define el mapa de base, por defecto utiliza OpenStreetMap. [Opciones](http://leaflet-extras.github.io/leaflet-providers/preview/) |
-| setView() | define por centroide y zoom |
-| addMarkers() | marcadores a partir de una capa espacial o de pares de coordenadas.|
-
-El orden de los comandos es importante.
-
-
-## leaflet
-
-
-```r
-library(leaflet)
-
-contenido <- paste(sep = "<br/>",
-               paste0("<img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Estadio_Centenario_%28vista_a%C3%A9rea%29.jpg", "' />"),
-               paste0("<b>Name: </b>", "Estadio Centenario"),
-               paste0("<b>Place: </b>", "Montevideo, Uruguay"),
-               paste0("<a href='https://es.wikipedia.org/wiki/Estadio_Centenario", "'>Link</a>"))
-
-mapa <- leaflet() %>%
-        addTiles() %>%
-        addMarkers(lng = -56.159158, lat = -34.888494,
-                   popup = contenido)
-mapa
-```
+<!-- ```{r eval =FALSE} -->
+<!-- # selecciono las variables "dpto", "ht11", "secc" -->
+<!-- h2018_sub <- select(h2018, dpto, region_3, ht11, secc, pobre06) -->
+<!-- h2018_sub -->
+<!-- ``` -->
 
 
 
-## Mapa
+<!-- # ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/pizza.png) dplyr::slice() -->
 
-<!--html_preserve--><div id="htmlwidget-a7d90e6ce3b6e311e4f8" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a7d90e6ce3b6e311e4f8">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[-34.89445,-56.15253,null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},"Estadio Centenario",null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[-34.89445,-34.89445],"lng":[-56.15253,-56.15253]}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!-- Selecciona observaciones/filas según su posición -->
 
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono las filas 1 y 5 -->
+<!-- slice(h2018_sub, 1, 5) -->
+<!-- ``` -->
 
-## Alojamientos Berlin
-
-
-```r
-# Alojamientos caros de Airbnb en Berlin
-top <- filter(berlin, price > 500 & !is.na(review_scores_rating))
-
-# de sf a sp
-barrios.sp <- as(barrios, "Spatial")
-
-barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group")
-
-library(leaflet)
-airbnb = makeIcon("https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","/https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png", 18, 18)
-
-mapa <- leaflet(data = barrios.sp) %>%
-        #setView()
-        addTiles() %>%
-        addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb)
-        #addCircles()
-        #addLegend()
-mapa
-```
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono las filas de 1 a 5 -->
+<!-- slice(h2018_sub, 1:5) -->
+<!-- ``` -->
 
 
-## Alojamientos Berlin
+<!-- # <!--html_preserve--><i class="fas  fa-filter " style="color:#fc9272;"></i><!--/html_preserve--> dplyr::filter() -->
 
-<!--html_preserve--><div id="htmlwidget-f0fe880e6a42e58a6579" style="width:672px;height:480px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f0fe880e6a42e58a6579">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[52.46973,52.54012,52.49941,52.50779,52.49349,52.53905,52.48998,52.50619,52.48922,52.51729,52.49798,52.5471,52.54283,52.50027,52.53235,52.50398,52.53064,52.49006,52.50267,52.5331,52.54067,52.54344,52.52187,52.53498,52.53952,52.50453,52.49851,52.54038,52.48878],[13.39235,13.42193,13.42529,13.4226,13.42049,13.40173,13.33085,13.37759,13.33131,13.4121,13.33444,13.37089,13.42292,13.45813,13.32715,13.48594,13.28734,13.33171,13.36451,13.32778,13.35579,13.4213,13.39967,13.43383,13.42362,13.41376,13.34073,13.42299,13.42196],{"iconUrl":{"data":"https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","index":0},"iconRetinaUrl":{"data":"https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png","index":0},"iconWidth":18,"iconHeight":18},null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[52.46973,52.5471],"lng":[13.28734,13.48594]}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+<!-- Selecciona observaciones/filas según una condición -->
+
+<!-- ```{r eval=FALSE} -->
+<!-- mvd <- filter(h2018_sub, dpto == 1) -->
+<!-- mvd -->
+<!-- ``` -->
+
+
+<!-- ## Operadores -->
+
+<!-- <!-- https://github.com/jumanbar/Curso-R/blob/master/lecciones/2.1a-operadores-relacionales-y-logicos.R --> -->
+
+<!--  O lógico: **|** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los datos de Montevideo(1) y Canelones(3) -->
+<!-- filter(h2018_sub, dpto == 1 | dpto == 3) -->
+<!-- ``` -->
+
+<!--  Y lógico: **&** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los datos de hogares de Montevideo(1) y que pertenezcan a la sección "01" -->
+<!-- filter(h2018_sub, dpto == 1 & secc == "01") -->
+<!-- ``` -->
+
+
+<!--  No lógico: <!--html_preserve--><i class="fas  fa-exclamation "></i><!--/html_preserve--> -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los hogares que no pertenezcan a la sección "01" -->
+<!-- filter(h2018_sub, !secc == "01") -->
+<!-- ``` -->
+<!-- -- -->
+
+<!--  inclusión: **%in%** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # selecciono los datos en que el código de dpto esté incluido en el vector c(1,3,5) -->
+<!-- filter(h2018_sub, dpto %in% c(1, 3, 5)) -->
+<!-- ``` -->
+
+
+
+<!-- # <!--html_preserve--><i class="fas  fa-sort " style="color:#fc9272;"></i><!--/html_preserve--> dplyr::arrange() -->
+
+<!-- Ordena las observaciones según una variable -->
+<!-- ```{r eval=FALSE} -->
+<!-- arrange(h2018_sub, dpto) -->
+<!-- ``` -->
+
+<!-- Para ordenar de manera decreciente: -->
+<!-- ```{r eval=FALSE} -->
+<!-- arrange(h2018_sub, desc(dpto)) -->
+<!-- ``` -->
+
+<!-- Para ordenar por más de una variable: -->
+<!-- ```{r eval=FALSE} -->
+<!-- arrange(h2018_sub, desc(dpto), secc) -->
+<!-- ``` -->
+
+<!-- ```{r echo=FALSE} -->
+<!-- head(arrange(h2018_sub,desc(dpto), secc)) -->
+<!-- ``` -->
+
+
+<!-- # <!--html_preserve--><i class="fas  fa-calculator " style="color:#fc9272;"></i><!--/html_preserve--> dplyr::top_n() -->
+
+
+
+<!-- En el segundo caso el valor `0` iguala a 6 casos, y R devuelve todos los casos que impliquen empates para que el usuario decida como resolverlo.   -->
+
+
+<!-- # <!--html_preserve--><i class="fas  fa-calculator " style="color:#fc9272;"></i><!--/html_preserve--> dplyr::summarise() -->
+
+<!-- Calcula resumen de variables. -->
+
+<!-- Se puede utilizar cualquier función que cumpla con que lo datos de entrada sean numéricos y como salida se entregue una constante. -->
+
+<!-- Si la variable tiene datos faltantes se puede calcular el promedio sin considerarlos -->
+
+
+<!-- # ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/function.png) dplyr::mutate() -->
+
+<!-- Crea nuevas variables -->
+
+
+<!-- Es lo mismo que... -->
+
+
+<!-- - Para categorizar lo no incluido en las clases se puede usar:  `TRUE ~` (Ver ?case_when) -->
+
+
+<!-- # <!--html_preserve--><i class="fas  fa-table " style="color:#fc9272;"></i><!--/html_preserve--> dplyr::count() -->
+
+<!-- Calcula una tabla de frecuencias -->
+
+
+<!-- ## tally -->
+
+
+<!-- # <!--html_preserve--><i class="fas  fa-user-friends " style="color:#fc9272;"></i><!--/html_preserve-->  dplyr::group_by() -->
+
+<!-- - Permite hacer operaciones por grupos -->
+
+<!-- - Anidar funciones vuelve confuso el código... -->
+
+<!-- <img style="float: rigth;" src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tool.png"> -->
+
+<!-- # ![](https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/function.png) dplyr::n() -->
+
+<!-- - Esta función se implementa específicamente para cada fuente de datos y sólo se puede utilizar desde dentro de `summarise()`, `mutate()` y `filter()`. -->
+
+
+<!-- --- -->
+<!-- # join (merge) data frames -->
+
+<!-- .pull-left[ -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/full_join.png") -->
+<!-- ``` -->
+
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/left_join.png") -->
+<!-- ``` -->
+
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/inner_join.png") -->
+<!-- ``` -->
+
+
+<!-- ] -->
+
+<!-- .pull-rigth[ -->
+<!-- <br> -->
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/anti_join.png") -->
+<!-- ``` -->
+
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/rigth_join.png") -->
+<!-- ``` -->
+
+<!-- ```{r out.width = "180px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/semi_join.png") -->
+<!-- ``` -->
+
+<!-- ] -->
+
+<!-- --- -->
+<!-- # dplyr::full_join -->
+
+
+<!-- ```{r out.width = "600px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://github.com/gadenbuie/tidyexplain/blob/master/images/full-join.gif?raw=true") -->
+<!-- ``` -->
+
+
+<!-- --- -->
+<!-- # dplyr::semi_join() -->
+
+<!-- ```{r out.width = "600px" ,echo=FALSE} -->
+<!-- knitr::include_graphics("https://github.com/gadenbuie/tidyexplain/blob/master/images/semi-join.gif?raw=true") -->
+<!-- ``` -->
+
+<!-- --- -->
+<!-- # Join base personas y hogares -->
+
+<!-- Variable que identifica las observaciones en base hogares: 'numero' -->
+<!-- Variable que identifica las observaciones en base personas: 'numero' e 'id' -->
+
+<!-- ```{r eval = FALSE} -->
+<!-- # importo base de personas -->
+<!-- p2018 <- haven::read_sav("data/P_2018_Terceros.sav") -->
+<!-- # reviso dimensiones -->
+<!-- dim(p2018) -->
+<!-- dim(h2018) -->
+
+<!-- # fusiono las bases por la variable 'numero' -->
+<!-- hp2018 <- left_join(h2018, p2018, by = "numero") -->
+<!-- # reviso dimensiones -->
+<!-- dim(hp2018) -->
+<!-- ``` -->
 

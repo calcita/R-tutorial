@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 Introducción | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 Introducción | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Gabriela Mathieu" />
 
 
-<meta name="date" content="2019-11-26" />
+<meta name="date" content="2020-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="script.html"/>
+<link rel="next" href="curva-de-aprendizaje.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,14 +50,7 @@
 
 
 
-<script src="libs/htmlwidgets-1.5/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -141,32 +134,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
 <li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
-<li class="chapter" data-level="2" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>2</b> Script</a><ul>
-<li class="chapter" data-level="2.1" data-path="script.html"><a href="script.html#nuevo-script"><i class="fa fa-check"></i><b>2.1</b> Nuevo script</a></li>
-<li class="chapter" data-level="2.2" data-path="script.html"><a href="script.html#primeros-comandos"><i class="fa fa-check"></i><b>2.2</b> Primeros comandos</a></li>
-<li class="chapter" data-level="2.3" data-path="script.html"><a href="script.html#consejos"><i class="fa fa-check"></i><b>2.3</b> Consejos</a></li>
-<li class="chapter" data-level="2.4" data-path="script.html"><a href="script.html#atajos-de-teclado"><i class="fa fa-check"></i><b>2.4</b> Atajos de teclado</a></li>
+<li class="chapter" data-level="2" data-path="curva-de-aprendizaje.html"><a href="curva-de-aprendizaje.html"><i class="fa fa-check"></i><b>2</b> Curva de aprendizaje</a></li>
+<li class="chapter" data-level="3" data-path="ayuda.html"><a href="ayuda.html"><i class="fa fa-check"></i><b>3</b> Ayuda</a></li>
+<li class="chapter" data-level="4" data-path="consola.html"><a href="consola.html"><i class="fa fa-check"></i><b>4</b> Consola</a><ul>
+<li class="chapter" data-level="4.1" data-path="consola.html"><a href="consola.html#prompt"><i class="fa fa-check"></i><b>4.1</b> Prompt</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="r-y-rstudio.html"><a href="r-y-rstudio.html"><i class="fa fa-check"></i><b>3</b> R y Rstudio</a><ul>
-<li class="chapter" data-level="3.1" data-path="r-y-rstudio.html"><a href="r-y-rstudio.html#instalación"><i class="fa fa-check"></i><b>3.1</b> Instalación</a></li>
-<li class="chapter" data-level="3.2" data-path="r-y-rstudio.html"><a href="r-y-rstudio.html#actualización-de-versiones"><i class="fa fa-check"></i><b>3.2</b> Actualización de versiones</a></li>
+<li class="chapter" data-level="5" data-path="rstudio.html"><a href="rstudio.html"><i class="fa fa-check"></i><b>5</b> Rstudio</a></li>
+<li class="chapter" data-level="6" data-path="script.html"><a href="script.html"><i class="fa fa-check"></i><b>6</b> Script</a><ul>
+<li class="chapter" data-level="6.1" data-path="script.html"><a href="script.html#nuevo-script"><i class="fa fa-check"></i><b>6.1</b> Nuevo script</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>4</b> Data</a><ul>
-<li class="chapter" data-level="4.1" data-path="data.html"><a href="data.html#gds"><i class="fa fa-check"></i><b>4.1</b> GDS</a></li>
-<li class="chapter" data-level="4.2" data-path="data.html"><a href="data.html#paquetes"><i class="fa fa-check"></i><b>4.2</b> Paquetes</a></li>
-<li class="chapter" data-level="4.3" data-path="data.html"><a href="data.html#sf"><i class="fa fa-check"></i><b>4.3</b> sf</a></li>
-<li class="chapter" data-level="4.4" data-path="data.html"><a href="data.html#st_read"><i class="fa fa-check"></i><b>4.4</b> st_read()</a></li>
-<li class="chapter" data-level="4.5" data-path="data.html"><a href="data.html#importar-shapes"><i class="fa fa-check"></i><b>4.5</b> Importar shapes</a></li>
-<li class="chapter" data-level="4.6" data-path="data.html"><a href="data.html#mapa-de-coropletas"><i class="fa fa-check"></i><b>4.6</b> Mapa de coropletas</a></li>
-<li class="chapter" data-level="4.7" data-path="data.html"><a href="data.html#encoding"><i class="fa fa-check"></i><b>4.7</b> Encoding</a></li>
-<li class="chapter" data-level="4.8" data-path="data.html"><a href="data.html#expresiones-regulares"><i class="fa fa-check"></i><b>4.8</b> Expresiones regulares</a></li>
-<li class="chapter" data-level="4.9" data-path="data.html"><a href="data.html#ggplot2"><i class="fa fa-check"></i><b>4.9</b> ggplot2</a></li>
-<li class="chapter" data-level="4.10" data-path="data.html"><a href="data.html#leaflet"><i class="fa fa-check"></i><b>4.10</b> leaflet</a></li>
-<li class="chapter" data-level="4.11" data-path="data.html"><a href="data.html#leaflet-1"><i class="fa fa-check"></i><b>4.11</b> leaflet()</a></li>
-<li class="chapter" data-level="4.12" data-path="data.html"><a href="data.html#leaflet-2"><i class="fa fa-check"></i><b>4.12</b> leaflet</a></li>
-<li class="chapter" data-level="4.13" data-path="data.html"><a href="data.html#mapa"><i class="fa fa-check"></i><b>4.13</b> Mapa</a></li>
-<li class="chapter" data-level="4.14" data-path="data.html"><a href="data.html#alojamientos-berlin"><i class="fa fa-check"></i><b>4.14</b> Alojamientos Berlin</a></li>
-<li class="chapter" data-level="4.15" data-path="data.html"><a href="data.html#alojamientos-berlin-1"><i class="fa fa-check"></i><b>4.15</b> Alojamientos Berlin</a></li>
+<li class="chapter" data-level="7" data-path="cómo-interactuamos-con-r.html"><a href="cómo-interactuamos-con-r.html"><i class="fa fa-check"></i><b>7</b> ¿Cómo interactuamos con R?</a><ul>
+<li class="chapter" data-level="7.1" data-path="cómo-interactuamos-con-r.html"><a href="cómo-interactuamos-con-r.html#primeros-comandos"><i class="fa fa-check"></i><b>7.1</b> Primeros comandos</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="funciones.html"><a href="funciones.html"><i class="fa fa-check"></i><b>8</b> Funciones</a></li>
+<li class="chapter" data-level="9" data-path="paquetes.html"><a href="paquetes.html"><i class="fa fa-check"></i><b>9</b> Paquetes</a><ul>
+<li class="chapter" data-level="9.1" data-path="paquetes.html"><a href="paquetes.html#consejos"><i class="fa fa-check"></i><b>9.1</b> Consejos</a></li>
+<li class="chapter" data-level="9.2" data-path="paquetes.html"><a href="paquetes.html#atajos-de-teclado"><i class="fa fa-check"></i><b>9.2</b> Atajos de teclado</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>10</b> Objetos</a><ul>
+<li class="chapter" data-level="10.1" data-path="objetos.html"><a href="objetos.html#tipo-de-objetos"><i class="fa fa-check"></i><b>10.1</b> Tipo de objetos</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="c.html"><a href="c.html"><i class="fa fa-check"></i><b>11</b> c()</a></li>
+<li class="chapter" data-level="12" data-path="vector.html"><a href="vector.html"><i class="fa fa-check"></i><b>12</b> Vector</a></li>
+<li class="chapter" data-level="13" data-path="vector-1.html"><a href="vector-1.html"><i class="fa fa-check"></i><b>13</b> Vector</a></li>
+<li class="chapter" data-level="14" data-path="data-frame.html"><a href="data-frame.html"><i class="fa fa-check"></i><b>14</b> Data frame</a><ul>
+<li class="chapter" data-level="14.1" data-path="data-frame.html"><a href="data-frame.html#explorar-los-datos"><i class="fa fa-check"></i><b>14.1</b> Explorar los datos</a></li>
+<li class="chapter" data-level="14.2" data-path="data-frame.html"><a href="data-frame.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>14.2</b> Guardar objeto en formato Rdata</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>15</b> Tidyverse</a><ul>
+<li class="chapter" data-level="15.1" data-path="tidyverse.html"><a href="tidyverse.html#paquetes-1"><i class="fa fa-check"></i><b>15.1</b> Paquetes</a></li>
+<li class="chapter" data-level="15.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>15.2</b> dplyr</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>16</b> Trabajar en proyecto</a><ul>
+<li class="chapter" data-level="16.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>16.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="16.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>16.2</b> Abrir proyecto</a></li>
+<li class="chapter" data-level="16.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>16.3</b> Crear script</a></li>
+<li class="chapter" data-level="16.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>16.4</b> Flujo de trabajo</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>17</b> Análisis de datos</a></li>
+<li class="chapter" data-level="18" data-path="paquetes-2.html"><a href="paquetes-2.html"><i class="fa fa-check"></i><b>18</b> Paquetes</a></li>
+<li class="chapter" data-level="19" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>19</b> Pipe: <strong>%&gt;%</strong></a><ul>
+<li class="chapter" data-level="19.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>19.1</b> ¿Cómo sería preparar un mate en R?</a></li>
+<li class="chapter" data-level="19.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>19.2</b> %&gt;%</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -190,6 +199,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="introducción" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introducción</h1>
+<p>¿Qué es R?</p>
+<p><i class="fas  fa-chart-area fa-2x " style="color:#756bb1;"></i> Programa estadístico: análisis</p>
+<p><i class="fas  fa-code fa-2x " style="color:#2c7fb8;"></i> Lenguaje de programación: sintaxis</p>
+<p><i class="fab  fa-creative-commons-nc fa-2x " style="color:#636363;"></i> Software gratuito, se desacarga desde <a href="http://www.r-project.org">CRAN</a></p>
+<p><i class="fab  fa-osi fa-2x " style="color:#31a354;"></i> Software libre: licencia <a href="https://es.wikipedia.org/wiki/GNU_General_Public_License">GNU</a>. Libertad de uso, modificación y distribución.</p>
+<p><i class="fab  fa-github fa-2x "></i> Comunidad mundial: lo usa y mejora. Casi 20.000 paquetes en <a href="(https://cran.r-project.org/web/packages/)">CRAN</a> y <a href="https://github.com/">github</a></p>
+<p><i class="fab  fa-meetup fa-2x " style="color:#de2d26;"></i> Comunidad en Uruguay: <a href="https://www.meetup.com/es-ES/rladies-montevideo/">meetup R-Ladies</a> y <a href="https://www.meetup.com/es-ES/GURU-mvd/">meetup GURU</a></p>
 </div>
             </section>
 
@@ -197,7 +213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="script.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="curva-de-aprendizaje.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -216,12 +232,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -233,6 +248,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
