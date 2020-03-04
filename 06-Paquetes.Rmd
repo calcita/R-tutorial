@@ -2,15 +2,52 @@
 
 La instalación de un paquete se realiza una única vez en la computadora. Para poder usar un paquete en determinada sesión de R, es necesario cargarlo cada vez que se abre Rstudio.
 
+## Instalar paquetes desde CRAN
+
 * Para instalar un paquete desde el repositorio oficial 
+
+```{r echo=TRUE, eval=FALSE}
+# instalamos el paquete 'readr' desde el repositorio CRAN
+# se hace una única vez
+install.packages("<NOMBRE PAQUETE>") 
+```
+Por ejemplo, para instalar el paquete 'readr' ejecutamos lo siguiente:
 
 ```{r echo=TRUE, eval=FALSE}
 # instalamos el paquete 'readr' desde el repositorio CRAN
 # se hace una única vez
 install.packages("readr") 
 ```
-		
-* Para instalar un paquete desde github
+
+Para instalar más de un paquete a la vez, es necesario concatenar los nombres de los paquetes en un vector, para ello, usamos la función c().
+
+```{r echo=TRUE, eval=FALSE}
+# instalamos el paquete 'readr' desde el repositorio CRAN
+# se hace una única vez
+install.packages(c("<NOMBRE PAQUETE>", "<NOMBRE PAQUETE>")) 
+```
+
+Por ejemplo, podemos instalar 'readr' y 'haven':
+
+```{r echo=TRUE, eval=FALSE}
+# instalamos el paquete 'readr' desde el repositorio CRAN
+# se hace una única vez
+install.packages("readr", "haven") 
+```
+
+## Instalar paquetes desde github
+
+
+Si en lugar de cargarlo del repositorio oficial, porque allí no se encuentra o bien por que queremos instalar una versión más reciente, debemos usar el paquete devtools (debe estar instalado) y usar la función install.github(), si el paquete está alojado en github (es lo más común). Como único argumento de la función, entre comillas, indicamos nombre de usuarix de quien lo desarrolló y nombre del paquete:
+
+
+```{r echo=TRUE, eval=FALSE}
+# instalamos el paquete 'readr' alojado en github
+# es del usuario hadley (Hadley Wickham). 
+devtools::install.github("/<NOMBRE USUARIX>/<NOMBRE PAQUETE>") 
+```
+
+En el caso del paquete 'readr' desarrollado por Hadley Wickham, está alojado en github y el usuario es 'hadley'. 
 
 ```{r echo=TRUE, eval=FALSE}
 # instalamos el paquete 'readr' alojado en github
@@ -18,7 +55,9 @@ install.packages("readr")
 devtools::install.github("/hadley/readr") 
 ```
 
-* Para que quede disponible debemos cargarlo en cada sesión
+## Cargar
+
+* Para que un paquete quede disponible debemos cargarlo en cada sesión (cada vez que abrimos Rstudio), usando la función library() e indicando como único argumento el nombre del paquete, esta vez sin comillas.
 
 ```{r echo=TRUE, eval=FALSE}
 library(readr) 
