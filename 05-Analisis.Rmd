@@ -1,11 +1,18 @@
 # Análisis de datos
 
-Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en [Inside Airbnb](http://data.insideairbnb.com/spain/catalonia/barcelona/2019-11-09/visualisations/listings.csv)
+Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en [Inside Airbnb](http://data.insideairbnb.com)
 
-Accedemos a los datos desde la url. 
+<!-- http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/neighbourhoods.geojson -->
+
+Accedemos a los datos desde la url o de manera local si ya los descargamos en la computadora. Está disponible el listado de alojamientos con sus características en un archivo csv y la información geográfica de los barrios en un formato geojson. Primero trabajaremos con el listado de alojamientos.
 
 ```{r}
-datos <- readr::read_csv(url("http://data.insideairbnb.com/spain/catalonia/barcelona/2019-11-09/visualisations/listings.csv"))
+datos <- read.csv("http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/listings.csv")
+
+```
+
+```{r}
+datos <- readr::read_csv("http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/listings.csv")
 
 ```
 
@@ -15,7 +22,53 @@ Pero si previamente los bajamos, podemos importarlos desde la carpeta data del p
 datos <- readr::read_csv("data/listings.csv")
 ```
 
+```{r eval=FALSE}
+head(datos)
+View(datos)
 
+summary(datos)
+names(datos)
+
+```
+
+Tabla de variables
+
+| Variable | Tipo | Descripción |
+|----------|----------|-----------|
+|id | identificador del alojamiento| numérica |
+|name | nombre del alojamiento| texto |
+|host_id | identificador de la persona anfitriona| numérica|
+|host_name | nombre de la persona anfitriona | texto |
+|neighbourhood_group | nombre del barrio agrupado | texto |
+|neighbourhood | nombre del barrio|texto |
+|latitude | latitud| numérica |
+|longitud | longuitud| numérica |
+|room_type | tipo de habitación| texto |
+|price | precio| numérica |
+|minimum_nights | cantidad mínima de noches| numérica |
+|number_of_reviews |cantidad de evaluaciones | numérica |
+|last_review | última evaluación| fecha |
+|reviews_per_month | evaluaciones por mes| numérica |
+|calculated_host_listings_count | | |
+|availability_365 | disponibilidad en el  año | numérica |
+
+Exploremos una variable character como lo es room_type y una numeric como price.
+
+```{r}
+ggplot(data = datos) + 
+  geom_boxplot(
+    mapping = aes(x = price)
+  )
+```
+
+ggplot(data = <DATOS>) +
+<GEOM_FUNCIÓN>(
+  mapping = aes(<MAPEOS>),
+  stat = <ESTADÍSTICAS>,
+  position = <POSICIÓN>
+) +
+<FUNCIÓN_COORDENADAS> +
+<FUNCIÓN_FACETAS>
 
 <!-- ## GDS -->
 
