@@ -1,5 +1,5 @@
 --- 
-title: "R para análisis de datos y publicaciones"
+title: "R para análisis de datos"
 author: "Gabriela Mathieu"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site

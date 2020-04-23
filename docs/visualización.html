@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 5 Análisis de datos | R para análisis de datos y publicaciones</title>
+  <title>Capítulo 6 Visualización | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 5 Análisis de datos | R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Capítulo 6 Visualización | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 5 Análisis de datos | R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Capítulo 6 Visualización | R para análisis de datos y publicaciones" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="trabajar-en-proyecto.html"/>
-<link rel="next" href="visualización.html"/>
+<link rel="prev" href="análisis-de-datos.html"/>
+<link rel="next" href="paquetes-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -205,172 +205,204 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="análisis-de-datos" class="section level1">
-<h1><span class="header-section-number">Capítulo 5</span> Análisis de datos</h1>
-<center>
-<img src="images/barcelona/201706_Barcelona_088_lnz.jpg" alt="Barcelona" />
-</center>
-<p>Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en <a href="http://data.insideairbnb.com">Inside Airbnb</a>. La elección de los datos no responde a hacerle publicidad a esta empresa, simplemente los elegí porque contiene variables interesantes.</p>
-<!-- http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/neighbourhoods.geojson -->
-<p>Accedemos a los datos desde la url o de manera local si ya los descargamos en la computadora. Está disponible el listado de alojamientos con sus características en un archivo csv y la información geográfica de los barrios en un formato geojson. Primero trabajaremos con el listado de alojamientos.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">ruta &lt;-<span class="st"> &quot;http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/listings.csv&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(ruta)</a></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">datos &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(ruta)</a></code></pre></div>
-<p>Pero si previamente los bajamos, podemos importarlos desde la carpeta data del proyecto</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">datos &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;data/listings.csv&quot;</span>)</a></code></pre></div>
-<p>Lo primero que conviene hacer, sobre todo si no hemos trabajado antes con estos datos, es explorarlos. Las funciones básicas que dispone R para esto son las siguientes:</p>
-<ul>
-<li>head(): muestra los primeros casos. Por defecto, los primeros 6.</li>
-<li>tail(): muestra los últimos 6 casos. Por defecto, los últimos 6.</li>
-<li>View(): para mirar la base, como si abriéramos el archivo. Si es muy grande no se mostrarán todas filas ni todas las variables.</li>
-<li>summary(): brinda un resumen estadístico de cada variable cuando se aplica a un data.frame o de la variable en particular indicada. Si la variable es numérica se muestra el mínimo, máximo y los cuartiles. En caso de una variable de texto se muestra una tabla de los valores que toma.</li>
-<li>names(): brinda el listado de nombres de variables.</li>
-</ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># primeros casos</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">head</span>(datos)</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># ver los datos</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="kw">View</span>(datos)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># resumen estadistico</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw">summary</span>(datos)</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># nombres de variables</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="kw">names</span>(datos)</a></code></pre></div>
-<p>Acá puedes ver la descripción de las variables que contiene la base.</p>
-<p><strong>Tabla de variables</strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>Variable</th>
-<th>Tipo</th>
-<th>Descripción</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>id</td>
-<td>identificador del alojamiento</td>
-<td>numérica</td>
-</tr>
-<tr class="even">
-<td>name</td>
-<td>nombre del alojamiento</td>
-<td>texto</td>
-</tr>
-<tr class="odd">
-<td>host_id</td>
-<td>identificador de la persona anfitriona</td>
-<td>numérica</td>
-</tr>
-<tr class="even">
-<td>host_name</td>
-<td>nombre de la persona anfitriona</td>
-<td>texto</td>
-</tr>
-<tr class="odd">
-<td>neighbourhood_group</td>
-<td>nombre del barrio agrupado</td>
-<td>texto</td>
-</tr>
-<tr class="even">
-<td>neighbourhood</td>
-<td>nombre del barrio</td>
-<td>texto</td>
-</tr>
-<tr class="odd">
-<td>latitude</td>
-<td>latitud</td>
-<td>numérica</td>
-</tr>
-<tr class="even">
-<td>longitud</td>
-<td>longuitud</td>
-<td>numérica</td>
-</tr>
-<tr class="odd">
-<td>room_type</td>
-<td>tipo de habitación</td>
-<td>texto</td>
-</tr>
-<tr class="even">
-<td>price</td>
-<td>precio</td>
-<td>numérica</td>
-</tr>
-<tr class="odd">
-<td>minimum_nights</td>
-<td>cantidad mínima de noches</td>
-<td>numérica</td>
-</tr>
-<tr class="even">
-<td>number_of_reviews</td>
-<td>cantidad de evaluaciones</td>
-<td>numérica</td>
-</tr>
-<tr class="odd">
-<td>last_review</td>
-<td>última evaluación</td>
-<td>fecha</td>
-</tr>
-<tr class="even">
-<td>reviews_per_month</td>
-<td>evaluaciones por mes</td>
-<td>numérica</td>
-</tr>
-<tr class="odd">
-<td>calculated_host_listings_count</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>availability_365</td>
-<td>disponibilidad en el año</td>
-<td>numérica</td>
-</tr>
-</tbody>
-</table>
-<p>Exploremos una variable character como lo es <em>room_type</em> y una numeric como <em>price</em>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> datos) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> price)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  )</a></code></pre></div>
-<div id="paquete-dplyr" class="section level2">
-<h2><span class="header-section-number">5.1</span> Paquete dplyr</h2>
-</div>
-<div id="seleccionar-filas" class="section level2">
-<h2><span class="header-section-number">5.2</span> Seleccionar filas</h2>
-</div>
-<div id="seleccionar-columnas" class="section level2">
-<h2><span class="header-section-number">5.3</span> Seleccionar columnas</h2>
-</div>
-<div id="renombrar-variables" class="section level2">
-<h2><span class="header-section-number">5.4</span> Renombrar variables</h2>
-</div>
-<div id="ordenar-casos-por-cierta-variable" class="section level2">
-<h2><span class="header-section-number">5.5</span> Ordenar casos por cierta variable</h2>
-</div>
-<div id="modificar-o-crear-una-nueva-variable" class="section level2">
-<h2><span class="header-section-number">5.6</span> Modificar o crear una nueva variable</h2>
-</div>
-<div id="agrupar-casos" class="section level2">
-<h2><span class="header-section-number">5.7</span> Agrupar casos</h2>
-</div>
-<div id="resumir-los-datos" class="section level2">
-<h2><span class="header-section-number">5.8</span> Resumir los datos</h2>
-</div>
-<div id="operadores-lógicos" class="section level2">
-<h2><span class="header-section-number">5.9</span> Operadores lógicos</h2>
+<div id="visualización" class="section level1">
+<h1><span class="header-section-number">Capítulo 6</span> Visualización</h1>
+<!-- ggplot(data = <DATOS>) + -->
+<!-- <GEOM_FUNCIÓN>( -->
+<!--   mapping = aes(<MAPEOS>), -->
+<!--   stat = <ESTADÍSTICAS>, -->
+<!--   position = <POSICIÓN> -->
+<!-- ) + -->
+<!-- <FUNCIÓN_COORDENADAS> + -->
+<!-- <FUNCIÓN_FACETAS> -->
+<!-- ## GDS -->
+<!-- - R no es un SIG (Sistemas de Información Geográficos) -->
+<!-- - R permite hacer Ciencia de Datos Geográficos (SDG) -->
+<!-- | Atributos     | SIG | SDG | -->
+<!-- |---------------|:-------------:|:-------------:| -->
+<!-- |Disciplinas | Geografía | Geografía, Computación, Estadística| -->
+<!-- | Foco | Interfaz Gráfica | Código | -->
+<!-- | Reproducibilidad | Mínimo | Máximo | -->
+<!-- ## Paquetes -->
+<!-- - sp, sf: para manejar información espacial vectorial -->
+<!-- - raster: para trabajar con rasters -->
+<!-- - ggplot2, rasterVis, tmap, leaflet, o mapview: para visualizar información espacial -->
+<!-- - Es sencillo conectar R con programas SIG: GRASS GIS (rgrass7), SAGA (RSAGA), QGIS (RQGIS y qgisremote), incluso ArcGIS (arcgisbinding). -->
+<!-- ## sf  -->
+<!-- Combina las funcionalidades de 3 paquetes: **sp**, **rgeos** y **rgdal** -->
+<!-- Ventajas respecto a otros paquetes:  -->
+<!-- Mayor **velocidad** para importar y exportar los datos -->
+<!-- Más tipos de **geometrías** soportadas -->
+<!-- **Compatibilidad** con tidyverse. Funciona el pipe! -->
+<!-- El paquete **sp** es predecesor de sf. -->
+<!-- Muchos paquetes espaciales de R todavía dependen del paquete sp, por lo tanto, es importante saber cómo **convertir**. -->
+<!-- Convertir objetos  **sf** a **sp** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # Para transformar de SF a SP -->
+<!-- objeto.sp <- as(objeto.sf, "Spatial") -->
+<!-- ``` -->
+<!-- Convertir objetos  **sp** a **sf** -->
+<!-- ```{r eval=FALSE} -->
+<!-- # Para transformar de SP a SF -->
+<!-- objeto.sf <- st_as_sf(objeto.sp) -->
+<!-- ``` -->
+<!-- ## st_read() -->
+<!-- Los objetos sf tienen una clase que combina **'data.frame'** y **'sf'** -->
+<!-- Los objetos sf también tienen una columna especial que contiene los datos de geometría, usualmente llamado 'geom' o **'geometry'**. -->
+<!-- Las funciones del paquete **dplyr** se pueden aplicar. Para saber la totalidad de funciones que son aplicables a un objeto de **clase 'sf'** consultar **methods()**. -->
+<!-- Para la unión de objetos espaciales se usa **st_join(x, y)**. El método de join utilizado es siempre left join, manteniendo los registros del primer atributo. -->
+<!-- ## Importar shapes -->
+<!-- Los shapes con límites de los barrios de Berlin los obtenemos [aquí](http://geoserver01.uit.tufts.edu/wfs?outputformat=SHAPE-ZIP&request=GetFeature&service=wfs&srsName=EPSG%3A4326&typeName=sde%3AGISPORTAL.GISOWNER01.BERLIN_BEZIRKE_BOROUGHS01&version=2.0.0). -->
+<!-- Para trabajar descomprimimos el zip y dejamos los 5 archivos en una misma carpeta. -->
+<!-- ```{r eval=FALSE} -->
+<!-- # cargo paquete -->
+<!-- library(sf) -->
+<!-- # importo shapes -->
+<!-- unzip("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.zip", exdir = "data/")  -->
+<!-- barrios <- st_read("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp", stringsAsFactors = FALSE) -->
+<!-- # consulto clase  -->
+<!-- class(barrios) -->
+<!-- ``` -->
+<!-- ```{r eval=FALSE} -->
+<!-- # consulto métodos -->
+<!-- methods(class = "sf") -->
+<!-- ``` -->
+<!-- ## Mapa de coropletas -->
+<!-- - [Buenas prácticas](https://blog.datawrapper.de/choroplethmaps/) -->
+<!-- - Es un **mapa temático** en el que las regiones se colorean de un motivo que muestra una **medida estadística**. -->
+<!-- ## Encoding -->
+<!-- ```{r } -->
+<!-- library(stringi) -->
+<!-- ``` -->
+<!-- ```{r eval=FALSE} -->
+<!-- # con qué encoding vienen los datos? -->
+<!-- stri_enc_mark(barrios$BezName) -->
+<!-- ``` -->
+<!-- ```{r eval=FALSE} -->
+<!-- library(dplyr) -->
+<!-- # defino que los lea como 'ISO-8859-1' y pase a 'UTF-8' -->
+<!-- barrios <- barrios %>% -->
+<!--            mutate(BezName = stri_conv(BezName, from = 'ISO-8859-1', to = 'UTF-8', to_raw = FALSE)) -->
+<!-- head(barrios$BezName,12) -->
+<!-- ``` -->
+<!-- ## Expresiones regulares -->
+<!-- ```{r eval=FALSE} -->
+<!-- # los barrios están escritos igual? -->
+<!-- table(unique(listings$neighbourhood_group) %in% barrios$BezName) -->
+<!-- # busco la expresión y reemplazo -->
+<!-- library(stringr) -->
+<!-- large <- barrios$BezName -->
+<!-- small <- listings$neighbourhood_group -->
+<!-- berlin <- listings %>% mutate(neighbourhood_group = stri_replace(str = small,regex = small, replacement = large , mode="all")) -->
+<!-- # chequeo -->
+<!-- table(unique(berlin$neighbourhood_group) %in% barrios$BezName) -->
+<!-- ``` -->
+<!-- Uno los data frame listings  y ratings para agregar la variable 'review_score' -->
+<!-- ```{r eval=FALSE} -->
+<!-- berlin <- left_join(berlin, ratings, by = "id") -->
+<!-- ``` -->
+<!-- ## ggplot2 -->
+<!-- ```{r eval=FALSE} -->
+<!-- # cuento la cantidad de alojamientos por barrios -->
+<!-- bn <- berlin %>% -->
+<!--   group_by(neighbourhood_group) %>% -->
+<!--   summarise(median_price = median(price)) -->
+<!-- # uno berlin con el objeto espacial barrios -->
+<!-- bn <- left_join(bn, barrios, by = c("neighbourhood_group"="BezName")) -->
+<!-- # calculo centroides de los polígonos -->
+<!-- latlong_mean <-  barrios %>% st_centroid(geometry) -->
+<!-- # convierto la geometría en 2 vectores -->
+<!-- latlong_mean <- st_coordinates(latlong_mean$geometry) -->
+<!-- latlong_mean <- tibble(latlong_mean[,1], latlong_mean[,2]) -->
+<!-- names(latlong_mean) <- c('lat', 'lon') -->
+<!-- bn <- bind_cols(bn, latlong_mean) -->
+<!-- library(ggplot2) -->
+<!-- mapa<- ggplot(bn) + -->
+<!--        geom_sf(aes(fill = median_price)) + -->
+<!--        geom_text(aes(x = lat, y = lon, label = neighbourhood_group),  size = 3, hjust = 0.5)+ -->
+<!--       scale_fill_viridis_c("# Alojamientos", option = "D") + -->
+<!--       ggtitle("Alojamientos Airbnb por barrios de Berlin") + -->
+<!--       theme_void() -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- ## leaflet -->
+<!-- - El paquete leaflet es una extensión java script para R que permite hacer mapas interactivos. -->
+<!-- - [Tutorial](https://rstudio.github.io/leaflet/) para comenzar. -->
+<!-- ## leaflet() -->
+<!-- | Función      | Descripción | -->
+<!-- |---------------|:---------------------------------------:| -->
+<!-- | leaflet()    |crea el objeto leaflet  | -->
+<!-- | addTiles() |  define el mapa de base, por defecto utiliza OpenStreetMap. [Opciones](http://leaflet-extras.github.io/leaflet-providers/preview/) | -->
+<!-- | setView() | define por centroide y zoom | -->
+<!-- | addMarkers() | marcadores a partir de una capa espacial o de pares de coordenadas.| -->
+<!-- El orden de los comandos es importante. -->
+<!-- ## leaflet -->
+<!-- ```{r eval=FALSE} -->
+<!-- library(leaflet) -->
+<!-- contenido <- paste(sep = "<br/>", -->
+<!--                paste0("<img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Estadio_Centenario_%28vista_a%C3%A9rea%29.jpg", "' />"), -->
+<!--                paste0("<b>Name: </b>", "Estadio Centenario"), -->
+<!--                paste0("<b>Place: </b>", "Montevideo, Uruguay"), -->
+<!--                paste0("<a href='https://es.wikipedia.org/wiki/Estadio_Centenario", "'>Link</a>")) -->
+<!-- mapa <- leaflet() %>% -->
+<!--         addTiles() %>% -->
+<!--         addMarkers(lng = -56.159158, lat = -34.888494, -->
+<!--                    popup = contenido) -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- ## Mapa -->
+<!-- ```{r echo=FALSE, eval=FALSE} -->
+<!-- library(leaflet) -->
+<!-- mapa <- leaflet() %>% -->
+<!--         addTiles() %>% -->
+<!--         addMarkers(lng = -56.15253, lat = -34.89445, -->
+<!--                    popup ="Estadio Centenario") -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- ## Alojamientos Berlin -->
+<!-- ```{r eval=FALSE} -->
+<!-- # Alojamientos caros de Airbnb en Berlin -->
+<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
+<!-- # de sf a sp -->
+<!-- barrios.sp <- as(barrios, "Spatial") -->
+<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
+<!-- library(leaflet) -->
+<!-- airbnb = makeIcon("https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","/https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png", 18, 18) -->
+<!-- mapa <- leaflet(data = barrios.sp) %>% -->
+<!--         #setView() -->
+<!--         addTiles() %>% -->
+<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb) -->
+<!--         #addCircles() -->
+<!--         #addLegend() -->
+<!-- mapa -->
+<!-- ``` -->
+<!-- ## Alojamientos Berlin -->
+<!-- ```{r echo=FALSE, eval=FALSE} -->
+<!-- # Alojamientos caros de Airbnb en Berlin -->
+<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
+<!-- # de sf a sp -->
+<!-- barrios.sp <- as(barrios, "Spatial") -->
+<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
+<!-- library(leaflet) -->
+<!-- airbnb = makeIcon("https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png", 18, -->
+<!--            18) -->
+<!-- mapa <- leaflet(data = barrios.sp) %>% -->
+<!--         #setView() -->
+<!--         addTiles() %>% -->
+<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb) -->
+<!--         #addCircles() -->
+<!--         #addLegend() -->
+<!-- mapa -->
+<!-- ``` -->
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="trabajar-en-proyecto.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="visualización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="análisis-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="paquetes-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

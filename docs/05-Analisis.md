@@ -1,34 +1,29 @@
 # Análisis de datos
 
-Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en [Inside Airbnb](http://data.insideairbnb.com/spain/catalonia/barcelona/2019-11-09/visualisations/listings.csv)
+<center>
+![Barcelona](images/barcelona/201706_Barcelona_088_lnz.jpg)
+</center>
 
-Accedemos a los datos desde la url. 
+Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en [Inside Airbnb](http://data.insideairbnb.com). La elección de los datos no responde a hacerle publicidad a esta empresa, simplemente los elegí porque contiene variables interesantes.
+
+<!-- http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/neighbourhoods.geojson -->
+
+Accedemos a los datos desde la url o de manera local si ya los descargamos en la computadora. Está disponible el listado de alojamientos con sus características en un archivo csv y la información geográfica de los barrios en un formato geojson. Primero trabajaremos con el listado de alojamientos.
 
 
 ```r
-datos <- readr::read_csv(url("http://data.insideairbnb.com/spain/catalonia/barcelona/2019-11-09/visualisations/listings.csv"))
+ruta <- "http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/listings.csv"
 ```
 
+
+```r
+datos <- read.csv(ruta)
 ```
-## Parsed with column specification:
-## cols(
-##   id = col_double(),
-##   name = col_character(),
-##   host_id = col_double(),
-##   host_name = col_character(),
-##   neighbourhood_group = col_character(),
-##   neighbourhood = col_character(),
-##   latitude = col_double(),
-##   longitude = col_double(),
-##   room_type = col_character(),
-##   price = col_double(),
-##   minimum_nights = col_double(),
-##   number_of_reviews = col_double(),
-##   last_review = col_date(format = ""),
-##   reviews_per_month = col_double(),
-##   calculated_host_listings_count = col_double(),
-##   availability_365 = col_double()
-## )
+
+
+
+```r
+datos <- readr::read_csv(ruta)
 ```
 
 Pero si previamente los bajamos, podemos importarlos desde la carpeta data del proyecto
@@ -37,270 +32,77 @@ Pero si previamente los bajamos, podemos importarlos desde la carpeta data del p
 ```r
 datos <- readr::read_csv("data/listings.csv")
 ```
+Lo primero que conviene hacer, sobre todo si no hemos trabajado antes con estos datos, es explorarlos. Las funciones básicas que dispone R para esto son las siguientes:
 
+- head(): muestra los primeros casos. Por defecto, los primeros 6.
+- tail(): muestra los últimos 6 casos. Por defecto, los últimos 6.
+- View(): para mirar la base, como si abriéramos el archivo. Si es muy grande no se mostrarán todas filas ni todas las variables.
+- summary(): brinda un resumen estadístico de cada variable cuando se aplica a un data.frame o de la variable en particular indicada. Si la variable es numérica se muestra el mínimo, máximo y los cuartiles. En caso de una variable de texto se muestra una tabla de los valores que toma. 
+- names(): brinda el listado de nombres de variables.
 
 
-<!-- ## GDS -->
+```r
+# primeros casos
+head(datos)
 
-<!-- - R no es un SIG (Sistemas de Información Geográficos) -->
+# ver los datos
+View(datos)
 
-<!-- - R permite hacer Ciencia de Datos Geográficos (SDG) -->
+# resumen estadistico
+summary(datos)
 
-<!-- | Atributos     | SIG | SDG | -->
-<!-- |---------------|:-------------:|:-------------:| -->
-<!-- |Disciplinas | Geografía | Geografía, Computación, Estadística| -->
-<!-- | Foco | Interfaz Gráfica | Código | -->
-<!-- | Reproducibilidad | Mínimo | Máximo | -->
+# nombres de variables
+names(datos)
+```
 
+Acá puedes ver la descripción de las variables que contiene la base.
 
-<!-- ## Paquetes -->
+**Tabla de variables**
 
-<!-- - sp, sf: para manejar información espacial vectorial -->
-<!-- - raster: para trabajar con rasters -->
+| Variable | Tipo | Descripción |
+|----------|----------|-----------|
+|id | identificador del alojamiento| numérica |
+|name | nombre del alojamiento| texto |
+|host_id | identificador de la persona anfitriona| numérica|
+|host_name | nombre de la persona anfitriona | texto |
+|neighbourhood_group | nombre del barrio agrupado | texto |
+|neighbourhood | nombre del barrio|texto |
+|latitude | latitud| numérica |
+|longitud | longuitud| numérica |
+|room_type | tipo de habitación| texto |
+|price | precio| numérica |
+|minimum_nights | cantidad mínima de noches| numérica |
+|number_of_reviews |cantidad de evaluaciones | numérica |
+|last_review | última evaluación| fecha |
+|reviews_per_month | evaluaciones por mes| numérica |
+|calculated_host_listings_count | | |
+|availability_365 | disponibilidad en el  año | numérica |
 
-<!-- - ggplot2, rasterVis, tmap, leaflet, o mapview: para visualizar información espacial -->
+Exploremos una variable character como lo es *room_type* y una numeric como *price*.
 
-<!-- - Es sencillo conectar R con programas SIG: GRASS GIS (rgrass7), SAGA (RSAGA), QGIS (RQGIS y qgisremote), incluso ArcGIS (arcgisbinding). -->
 
-<!-- ## sf  -->
+```r
+ggplot(data = datos) + 
+  geom_boxplot(
+    mapping = aes(x = price)
+  )
+```
 
-<!-- Combina las funcionalidades de 3 paquetes: **sp**, **rgeos** y **rgdal** -->
 
-<!-- Ventajas respecto a otros paquetes:  -->
+## Paquete dplyr
 
-<!-- Mayor **velocidad** para importar y exportar los datos -->
+## Seleccionar filas
 
-<!-- Más tipos de **geometrías** soportadas -->
+## Seleccionar columnas
 
-<!-- **Compatibilidad** con tidyverse. Funciona el pipe! -->
+## Renombrar variables
 
-<!-- El paquete **sp** es predecesor de sf. -->
+## Ordenar casos por cierta variable
 
-<!-- Muchos paquetes espaciales de R todavía dependen del paquete sp, por lo tanto, es importante saber cómo **convertir**. -->
+## Modificar o crear una nueva variable
 
-<!-- Convertir objetos  **sf** a **sp** -->
+## Agrupar casos 
 
-<!-- ```{r eval=FALSE} -->
-<!-- # Para transformar de SF a SP -->
-<!-- objeto.sp <- as(objeto.sf, "Spatial") -->
-<!-- ``` -->
+## Resumir los datos
 
-<!-- Convertir objetos  **sp** a **sf** -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- # Para transformar de SP a SF -->
-<!-- objeto.sf <- st_as_sf(objeto.sp) -->
-<!-- ``` -->
-
-
-
-<!-- ## st_read() -->
-
-<!-- Los objetos sf tienen una clase que combina **'data.frame'** y **'sf'** -->
-
-<!-- Los objetos sf también tienen una columna especial que contiene los datos de geometría, usualmente llamado 'geom' o **'geometry'**. -->
-
-<!-- Las funciones del paquete **dplyr** se pueden aplicar. Para saber la totalidad de funciones que son aplicables a un objeto de **clase 'sf'** consultar **methods()**. -->
-
-<!-- Para la unión de objetos espaciales se usa **st_join(x, y)**. El método de join utilizado es siempre left join, manteniendo los registros del primer atributo. -->
-
-<!-- ## Importar shapes -->
-
-<!-- Los shapes con límites de los barrios de Berlin los obtenemos [aquí](http://geoserver01.uit.tufts.edu/wfs?outputformat=SHAPE-ZIP&request=GetFeature&service=wfs&srsName=EPSG%3A4326&typeName=sde%3AGISPORTAL.GISOWNER01.BERLIN_BEZIRKE_BOROUGHS01&version=2.0.0). -->
-
-<!-- Para trabajar descomprimimos el zip y dejamos los 5 archivos en una misma carpeta. -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- # cargo paquete -->
-<!-- library(sf) -->
-
-<!-- # importo shapes -->
-<!-- unzip("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.zip", exdir = "data/")  -->
-<!-- barrios <- st_read("data/GISPORTAL_GISOWNER01_BERLIN_BEZIRKE_BOROUGHS01.shp", stringsAsFactors = FALSE) -->
-
-<!-- # consulto clase  -->
-<!-- class(barrios) -->
-<!-- ``` -->
-<!-- ```{r eval=FALSE} -->
-<!-- # consulto métodos -->
-<!-- methods(class = "sf") -->
-<!-- ``` -->
-
-
-<!-- ## Mapa de coropletas -->
-
-<!-- - [Buenas prácticas](https://blog.datawrapper.de/choroplethmaps/) -->
-
-<!-- - Es un **mapa temático** en el que las regiones se colorean de un motivo que muestra una **medida estadística**. -->
-
-
-<!-- ## Encoding -->
-
-<!-- ```{r } -->
-<!-- library(stringi) -->
-<!-- ``` -->
-<!-- ```{r eval=FALSE} -->
-<!-- # con qué encoding vienen los datos? -->
-<!-- stri_enc_mark(barrios$BezName) -->
-<!-- ``` -->
-<!-- ```{r eval=FALSE} -->
-<!-- library(dplyr) -->
-<!-- # defino que los lea como 'ISO-8859-1' y pase a 'UTF-8' -->
-<!-- barrios <- barrios %>% -->
-<!--            mutate(BezName = stri_conv(BezName, from = 'ISO-8859-1', to = 'UTF-8', to_raw = FALSE)) -->
-<!-- head(barrios$BezName,12) -->
-<!-- ``` -->
-
-
-<!-- ## Expresiones regulares -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- # los barrios están escritos igual? -->
-<!-- table(unique(listings$neighbourhood_group) %in% barrios$BezName) -->
-
-<!-- # busco la expresión y reemplazo -->
-<!-- library(stringr) -->
-<!-- large <- barrios$BezName -->
-<!-- small <- listings$neighbourhood_group -->
-
-<!-- berlin <- listings %>% mutate(neighbourhood_group = stri_replace(str = small,regex = small, replacement = large , mode="all")) -->
-
-<!-- # chequeo -->
-<!-- table(unique(berlin$neighbourhood_group) %in% barrios$BezName) -->
-<!-- ``` -->
-
-<!-- Uno los data frame listings  y ratings para agregar la variable 'review_score' -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- berlin <- left_join(berlin, ratings, by = "id") -->
-<!-- ``` -->
-
-
-<!-- ## ggplot2 -->
-<!-- ```{r eval=FALSE} -->
-<!-- # cuento la cantidad de alojamientos por barrios -->
-<!-- bn <- berlin %>% -->
-<!--   group_by(neighbourhood_group) %>% -->
-<!--   summarise(median_price = median(price)) -->
-
-<!-- # uno berlin con el objeto espacial barrios -->
-<!-- bn <- left_join(bn, barrios, by = c("neighbourhood_group"="BezName")) -->
-
-<!-- # calculo centroides de los polígonos -->
-<!-- latlong_mean <-  barrios %>% st_centroid(geometry) -->
-
-<!-- # convierto la geometría en 2 vectores -->
-<!-- latlong_mean <- st_coordinates(latlong_mean$geometry) -->
-<!-- latlong_mean <- tibble(latlong_mean[,1], latlong_mean[,2]) -->
-<!-- names(latlong_mean) <- c('lat', 'lon') -->
-<!-- bn <- bind_cols(bn, latlong_mean) -->
-
-<!-- library(ggplot2) -->
-<!-- mapa<- ggplot(bn) + -->
-<!--        geom_sf(aes(fill = median_price)) + -->
-<!--        geom_text(aes(x = lat, y = lon, label = neighbourhood_group),  size = 3, hjust = 0.5)+ -->
-<!--       scale_fill_viridis_c("# Alojamientos", option = "D") + -->
-<!--       ggtitle("Alojamientos Airbnb por barrios de Berlin") + -->
-<!--       theme_void() -->
-<!-- mapa -->
-<!-- ``` -->
-
-<!-- ## leaflet -->
-
-<!-- - El paquete leaflet es una extensión java script para R que permite hacer mapas interactivos. -->
-
-<!-- - [Tutorial](https://rstudio.github.io/leaflet/) para comenzar. -->
-
-<!-- ## leaflet() -->
-
-<!-- | Función      | Descripción | -->
-<!-- |---------------|:---------------------------------------:| -->
-<!-- | leaflet()    |crea el objeto leaflet  | -->
-<!-- | addTiles() |  define el mapa de base, por defecto utiliza OpenStreetMap. [Opciones](http://leaflet-extras.github.io/leaflet-providers/preview/) | -->
-<!-- | setView() | define por centroide y zoom | -->
-<!-- | addMarkers() | marcadores a partir de una capa espacial o de pares de coordenadas.| -->
-
-<!-- El orden de los comandos es importante. -->
-
-
-<!-- ## leaflet -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- library(leaflet) -->
-
-<!-- contenido <- paste(sep = "<br/>", -->
-<!--                paste0("<img src='https://upload.wikimedia.org/wikipedia/commons/4/45/Estadio_Centenario_%28vista_a%C3%A9rea%29.jpg", "' />"), -->
-<!--                paste0("<b>Name: </b>", "Estadio Centenario"), -->
-<!--                paste0("<b>Place: </b>", "Montevideo, Uruguay"), -->
-<!--                paste0("<a href='https://es.wikipedia.org/wiki/Estadio_Centenario", "'>Link</a>")) -->
-
-<!-- mapa <- leaflet() %>% -->
-<!--         addTiles() %>% -->
-<!--         addMarkers(lng = -56.159158, lat = -34.888494, -->
-<!--                    popup = contenido) -->
-<!-- mapa -->
-<!-- ``` -->
-
-
-
-<!-- ## Mapa -->
-
-<!-- ```{r echo=FALSE, eval=FALSE} -->
-<!-- library(leaflet) -->
-
-<!-- mapa <- leaflet() %>% -->
-<!--         addTiles() %>% -->
-<!--         addMarkers(lng = -56.15253, lat = -34.89445, -->
-<!--                    popup ="Estadio Centenario") -->
-<!-- mapa -->
-<!-- ``` -->
-
-
-<!-- ## Alojamientos Berlin -->
-
-<!-- ```{r eval=FALSE} -->
-<!-- # Alojamientos caros de Airbnb en Berlin -->
-<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
-
-<!-- # de sf a sp -->
-<!-- barrios.sp <- as(barrios, "Spatial") -->
-
-<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
-
-<!-- library(leaflet) -->
-<!-- airbnb = makeIcon("https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","/https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png", 18, 18) -->
-
-<!-- mapa <- leaflet(data = barrios.sp) %>% -->
-<!--         #setView() -->
-<!--         addTiles() %>% -->
-<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb) -->
-<!--         #addCircles() -->
-<!--         #addLegend() -->
-<!-- mapa -->
-<!-- ``` -->
-
-
-<!-- ## Alojamientos Berlin -->
-
-<!-- ```{r echo=FALSE, eval=FALSE} -->
-<!-- # Alojamientos caros de Airbnb en Berlin -->
-<!-- top <- filter(berlin, price > 500 & !is.na(review_scores_rating)) -->
-
-<!-- # de sf a sp -->
-<!-- barrios.sp <- as(barrios, "Spatial") -->
-
-<!-- barrios.sp@data <- merge(barrios.sp@data, top, by.x ="BezName" , by.y="neighbourhood_group") -->
-
-<!-- library(leaflet) -->
-<!-- airbnb = makeIcon("https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb.png","https://raw.githubusercontent.com/calcita/R-tutorial/master/images/airbnb@2x.png", 18, -->
-<!--            18) -->
-
-<!-- mapa <- leaflet(data = barrios.sp) %>% -->
-<!--         #setView() -->
-<!--         addTiles() %>% -->
-<!--         addMarkers(lng = ~longitude, lat = ~latitude, icon = airbnb) -->
-<!--         #addCircles() -->
-<!--         #addLegend() -->
-<!-- mapa -->
-<!-- ``` -->
-
+## Operadores lógicos
