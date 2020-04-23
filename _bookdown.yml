@@ -2,6 +2,6 @@ book_filename: "starting-r"
 chapter_name: "Capítulo "
 repo: https://github.com/calcita/R-tutorial
 output_dir: docs
-rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-R-base.Rmd", "03-Tidyverse.Rmd", "04-Proyecto.Rmd", "05-Analisis.Rmd", "06-Visualizacion.Rmd", "06-Paquetes.Rmd", "07-Pipe.Rmd"]
+rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-R-base.Rmd", "03-Tidyverse.Rmd", "04-Proyecto.Rmd", "05-Analisis.Rmd", "06-Visualizacion.Rmd", "06-Paquetes.Rmd", "07-Pipe.Rmd", "09-git.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: yes

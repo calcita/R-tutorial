@@ -1,0 +1,11 @@
+# Instalación
+
+Tanto R como Rstudio son programas multiplataforma, es decir, que cualquiera sea tu sistema operativo los podrás instalar.
+
+
+## Descargar e instalar R
+
+
+## Descargar e instalar Rstudio
+
+Conviene instalar Rstudio luego de haber instalado R, de esta manera Rstudio podrá automáticamente conectar con la versión de R instalada.

@@ -23,15 +23,3 @@ Para enviar los cambios que realizamos localmente primero debemos seleccionar lo
 <iframe src="https://player.vimeo.com/video/292639340" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 
 Para que un mensaje del commit nos resulte útil debe describir brevemente lo que hicimos y no haber hecho muchas cosas antes de hacer un commit. Podemos volver a una versión anterior del código y para saber a cuál resulta muy útil ese mensaje.
-
-
-## Pull
-
-Descargar los cambios que otra persona o yo misma desde otra computadora realicé.
-
-
-## Historial
-
-
-## .gitignore
-
