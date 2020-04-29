@@ -1,272 +1,48 @@
 # Control de versiones
 
-What is Version Control?
+Un programa de control de versiones mantiene una copia de los cambios en el código u otro contenido. Esto es útil en caso de que necesitemos revertir algún cambio realizado.  
 
-A version control system maintains a record of changes to code and other content. It also allows us to revert changes to a previous point in time.
+Seguramente todxs hemos implementado un control de versiones en nuestros proyectos. Por ejemplo, haciendo una tesis y nombrando por fecha al archivo hasta acumular decenas de archivos similares. Esto es un caos y nos brinda una falsa seguridad de que podremos recuperar algo que quitamos o cambiamos. ¿En qué versión estará? ¿En la del 10 de marzo o la del 11? 
 
-Types of Version control
+![](images/tesis.png)
+Si usamos una plataforma como Dropbox estamos en una situación similar, contamos con un historial de archivos en caso de necesitarlo. O con Google Docs tenemos la opción de "version history" que viene a ser algo similar. Una ventaja de Google Docs respecto a Dropbox es que permite editar un mismo documento por varias personas a la vez.
 
-There are many forms of version control. Some not as good:
+Pero ninguno de estos métodos de control de versiones es lo suficientemente eficiente y menos cuando de programar se trata. Por ello, existen software específicos para el control de versiones, uno de los más populares es git. 
 
-    Save a document with a new date or name (we’ve all done it, but it isn’t efficient and easy to lose track of the latest file).
-    Google Docs “history” function (not bad for some documents, but limited in scope).
+¿Por qué es importante un software de contorl de versiones? Para revertir un cambio realizado y poder trabajar colaborativamente sobre un mismo proyecto sin preocuparnos que alguien borre algún archivo o parte del mismo. Nada se pierde, todo se recupera ... ¿quiénes pensaron en la frase de Drexler? :notes:
 
-Some better:
+Para trabajar con otras personas en un mismo proyecto, es decir, sobre los mismos archivos debemos alojar una copia de estos archivos en un web server que oficia de nube. Dentro de los más populares se encuentran github y gitlab. Así GitHub o Gitlab proporcionan una copia de seguridad de tu trabajo que se puede recuperar si se pierde tu copia local, es decir, aquella que está en computadora. 
 
-    Version control tools like Git, Mercurial, or Subversion.
+Por lo tanto, usar git conjuntamente con Github o Gitlab nos proporciona lo siguiente:
 
-Why Version Control is Important
+- realizar un seguimiento de los cambios en tu código localmente
+- sincronizar entre diferentes versiones de los archivos, esto es, entre tus propias versiones o las de otras personas.
+- probar cambios en el código sin perder una versión anterior.
+- respaldar tus archivos en la nube (github.com o gitlab.com) 
+- compartir tus archivos en la web (github.com o gitlab.com) 
 
-Version control facilitates two important aspects of many scientific workflows:
-
-    The ability to save and review or revert to previous versions.
-    The ability to collaborate on a single project.
-
-This means that you don’t have to worry about a collaborator (or your future self) overwriting something important. It also allows two people working on the same document to efficiently combine ideas and changes.
-
-GitHub.com is a location on the internet (a cloud web server) that acts as a remote location for your repository. GitHub provides a backup of your work that can be retrieved if your local copy is lost (e.g. if your computer falls off a pier).
-
-GitHub also allows you to share your work and collaborate with others on projects.
-
-How Git and GitHub Support Version Control
-
-Due to the functionality that each tool provides, you can use git and GitHub together in the same workflow to:
-
-    keep track of changes to your code locally using git.
-    synchronizing code between different versions (i.e. either your own versions or others’ versions).
-    test changes to code without losing the original.
-    revert back to older version of code, if needed.
-    back-up your files on the cloud (GitHub.com).
-    share your files on GitHub.com and collaborate with others.
-    
-Types of Version control
-
-There are many forms of version control. Some not as good:
-
-    Save a document with a new date (we’ve all done it, but it isn’t efficient).
-    Google Docs “history” function (not bad for some documents, but limited in scope).
-
-
-Some better:
-
-    Version control tools like Git, Mercurial, or Subversion
-# git
+## ¿Qué es git?
 
 Hagamos una analogía entre git y el e-mail. 
 
 E-mail es un protocolo para enviar mensajes online, independientemente de cual servidor de e-mail uses (gmail, hotmail, adinet, etc.).
 
 Git es un protocolo para compartir versiones de tu código, independientemente de cual servidor git uses (github, gitlab, bitbucket).
-<style>
+
 
 Así github.com es a git lo que gmail.com es a e-mail.
 
-Your project folder is called a repository in Git. We will call the page you land on
-when you enter github.com/kbjarkefur/lyrics the main page.
+## Clonar
 
-## Clonar 
+## Commit
 
-Cloning is similar to downloading a repository to your computer.
-The difference between cloning and downloading is that when Git clones a
-repository it remembers where you downloaded it from. This is necessary so that
-Git knows where to share the edits you make to the files in the repository.
+### Primer commit
 
-How to clone a repository:
-1. Go to the main page of
-github.com/kbjarkefur/lyrics
-2. Click the green Clone or download button (see image)
-3. Click Open in Desktop
-4. Select where on your computer to clone the repository.
-Usually in your Documents folder. Do NOT clone in a
-shared folder, like a network drive or in DropBox.
+## Push
 
-Explore the clone!
-Compare the files and folders you cloned to your
-computer with those in the repository on
-github.com/kbjarkefur/lyrics
-
-# Commit 
-
-In DropBox each saved version of a file is
-saved to the version history. This is the
-only way to do it automatically, but are all
-these versions meaningful differences?
-
-Instead of having a list of each saved version of a file, in Git we use commits to
-indicate what is each meaningful difference between two versions of our project
-folder.
-Each commit is a snap shot of all files in the project folder, and lists how that snap
-shot differ from the previous snap shot (the previous commit).
-Each commit has a time stamp and tracks who did the commit.
-
-# Primer commit 
-
-Open the changes tab in GitHub Desktop
-2. GitHub Desktop tracks your clone and has
-noticed that you changed something in it
-3. Then you need to do the three steps required
-to commit a file to the repository:
-3.1 Make sure the file you want to add is checked
-3.2 Write a commit message and click
-Commit to master
-3.3 Click the sync button
-
-Check your commit on GitHub:
-
-Git is a version control software.
-It organizes versions of every file in
-a project in an orderly way. It is
-approved for use on WB machines.
-GitHub is a development platform.
-It manages contributions to projects
-in an orderly way. It is a standard
-tool in code development and the
-Bank has a subscription.
-
-Git is a software that runs on your
-computer. It stores “version
-histories” of your files in a way that
-is really useful, but that you mainly
-don’t need to understand.
-The complete history of a project is
-called a “repository”. A repository
-can be viewed in a desktop “client”,
-
-it has a series of
-versions called commits that make
-up its history. Each commit is a
-record of the changes between itself
-and the previous commit.
-
-Mastering Git with GitHub gives you
-an awesome tool for managing your
-own team’s workflow. Having both
-your data, code, and code history
-available for all authors makes an
-incredibly useful tool.
-Plus, Git protects all your files much
-better than other software.
-Repositories can optionally be
-published publicly, which is
-increasing popular for process
-transparency. Shown here: The
-World Bank Atlas of Sustainable
-Development Goals.
-
-A commit is a snapshot of the entire
-working directory. Each commit has
-a name and a timestamp.
-You have to tell Git when to create
-new commits. This is probably the
-biggest difference from whatever
-you do now.
-
-Cuando guardas un archivo que tenés alojado en dropbox se guarda una nueva versión???
-
-Git watches your saved changes
-But it only stores them when you tell
-it to: this is a “commit”
-You can name these so that they
-make sense and are easy to find
-when you need them in the future
-(you always need them when you
-least expect, right?)
-
-How is that better
-than Dropbox?
-Dropbox stores a new
-snapshot every time you
-save each file.
-You save your work often
-(right?)
-So Dropbox stores many
-similar images of your files
-But you can’t tell which is
-which!
-
-Clone the repo with
-your desktop client
-Cloning the repository makes a
-complete copy of it at the new
-location, including the entire history
-(remember, the repository is the
-history).
-Cloning from GitHub to your local
-computer is a good way to start a
-repository
-
-Git notes changes as
-“work in progress”
-4
-1. “Stage” your changes to add
-them to the queue to be
-committed.
-1
-2. “Name” your changes
-informatively – a short sentence
-will do nicely.
-3. “Commit” your changes to add
-them to the version history. You
-will see the local copy of the
-repository move ahead of the
-GitHub (remote) copy.
-4. “Push” your changes to sync the
-remote (GitHub) repository with
-your local copy.
+## Pull
 
 
-The local and
-remote are in sync
-Each item records when it was last
-modified – using the corresponding
-name and timestamp form the
-commit that modified it.
-
-
-Overview of Adding and Committing Changes To Version Control
-
-To keep track of changes to this file using git, you need to:
-
-    first git add the changes to tracking (or staging area), and then
-    git commit the changes to version control.
-
-These two commands make up the bulk of many workflows that use git for version control:
-
-    git add: takes a modified file in your working directory and places the modified version in a staging area for review.
-
-    git commit: takes everything from the staging area and makes a permanent snapshot of the current state of your repository that has a unique identifier.
-    
-![](images/git-add-commit.png)
-
-fuente www.earthdatascience.org
-
-
-## Push 
-
-Push Changed Files to GitHub.com
-
-So far you have only modified your local copy of the repository and completed a local commit to the repository.
-
-To update the files on GitHub.com, you need to push the changed files to the repository on GitHub.com.
-
-Depending on your settings, you may then be prompted for your Github.com username and password.
-
-After you have pushed your commits to GitHub.com, visit your repository (e.g. https://github.com/username/repository-name) and notice that your changes are reflected there.
-
-Also notice that you have access to the full commit history for your repository!
-
-Tell Git to Ignore Sensitive Files
-
-If you have sensitive files in a repository that you never want to track with git, you can add those file names to a file called .gitignore, and git will not track them.
-
-For instance, if you have a text file called social-security.txt that contains sensitive information, you can add that file to a .gitignore file.
-
-Once listed in .gitignore, git will never add that file to version control or send it to GitHub.com.
-
-Any files listed in the .gitignore file will be ignored by git.
-
-You can also tell git to ignore directories by adding the directory name to the gitignore file (e.g. ignore a directory called private-directory):
-   
    #edf8b1
    
 div.blue { background-color:#efedf5; border-radius: 5px; padding: 20px;}
@@ -341,6 +117,3 @@ div.blue { background-color:#edf8b1; border-radius: 5px; padding: 20px;}
 My content goes in here!
 :::
 
-<div class="puzzle">
-My content goes in here!
-</div>
