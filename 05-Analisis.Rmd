@@ -33,6 +33,9 @@ Pero si previamente los bajamos, podemos importarlos desde la carpeta data del p
 ```{r eval=FALSE}
 datos <- readr::read_csv("data/listings.csv")
 ```
+
+## Explorar datos 
+
 Lo primero que conviene hacer, sobre todo si no hemos trabajado antes con estos datos, es explorarlos. Las funciones básicas que dispone R para esto son las siguientes:
 
 - head(): muestra los primeros casos. Por defecto, los primeros 6.
@@ -80,6 +83,18 @@ Acá puedes ver la descripción de las variables que contiene la base.
 |availability_365 | disponibilidad en el  año | numérica |
 
 Exploremos una variable character como lo es *room_type* y una numeric como *price*.
+
+# Manipular datos 
+
+## Acceder a las variables
+
+Por posición
+
+Esta forma no es robusta, podría cambiar más adelante el orden de las variables o cambiar el nombre y debería actualizar el índice para no cometer errores.
+
+Por nombre
+
+df$price
 
 ```{r eval=FALSE}
 ggplot(data = datos) + 

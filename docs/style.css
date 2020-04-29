@@ -1,14 +1,32 @@
-p.caption {
-  color: #777;
-  margin-top: 10px;
+/* -----------div tips------------- */
+
+  div.puzzle, div.fyi, div.demo, div.note {
+    padding: 1em;
+    margin: 1em 0;
+    padding-left: 100px;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: 15px center;
+    min-height: 120px;
+    color: #1f5386;
+    background-color: #bed3ec;
+    border: solid 5px #dfedff;
+  }
+
+div.puzzle {
+  background-image: url("Your-turn.png");
 }
-p code {
-  white-space: inherit;
+
+div.fyi {
+ background-image: url("fyi.png");
 }
-pre {
-  word-break: normal;
-  word-wrap: normal;
+
+div.demo {
+  background-image: url("work.png");
 }
-pre code {
-  white-space: inherit;
+
+div.note {
+  background-image: url("lightbulb.png");
 }
+
+

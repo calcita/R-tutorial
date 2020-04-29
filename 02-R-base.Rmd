@@ -1,8 +1,4 @@
-<!-- # R y Rstudio -->
 
-<!-- ## Instalación  -->
-
-<!-- ## Actualización de versiones -->
 
 <!-- Now let's talk details. -->
 
@@ -24,8 +20,7 @@ Estos objetos se pueden modificar o manipular con **operadores** y **funciones**
 
 Bajo este término se esconde la simplicidad y flexibilidad de R. 
 
-Algunas de las clases más comunes de objetos son: 'integer', 'numeric', 'character',
-'logical' (son vectores), 'matrix', 'data.frame', 'list' y 'function'.
+Algunas de las clases más comunes de objetos son: 'integer', 'numeric', 'character', 'logical' (son vectores), 'matrix', 'data.frame', 'list' y 'function'.
 
 
 ## Tipo de objetos
