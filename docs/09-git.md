@@ -5,6 +5,7 @@ Un programa de control de versiones mantiene una copia de los cambios en el cód
 Seguramente todxs hemos implementado un control de versiones en nuestros proyectos. Por ejemplo, haciendo una tesis y nombrando por fecha al archivo hasta acumular decenas de archivos similares. Esto es un caos y nos brinda una falsa seguridad de que podremos recuperar algo que quitamos o cambiamos. ¿En qué versión estará? ¿En la del 10 de marzo o la del 11? 
 
 ![](images/tesis.png)
+
 Si usamos una plataforma como Dropbox estamos en una situación similar, contamos con un historial de archivos en caso de necesitarlo. O con Google Docs tenemos la opción de "version history" que viene a ser algo similar. Una ventaja de Google Docs respecto a Dropbox es que permite editar un mismo documento por varias personas a la vez.
 
 Pero ninguno de estos métodos de control de versiones es lo suficientemente eficiente y menos cuando de programar se trata. Por ello, existen software específicos para el control de versiones, uno de los más populares es git. 
@@ -32,15 +33,51 @@ Git es un protocolo para compartir versiones de tu código, independientemente d
 
 Así github.com es a git lo que gmail.com es a e-mail.
 
-## Clonar
+## Configurar git en Rstudio
+
+<center>
+![](images/git/gitconfigrstudio.gif)
+</center>
+
+## Registrarse en gitlab
+
+<center>
+![](images/git/creatagitlabaccount.gif)
+</center>
+
+
+## Crear un repositorio
+
+En gitlab se llama proyecto y en github se llama repositorio. 
+
+<center>
+![](images/git/createagitlabproject.gif)
+</center>
+
+## Clonar un repositorio 
+
+<center>
+![](images/git/clone.gif)
+</center>
+
 
 ## Commit
 
-### Primer commit
+## Push 
 
-## Push
+### Primer commit y push
+
+<center>
+![](images/git/commitandpush.gif)
+</center>
+
 
 ## Pull
+
+<center>
+![](images/git/pull.gif)
+</center>
+
 
 
    #edf8b1

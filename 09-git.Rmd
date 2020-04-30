@@ -33,15 +33,51 @@ Git es un protocolo para compartir versiones de tu código, independientemente d
 
 Así github.com es a git lo que gmail.com es a e-mail.
 
-## Clonar
+## Configurar git en Rstudio
+
+<center>
+![](images/git/gitconfigrstudio.gif)
+</center>
+
+## Registrarse en gitlab
+
+<center>
+![](images/git/creatagitlabaccount.gif)
+</center>
+
+
+## Crear un repositorio
+
+En gitlab se llama proyecto y en github se llama repositorio. 
+
+<center>
+![](images/git/createagitlabproject.gif)
+</center>
+
+## Clonar un repositorio 
+
+<center>
+![](images/git/clone.gif)
+</center>
+
 
 ## Commit
 
-### Primer commit
+## Push 
 
-## Push
+### Primer commit y push
+
+<center>
+![](images/git/commitandpush.gif)
+</center>
+
 
 ## Pull
+
+<center>
+![](images/git/pull.gif)
+</center>
+
 
 
    #edf8b1

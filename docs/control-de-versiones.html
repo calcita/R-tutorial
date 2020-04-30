@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 9 Control de versiones | R para análisis de datos y publicaciones</title>
   <meta name="description" content="Todo para que empieces a usar R." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 9 Control de versiones | R para análisis de datos y publicaciones" />
   <meta property="og:type" content="book" />
@@ -50,7 +50,14 @@
 
 
 
-<link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5/htmlwidgets.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
 
 
 <style type="text/css">
@@ -187,20 +194,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="9" data-path="control-de-versiones.html"><a href="control-de-versiones.html"><i class="fa fa-check"></i><b>9</b> Control de versiones</a><ul>
 <li class="chapter" data-level="9.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#qué-es-git"><i class="fa fa-check"></i><b>9.1</b> ¿Qué es git?</a></li>
-<li class="chapter" data-level="9.2" data-path="control-de-versiones.html"><a href="control-de-versiones.html#clonar"><i class="fa fa-check"></i><b>9.2</b> Clonar</a></li>
-<li class="chapter" data-level="9.3" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit"><i class="fa fa-check"></i><b>9.3</b> Commit</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#primer-commit"><i class="fa fa-check"></i><b>9.3.1</b> Primer commit</a></li>
+<li class="chapter" data-level="9.2" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio"><i class="fa fa-check"></i><b>9.2</b> Configurar git en Rstudio</a></li>
+<li class="chapter" data-level="9.3" data-path="control-de-versiones.html"><a href="control-de-versiones.html#registrarse-en-gitlab"><i class="fa fa-check"></i><b>9.3</b> Registrarse en gitlab</a></li>
+<li class="chapter" data-level="9.4" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio"><i class="fa fa-check"></i><b>9.4</b> Crear un repositorio</a></li>
+<li class="chapter" data-level="9.5" data-path="control-de-versiones.html"><a href="control-de-versiones.html#clonar-un-repositorio"><i class="fa fa-check"></i><b>9.5</b> Clonar un repositorio</a></li>
+<li class="chapter" data-level="9.6" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit"><i class="fa fa-check"></i><b>9.6</b> Commit</a></li>
+<li class="chapter" data-level="9.7" data-path="control-de-versiones.html"><a href="control-de-versiones.html#push"><i class="fa fa-check"></i><b>9.7</b> Push</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#primer-commit-y-push"><i class="fa fa-check"></i><b>9.7.1</b> Primer commit y push</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="control-de-versiones.html"><a href="control-de-versiones.html#push"><i class="fa fa-check"></i><b>9.4</b> Push</a></li>
-<li class="chapter" data-level="9.5" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull"><i class="fa fa-check"></i><b>9.5</b> Pull</a></li>
-<li class="chapter" data-level="9.6" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-proyecto-en-gitlab"><i class="fa fa-check"></i><b>9.6</b> Crear un proyecto en gitlab</a></li>
-<li class="chapter" data-level="9.7" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio-en-github"><i class="fa fa-check"></i><b>9.7</b> Crear un repositorio en github</a></li>
-<li class="chapter" data-level="9.8" data-path="control-de-versiones.html"><a href="control-de-versiones.html#instalar-git"><i class="fa fa-check"></i><b>9.8</b> Instalar git</a></li>
-<li class="chapter" data-level="9.9" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio"><i class="fa fa-check"></i><b>9.9</b> Configurar git en Rstudio</a></li>
-<li class="chapter" data-level="9.10" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit-y-push"><i class="fa fa-check"></i><b>9.10</b> Commit y push</a></li>
-<li class="chapter" data-level="9.11" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull-1"><i class="fa fa-check"></i><b>9.11</b> Pull</a></li>
-<li class="chapter" data-level="9.12" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>9.12</b> Historial</a></li>
-<li class="chapter" data-level="9.13" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>9.13</b> .gitignore</a></li>
+<li class="chapter" data-level="9.8" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull"><i class="fa fa-check"></i><b>9.8</b> Pull</a></li>
+<li class="chapter" data-level="9.9" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-proyecto-en-gitlab"><i class="fa fa-check"></i><b>9.9</b> Crear un proyecto en gitlab</a></li>
+<li class="chapter" data-level="9.10" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio-en-github"><i class="fa fa-check"></i><b>9.10</b> Crear un repositorio en github</a></li>
+<li class="chapter" data-level="9.11" data-path="control-de-versiones.html"><a href="control-de-versiones.html#instalar-git"><i class="fa fa-check"></i><b>9.11</b> Instalar git</a></li>
+<li class="chapter" data-level="9.12" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio-1"><i class="fa fa-check"></i><b>9.12</b> Configurar git en Rstudio</a></li>
+<li class="chapter" data-level="9.13" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit-y-push"><i class="fa fa-check"></i><b>9.13</b> Commit y push</a></li>
+<li class="chapter" data-level="9.14" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull-1"><i class="fa fa-check"></i><b>9.14</b> Pull</a></li>
+<li class="chapter" data-level="9.15" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>9.15</b> Historial</a></li>
+<li class="chapter" data-level="9.16" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>9.16</b> .gitignore</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -226,8 +236,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Capítulo 9</span> Control de versiones</h1>
 <p>Un programa de control de versiones mantiene una copia de los cambios en el código u otro contenido. Esto es útil en caso de que necesitemos revertir algún cambio realizado.</p>
 <p>Seguramente todxs hemos implementado un control de versiones en nuestros proyectos. Por ejemplo, haciendo una tesis y nombrando por fecha al archivo hasta acumular decenas de archivos similares. Esto es un caos y nos brinda una falsa seguridad de que podremos recuperar algo que quitamos o cambiamos. ¿En qué versión estará? ¿En la del 10 de marzo o la del 11?</p>
-<p><img src="images/tesis.png" />
-Si usamos una plataforma como Dropbox estamos en una situación similar, contamos con un historial de archivos en caso de necesitarlo. O con Google Docs tenemos la opción de “version history” que viene a ser algo similar. Una ventaja de Google Docs respecto a Dropbox es que permite editar un mismo documento por varias personas a la vez.</p>
+<p><img src="images/tesis.png" /></p>
+<p>Si usamos una plataforma como Dropbox estamos en una situación similar, contamos con un historial de archivos en caso de necesitarlo. O con Google Docs tenemos la opción de “version history” que viene a ser algo similar. Una ventaja de Google Docs respecto a Dropbox es que permite editar un mismo documento por varias personas a la vez.</p>
 <p>Pero ninguno de estos métodos de control de versiones es lo suficientemente eficiente y menos cuando de programar se trata. Por ello, existen software específicos para el control de versiones, uno de los más populares es git.</p>
 <p>¿Por qué es importante un software de contorl de versiones? Para revertir un cambio realizado y poder trabajar colaborativamente sobre un mismo proyecto sin preocuparnos que alguien borre algún archivo o parte del mismo. Nada se pierde, todo se recupera … ¿quiénes pensaron en la frase de Drexler? :notes:</p>
 <p>Para trabajar con otras personas en un mismo proyecto, es decir, sobre los mismos archivos debemos alojar una copia de estos archivos en un web server que oficia de nube. Dentro de los más populares se encuentran github y gitlab. Así GitHub o Gitlab proporcionan una copia de seguridad de tu trabajo que se puede recuperar si se pierde tu copia local, es decir, aquella que está en computadora.</p>
@@ -246,20 +256,48 @@ Si usamos una plataforma como Dropbox estamos en una situación similar, contamo
 <p>Git es un protocolo para compartir versiones de tu código, independientemente de cual servidor git uses (github, gitlab, bitbucket).</p>
 <p>Así github.com es a git lo que gmail.com es a e-mail.</p>
 </div>
-<div id="clonar" class="section level2">
-<h2><span class="header-section-number">9.2</span> Clonar</h2>
+<div id="configurar-git-en-rstudio" class="section level2">
+<h2><span class="header-section-number">9.2</span> Configurar git en Rstudio</h2>
+<center>
+<img src="images/git/gitconfigrstudio.gif" />
+</center>
+</div>
+<div id="registrarse-en-gitlab" class="section level2">
+<h2><span class="header-section-number">9.3</span> Registrarse en gitlab</h2>
+<center>
+<img src="images/git/creatagitlabaccount.gif" />
+</center>
+</div>
+<div id="crear-un-repositorio" class="section level2">
+<h2><span class="header-section-number">9.4</span> Crear un repositorio</h2>
+<p>En gitlab se llama proyecto y en github se llama repositorio.</p>
+<center>
+<img src="images/git/createagitlabproject.gif" />
+</center>
+</div>
+<div id="clonar-un-repositorio" class="section level2">
+<h2><span class="header-section-number">9.5</span> Clonar un repositorio</h2>
+<center>
+<img src="images/git/clone.gif" />
+</center>
 </div>
 <div id="commit" class="section level2">
-<h2><span class="header-section-number">9.3</span> Commit</h2>
-<div id="primer-commit" class="section level3">
-<h3><span class="header-section-number">9.3.1</span> Primer commit</h3>
-</div>
+<h2><span class="header-section-number">9.6</span> Commit</h2>
 </div>
 <div id="push" class="section level2">
-<h2><span class="header-section-number">9.4</span> Push</h2>
+<h2><span class="header-section-number">9.7</span> Push</h2>
+<div id="primer-commit-y-push" class="section level3">
+<h3><span class="header-section-number">9.7.1</span> Primer commit y push</h3>
+<center>
+<img src="images/git/commitandpush.gif" />
+</center>
+</div>
 </div>
 <div id="pull" class="section level2">
-<h2><span class="header-section-number">9.5</span> Pull</h2>
+<h2><span class="header-section-number">9.8</span> Pull</h2>
+<center>
+<img src="images/git/pull.gif" />
+</center>
 <p>#edf8b1</p>
 div.blue { background-color:#efedf5; border-radius: 5px; padding: 20px;}
 </style>
@@ -274,41 +312,41 @@ Usar el comando git clone para bajar una copia del repositorio a tu computadora.
 </div>
 </div>
 <div id="crear-un-proyecto-en-gitlab" class="section level2">
-<h2><span class="header-section-number">9.6</span> Crear un proyecto en gitlab</h2>
+<h2><span class="header-section-number">9.9</span> Crear un proyecto en gitlab</h2>
 <iframe src="https://player.vimeo.com/video/292637965" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
 </div>
 <div id="crear-un-repositorio-en-github" class="section level2">
-<h2><span class="header-section-number">9.7</span> Crear un repositorio en github</h2>
+<h2><span class="header-section-number">9.10</span> Crear un repositorio en github</h2>
 </div>
 <div id="instalar-git" class="section level2">
-<h2><span class="header-section-number">9.8</span> Instalar git</h2>
+<h2><span class="header-section-number">9.11</span> Instalar git</h2>
 <p>git es el software de control de versiones. En distribuciones Linux suele venir instalado. En Windows se instala a través del ejecutable.</p>
 </div>
-<div id="configurar-git-en-rstudio" class="section level2">
-<h2><span class="header-section-number">9.9</span> Configurar git en Rstudio</h2>
+<div id="configurar-git-en-rstudio-1" class="section level2">
+<h2><span class="header-section-number">9.12</span> Configurar git en Rstudio</h2>
 <iframe src="https://player.vimeo.com/video/292760320" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
 </div>
 <div id="commit-y-push" class="section level2">
-<h2><span class="header-section-number">9.10</span> Commit y push</h2>
+<h2><span class="header-section-number">9.13</span> Commit y push</h2>
 <p>Para enviar los cambios que realizamos localmente primero debemos seleccionar los archivos modificados, creados o eliminados, luego hacer commit para lo cual es necesario escribir un mensaje que describa los cambios que realizamos.</p>
 <iframe src="https://player.vimeo.com/video/292639340" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
 <p>Para que un mensaje del commit nos resulte útil debe describir brevemente lo que hicimos y no haber hecho muchas cosas antes de hacer un commit. Podemos volver a una versión anterior del código y para saber a cuál resulta muy útil ese mensaje.</p>
 </div>
 <div id="pull-1" class="section level2">
-<h2><span class="header-section-number">9.11</span> Pull</h2>
+<h2><span class="header-section-number">9.14</span> Pull</h2>
 <p>Descargar los cambios que otra persona o yo misma desde otra computadora realicé.</p>
 <!-- #b2e2e2 -->
 <p><img src="images/idea.png" style="width:2.0%" />
 Importante</p>
 </div>
 <div id="historial" class="section level2">
-<h2><span class="header-section-number">9.12</span> Historial</h2>
+<h2><span class="header-section-number">9.15</span> Historial</h2>
 </div>
 <div id="gitignore" class="section level2">
-<h2><span class="header-section-number">9.13</span> .gitignore</h2>
+<h2><span class="header-section-number">9.16</span> .gitignore</h2>
 <style>
 div.blue { background-color:#edf8b1; border-radius: 5px; padding: 20px;}
 </style>
@@ -346,11 +384,12 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
+"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -362,10 +401,6 @@ gitbook.start({
 "text": null
 },
 "history": {
-"link": null,
-"text": null
-},
-"view": {
 "link": null,
 "text": null
 },
