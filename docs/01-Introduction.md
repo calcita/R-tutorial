@@ -1,6 +1,10 @@
 # Introducción
 
-¿Qué es R?
+Este tutorial pretende guiarte para aprender a usar R y Rstudio, correr comandos de R, crear objetos en R, escribir tus propias funciones de R y scripts, cargar y usar paquetes de R, analizar y graficar datos.
+
+
+
+# ¿Qué es R?
 
 <!--html_preserve--><i class="fas  fa-chart-area fa-2x " style="color:#756bb1;"></i><!--/html_preserve-->  &nbsp; Programa estadístico: análisis 
 
@@ -39,20 +43,33 @@ Al abrir R - varía según el sistema operativo- aparece la consola donde se eje
 ![](images/openR.png) 
 Esta imagen muestra como se ve R en Linux. 
 
+Lo primero que verás en la consola de R es un mensaje de inicio, seguido por un “>” y un cursor parpadeante. R ejecutará los comandos que escribas y devolverá un resultado. El resultado no siempre es el deseado podría ser un error o un warning.
+
+
 ## Prompt
 
 <!--html_preserve--><i class="fas  fa-greater-than "></i><!--/html_preserve--> El símbolo de 'mayor' indica que R está listo para recibir una orden
+
 
 ## Rstudio
 
 Para facilitar el uso de R se utilizan editores de sintaxis que hacen todo más fácil. Desde hace algunos años el más popular mundialmente es Rstudio.
 
-Al abrir Rstudio se muestran los cuatro cuadrantes:
+RStudio es un entorno de desarrollo integrado (IDE por sus siglas en inglés) que al igual que R es gratuito de código abierto. RStudio proporciona un editor incorporado, es multiplataforma y permite la integración de control de versiones y gestión de proyectos.
+
+Al abrir Rstudio se muestran 3 cuadrantes:
+
+
+    La consola interactiva de R (a la izquierda)
+    Ambiente/Historial (en la esquina superior derecha)
+    Archivos/Gráficos/Paquetes/Ayuda/Visor (abajo a la derecha)
+
+Lo usual es no escribir el código directamente en la consola y por lo tanto trabajarás con 4 cuadrantes 
 
 - Script: donde se escribe el código R
-- Consola: donde se ejecuta el código R
-- Entorno: en la pestaña Enviroment se visualizan los objetos en memoria
-- Gráficos: en la pestaña Plots se muestran los gráficos creados
+- Consola: donde se ejecuta el código R (a la izquiera)
+- Entorno/Historial: en la pestaña Enviroment se visualizan los objetos en memoria (derecha arriba)
+- Archivos/Gráficos/Paquetes/Ayuda/Visor: en la pestaña Plots se muestran los gráficos creados (derecha abajo)
 
 ![](images/rstudio_windows.png)
 
@@ -60,24 +77,56 @@ En realidad, Rstudio es mucho más que un simple editor de sintaxis, es un IDE (
 
 Un recurso muy útil para empezar a usarlo es la [cheatsheet](https://resources.rstudio.com/the-essentials-of-data-science/rstudio-ide)
 
-
-## Script
-
-- Un script permite volver a reproducir nuestro análisis o que otra persona lo haga.
-- Un archivo donde se escribe la sintaxis.
-- Tendrá una extensión .R 
-- Es clave comentar el código, los comentarios deben ir precedidos por **#**.
-- Los comentarios se verán de un color diferente al código, incluso cuando se comenta parte de un código
-
-
-<!-- Es necesario siempre usar comillas para indicar nombres de archivos como en este caso. Tanto las comillas dobles (") como las simples (') sirven. -->
-
-
-## Nuevo script
-
-![](images/newscript.gif) 
-
 ## ¿Cómo interactuamos con R?
+
+La interfaz de RStudio es simple. En el panel de la consola después del prompt se escribe una línea de código de R y se hace click en la tecla entrer para correrlo y se mostrará el resultado. El código R se llama comando porque encomienda a la computadora a hacer algo. 
+
+Si escribis en la consola, luego del prompt, 5 + 2, Rstudio mostrará:
+
+```r
+5 + 2
+```
+
+```
+## [1] 7
+```
+
+Es una orden válida y por lo tanto R muestra la respuesta, precedid de un “[1]”. Esto indica que el 7 es el primer resultado y en este caso es el único. 
+
+Pero si escribís los primeros 50 números enteros, el 1 es el primer resultado, el 23 es el resultado 23° y el 45 es el 45°. Sirve para facilitar la lectura de los resultados pero podés ignorarlos si te confunden.
+
+
+```r
+1:50
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+## [26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50
+```
+
+El operador ":" devuelve todos los enteros entre dos números enteros. Es una manera fácil de contruir una secuencia de números.
+
+
+<!-- If you type an incomplete command and press Enter, R will display a + prompt, which means R is waiting for you to type the rest of your command. Either finish the command or hit Escape to start over: -->
+
+<!-- If you type a command that R doesn’t recognize, R will return an error message. If you ever see an error message, don’t panic. R is just telling you that your computer couldn’t understand or do what you asked it to do. You can then try a different command at the next prompt -->
+
+
+<!-- For the remainder of the book, I’ll use hashtags to display the output of R code. I’ll use a single hashtag to add my own comments and a double hashtag, ##, to display the results of code. I’ll avoid showing >s and [1]s unless I want you to look at them. -->
+
+
+
+<!-- Exercise 2.1 (Magic with Numbers) That’s the basic interface for executing R code in RStudio. Think you have it? If so, try doing these simple tasks. If you execute everything correctly, you should end up with the same number that you started with: -->
+
+<!--     Choose any number and add 2 to it. -->
+<!--     Multiply the result by 3. -->
+<!--     Subtract 6 from the answer. -->
+<!--     Divide what you get by 3.  -->
+
+<!-- Throughout the book, I’ll put exercises in chunks, like the one above. I’ll follow each exercise with a model answer, like the one below. -->
+<!-- Solution. You could start with the number 10, and then do the following steps:  -->
+
 
 - Las órdenes elementales de R consisten en expresiones o asignaciones. 
 
@@ -116,24 +165,18 @@ x
 ```
 
 
-## Primeros comandos
-
-¿Cómo enviamos el código del script a la consola?
-
-Para ejecutar una sola línea: colocar el **cursor sobre esa línea** y ejecutar **Ctrl + ENTER**.
-
-![](images/sendcode1.gif)
-
-Si son varias líneas de código: **seleccionarlas todas** y ejecutar **Ctrl + ENTER**.
-
-![](images/sendcode2.gif)
-
 
 ## Calculadora
 
 
 - R se puede usar como calculadora
---
+
+    Paréntesis: (, )
+    Exponente: ^ o **
+    División: /
+    Multiplicación: *
+    Suma: +
+    Resta: -
 
 - Además de los operadores aritméticos, trae funciones matemáticas
 
@@ -178,6 +221,8 @@ sqrt(9)
 ## [1] 3
 ```
 
+Los números pequeños o grandes tienen una notación científica:
+2e-4 es 2*10 a la -4
 
 ## Funciones
 
@@ -203,6 +248,35 @@ help("sqrt")
 
 <!-- Las funciones de R son los comandos de Stata pero a diferencia de este último, se necesitan paréntesis rectos para llamarlas. -->
 
+
+## Script
+
+- Un script permite volver a reproducir nuestro análisis o que otra persona lo haga.
+- Un archivo donde se escribe la sintaxis.
+- Tendrá una extensión .R 
+- Es clave comentar el código, los comentarios deben ir precedidos por el símbolo de numeral (hash en inglés) **#**.
+- Los comentarios se verán de un color diferente al código, incluso cuando se comenta parte de un código
+- Es necesario siempre usar comillas para indicar nombres de archivos como en este caso. Tanto las comillas dobles (") como las simples (') sirven. 
+
+
+## Nuevo script
+
+![](images/newscript.gif) 
+
+¿Cómo enviamos el código del script a la consola?
+
+Para ejecutar una sola línea: colocar el **cursor sobre esa línea** y ejecutar **Ctrl + ENTER**.
+
+![](images/sendcode1.gif)
+
+Si son varias líneas de código: **seleccionarlas todas** y ejecutar **Ctrl + ENTER**.
+
+![](images/sendcode2.gif)
+
+
+Cada vez que presionas Enter y R te muestra un “+” en lugar de “>”, significa que está esperando que completes el comando. Si deseas cancelar un comando, simplemente presiona “Esc” y RStudio te devolverá el “>” prompt.
+
+
 ## Paquetes
 
 Por defecto vienen precargadas una serie de funciones que están en el paquete 'base'.
@@ -218,6 +292,8 @@ Existen paquetes de tan variadas disciplinas que es muy probable que utilicemos 
 Podemos consultar los paquetes disponibles escribiendo la función available.packages() 
 
 También podemos generar nuestras propias funciones e incluso crear un paquete de R!
+
+Para profundizar sobre el uso de paquetes ve a la sección ...
 
 ## Consejos
 

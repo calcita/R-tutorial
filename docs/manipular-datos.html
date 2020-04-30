@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 12 Paquetes | R para análisis de datos</title>
+  <title>Capítulo 8 Manipular datos | R para análisis de datos</title>
   <meta name="description" content="Todo para que empieces a usar R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 12 Paquetes | R para análisis de datos" />
+  <meta property="og:title" content="Capítulo 8 Manipular datos | R para análisis de datos" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 12 Paquetes | R para análisis de datos" />
+  <meta name="twitter:title" content="Capítulo 8 Manipular datos | R para análisis de datos" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="control-de-versiones.html"/>
-<link rel="next" href="programar-en-r.html"/>
+<link rel="prev" href="análisis-de-datos.html"/>
+<link rel="next" href="visualización.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -240,47 +240,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="paquetes-2" class="section level1">
-<h1><span class="header-section-number">Capítulo 12</span> Paquetes</h1>
-<p>La instalación de un paquete se realiza una única vez en la computadora. Para poder usar un paquete en determinada sesión de R, es necesario cargarlo cada vez que se abre Rstudio.</p>
-<div id="instalar-paquetes-desde-cran" class="section level2">
-<h2><span class="header-section-number">12.1</span> Instalar paquetes desde CRAN</h2>
-<ul>
-<li>Para instalar un paquete desde el repositorio oficial</li>
-</ul>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb60-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>) </a></code></pre></div>
-<p>Por ejemplo, para instalar el paquete ‘readr’ ejecutamos lo siguiente:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb61-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>) </a></code></pre></div>
-<p>Para instalar más de un paquete a la vez, es necesario concatenar los nombres de los paquetes en un vector, para ello, usamos la función c().</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb62-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb62-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>, <span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>)) </a></code></pre></div>
-<p>Por ejemplo, podemos instalar ‘readr’ y ‘haven’:</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb63-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;haven&quot;</span>) </a></code></pre></div>
+<div id="manipular-datos" class="section level1">
+<h1><span class="header-section-number">Capítulo 8</span> Manipular datos</h1>
+<div id="acceder-a-las-variables" class="section level2">
+<h2><span class="header-section-number">8.1</span> Acceder a las variables</h2>
+<p>Por posición</p>
+<p>Esta forma no es robusta, podría cambiar más adelante el orden de las variables o cambiar el nombre y debería actualizar el índice para no cometer errores.</p>
+<p>Por nombre</p>
+<p>df$price</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> datos) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(</a>
+<a class="sourceLine" id="cb56-3" data-line-number="3">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> price)</a>
+<a class="sourceLine" id="cb56-4" data-line-number="4">  )</a></code></pre></div>
 </div>
-<div id="instalar-paquetes-desde-github" class="section level2">
-<h2><span class="header-section-number">12.2</span> Instalar paquetes desde github</h2>
-<p>Si en lugar de cargarlo del repositorio oficial, porque allí no se encuentra o bien por que queremos instalar una versión más reciente, debemos usar el paquete devtools (debe estar instalado) y usar la función install.github(), si el paquete está alojado en github (es lo más común). Como único argumento de la función, entre comillas, indicamos nombre de usuarix de quien lo desarrolló y nombre del paquete:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; alojado en github</span></a>
-<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="co"># es del usuario hadley (Hadley Wickham). </span></a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">install.github</span>(<span class="st">&quot;/&lt;NOMBRE USUARIX&gt;/&lt;NOMBRE PAQUETE&gt;&quot;</span>) </a></code></pre></div>
-<p>En el caso del paquete ‘readr’ desarrollado por Hadley Wickham, está alojado en github y el usuario es ‘hadley’.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; alojado en github</span></a>
-<a class="sourceLine" id="cb65-2" data-line-number="2"><span class="co"># es del usuario hadley (Hadley Wickham). </span></a>
-<a class="sourceLine" id="cb65-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">install.github</span>(<span class="st">&quot;/hadley/readr&quot;</span>) </a></code></pre></div>
+<div id="paquete-dplyr" class="section level2">
+<h2><span class="header-section-number">8.2</span> Paquete dplyr</h2>
 </div>
-<div id="cargar" class="section level2">
-<h2><span class="header-section-number">12.3</span> Cargar</h2>
-<ul>
-<li>Para que un paquete quede disponible debemos cargarlo en cada sesión (cada vez que abrimos Rstudio), usando la función library() e indicando como único argumento el nombre del paquete, esta vez sin comillas.</li>
-</ul>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">library</span>(readr) </a></code></pre></div>
+<div id="seleccionar-filas" class="section level2">
+<h2><span class="header-section-number">8.3</span> Seleccionar filas</h2>
+</div>
+<div id="seleccionar-columnas" class="section level2">
+<h2><span class="header-section-number">8.4</span> Seleccionar columnas</h2>
+</div>
+<div id="renombrar-variables" class="section level2">
+<h2><span class="header-section-number">8.5</span> Renombrar variables</h2>
+</div>
+<div id="ordenar-casos-por-cierta-variable" class="section level2">
+<h2><span class="header-section-number">8.6</span> Ordenar casos por cierta variable</h2>
+</div>
+<div id="modificar-o-crear-una-nueva-variable" class="section level2">
+<h2><span class="header-section-number">8.7</span> Modificar o crear una nueva variable</h2>
+</div>
+<div id="agrupar-casos" class="section level2">
+<h2><span class="header-section-number">8.8</span> Agrupar casos</h2>
+</div>
+<div id="resumir-los-datos" class="section level2">
+<h2><span class="header-section-number">8.9</span> Resumir los datos</h2>
+</div>
+<div id="operadores-lógicos" class="section level2">
+<h2><span class="header-section-number">8.10</span> Operadores lógicos</h2>
+</div>
+<div id="evaluar-condiciones" class="section level2">
+<h2><span class="header-section-number">8.11</span> Evaluar condiciones</h2>
 
 </div>
 </div>
@@ -289,8 +290,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="control-de-versiones.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="programar-en-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="análisis-de-datos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visualización.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
