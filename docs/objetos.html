@@ -24,7 +24,7 @@
 <meta name="author" content="Gabriela Mathieu" />
 
 
-<meta name="date" content="2020-04-30" />
+<meta name="date" content="2020-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -70,7 +70,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -304,34 +304,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="vector" class="section level2">
 <h2><span class="header-section-number">4.3</span> Vector</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">19</span>)</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2">x</a></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">19</span>)</a>
+<a class="sourceLine" id="cb20-2" title="2">x</a></code></pre></div>
 <pre><code>## [1] 15 16 17 19</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">class</span>(x)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1"><span class="kw">class</span>(x)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1">y &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb24-2" data-line-number="2">y</a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">y &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb24-2" title="2">y</a></code></pre></div>
 <pre><code>## [1] 7.5 8.0 8.5 9.5</code></pre>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">class</span>(y) <span class="co"># numeric porque contiene decimales</span></a></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1"><span class="kw">class</span>(y) <span class="co"># numeric porque contiene decimales</span></a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
 <div id="vector-1" class="section level2">
 <h2><span class="header-section-number">4.4</span> Vector</h2>
 <p>Para el caso de “palabras” (“strings”), la clase “character” es la que utiliza R para manejar este tipo de objetos. Al igual que en la mayoría de los lenguajes de programación, R utiliza las comillas
-dobles (&quot;) o simples (’) para delimitar un string.</p>
+dobles (") o simples (’) para delimitar un string.</p>
 <!-- # Nótese que al usar las comillas se puede incluir cualquier caracter dentro,  -->
 <!-- # sin tener que preocuparse de que R lo interprete como un comando. Es decir,  -->
 <!-- # se toma lo que está entre comillas de forma literal, razón por la cual  -->
 <!-- # estos tipos de objetos son llamados "strings literals" muchas veces. -->
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1">w &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;15&quot;</span>, <span class="st">&quot;16&quot;</span>, <span class="st">&quot;17&quot;</span>, <span class="st">&quot;19&quot;</span>)</a>
-<a class="sourceLine" id="cb28-2" data-line-number="2">w</a></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">w &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;15&quot;</span>, <span class="st">&quot;16&quot;</span>, <span class="st">&quot;17&quot;</span>, <span class="st">&quot;19&quot;</span>)</a>
+<a class="sourceLine" id="cb28-2" title="2">w</a></code></pre></div>
 <pre><code>## [1] &quot;15&quot; &quot;16&quot; &quot;17&quot; &quot;19&quot;</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">class</span>(w)</a></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1"><span class="kw">class</span>(w)</a></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">w &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lunes&quot;</span>, <span class="st">&quot;martes&quot;</span>, <span class="st">&quot;miércoles&quot;</span>, <span class="st">&quot;viernes&quot;</span>)</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">w</a></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">w &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;lunes&quot;</span>, <span class="st">&quot;martes&quot;</span>, <span class="st">&quot;miércoles&quot;</span>, <span class="st">&quot;viernes&quot;</span>)</a>
+<a class="sourceLine" id="cb32-2" title="2">w</a></code></pre></div>
 <pre><code>## [1] &quot;lunes&quot;     &quot;martes&quot;    &quot;miércoles&quot; &quot;viernes&quot;</code></pre>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">class</span>(w)</a></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">class</span>(w)</a></code></pre></div>
 <pre><code>## [1] &quot;character&quot;</code></pre>
 </div>
 <div id="ejemplo-vectores" class="section level2">
@@ -398,12 +398,12 @@ Esta tabla la tomé de <a href="https://imgv2-2-f.scribdassets.com/img/document/
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">anio &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1993</span>, <span class="dv">1968</span>, <span class="dv">1985</span>)</a>
-<a class="sourceLine" id="cb36-2" data-line-number="2">software_libre &lt;-<span class="st"> </span><span class="kw">c</span>(T, F, F)</a>
-<a class="sourceLine" id="cb36-3" data-line-number="3">costo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;gratuito&quot;</span>, <span class="st">&quot;costoso&quot;</span>, <span class="st">&quot;accesible&quot;</span>)</a></code></pre></div>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">length</span>(anio)</a></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">anio &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1993</span>, <span class="dv">1968</span>, <span class="dv">1985</span>)</a>
+<a class="sourceLine" id="cb36-2" title="2">software_libre &lt;-<span class="st"> </span><span class="kw">c</span>(T, F, F)</a>
+<a class="sourceLine" id="cb36-3" title="3">costo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;gratuito&quot;</span>, <span class="st">&quot;costoso&quot;</span>, <span class="st">&quot;accesible&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1"><span class="kw">length</span>(anio)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1"><span class="kw">class</span>(anio)</a></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1"><span class="kw">class</span>(anio)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
 <div id="data-frame" class="section level2">
@@ -411,25 +411,25 @@ Esta tabla la tomé de <a href="https://imgv2-2-f.scribdassets.com/img/document/
 <ul>
 <li>Puede verse como un conjunto de vectores de diferente tipo pero de igual largo.</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" data-line-number="1"><span class="co"># vector numeric</span></a>
-<a class="sourceLine" id="cb41-2" data-line-number="2">anio &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1993</span>, <span class="dv">1968</span>, <span class="dv">1985</span>)</a>
-<a class="sourceLine" id="cb41-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb41-4" data-line-number="4"><span class="co"># vector lógico</span></a>
-<a class="sourceLine" id="cb41-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb41-6" data-line-number="6">software_libre &lt;-<span class="st"> </span><span class="kw">c</span>(T, F, F)</a>
-<a class="sourceLine" id="cb41-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb41-8" data-line-number="8"><span class="co"># vector character</span></a>
-<a class="sourceLine" id="cb41-9" data-line-number="9">costo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;gratuito&quot;</span>, <span class="st">&quot;costoso&quot;</span>, <span class="st">&quot;accesible&quot;</span>)</a>
-<a class="sourceLine" id="cb41-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb41-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb41-12" data-line-number="12"><span class="co"># data frame</span></a>
-<a class="sourceLine" id="cb41-13" data-line-number="13">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(anio, software_libre, costo)</a>
-<a class="sourceLine" id="cb41-14" data-line-number="14"><span class="kw">class</span>(df)</a></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1"><span class="co"># vector numeric</span></a>
+<a class="sourceLine" id="cb41-2" title="2">anio &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1993</span>, <span class="dv">1968</span>, <span class="dv">1985</span>)</a>
+<a class="sourceLine" id="cb41-3" title="3"></a>
+<a class="sourceLine" id="cb41-4" title="4"><span class="co"># vector lógico</span></a>
+<a class="sourceLine" id="cb41-5" title="5"></a>
+<a class="sourceLine" id="cb41-6" title="6">software_libre &lt;-<span class="st"> </span><span class="kw">c</span>(T, F, F)</a>
+<a class="sourceLine" id="cb41-7" title="7"></a>
+<a class="sourceLine" id="cb41-8" title="8"><span class="co"># vector character</span></a>
+<a class="sourceLine" id="cb41-9" title="9">costo &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;gratuito&quot;</span>, <span class="st">&quot;costoso&quot;</span>, <span class="st">&quot;accesible&quot;</span>)</a>
+<a class="sourceLine" id="cb41-10" title="10"></a>
+<a class="sourceLine" id="cb41-11" title="11"></a>
+<a class="sourceLine" id="cb41-12" title="12"><span class="co"># data frame</span></a>
+<a class="sourceLine" id="cb41-13" title="13">df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(anio, software_libre, costo)</a>
+<a class="sourceLine" id="cb41-14" title="14"><span class="kw">class</span>(df)</a></code></pre></div>
 <pre><code>## [1] &quot;data.frame&quot;</code></pre>
 <ul>
 <li>En un conjunto de datos, cada variable/columna es un vector.</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1"><span class="kw">class</span>(df<span class="op">$</span>anio); <span class="kw">class</span>(df<span class="op">$</span>software_libre); <span class="kw">class</span>(df<span class="op">$</span>costo)</a></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1"><span class="kw">class</span>(df<span class="op">$</span>anio); <span class="kw">class</span>(df<span class="op">$</span>software_libre); <span class="kw">class</span>(df<span class="op">$</span>costo)</a></code></pre></div>
 <pre><code>## [1] &quot;numeric&quot;</code></pre>
 <pre><code>## [1] &quot;logical&quot;</code></pre>
 <pre><code>## [1] &quot;factor&quot;</code></pre>
@@ -439,20 +439,20 @@ Esta tabla la tomé de <a href="https://imgv2-2-f.scribdassets.com/img/document/
 </div>
 <div id="explorar-los-datos" class="section level2">
 <h2><span class="header-section-number">4.7</span> Explorar los datos</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1"><span class="co"># dimensiones del objeto</span></a>
-<a class="sourceLine" id="cb47-2" data-line-number="2"><span class="kw">dim</span>()</a></code></pre></div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="co"># nombres de variables</span></a>
-<a class="sourceLine" id="cb48-2" data-line-number="2"><span class="kw">names</span>()</a>
-<a class="sourceLine" id="cb48-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb48-4" data-line-number="4"><span class="co"># estructura del objeto</span></a>
-<a class="sourceLine" id="cb48-5" data-line-number="5"><span class="kw">str</span>()</a>
-<a class="sourceLine" id="cb48-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb48-7" data-line-number="7"><span class="co"># resumen descriptivo de variables</span></a>
-<a class="sourceLine" id="cb48-8" data-line-number="8"><span class="kw">summary</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1"><span class="co"># dimensiones del objeto</span></a>
+<a class="sourceLine" id="cb47-2" title="2"><span class="kw">dim</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1"><span class="co"># nombres de variables</span></a>
+<a class="sourceLine" id="cb48-2" title="2"><span class="kw">names</span>()</a>
+<a class="sourceLine" id="cb48-3" title="3"></a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="co"># estructura del objeto</span></a>
+<a class="sourceLine" id="cb48-5" title="5"><span class="kw">str</span>()</a>
+<a class="sourceLine" id="cb48-6" title="6"></a>
+<a class="sourceLine" id="cb48-7" title="7"><span class="co"># resumen descriptivo de variables</span></a>
+<a class="sourceLine" id="cb48-8" title="8"><span class="kw">summary</span>()</a></code></pre></div>
 </div>
 <div id="guardar-objeto-en-formato-rdata" class="section level2">
 <h2><span class="header-section-number">4.8</span> Guardar objeto en formato Rdata</h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" data-line-number="1"><span class="kw">save</span>(df, <span class="dt">file =</span> <span class="st">&quot;data/df.Rdata&quot;</span>) <span class="co">#&lt;&lt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1"><span class="kw">save</span>(df, <span class="dt">file =</span> <span class="st">&quot;data/df.Rdata&quot;</span>) <span class="co">#&lt;&lt;</span></a></code></pre></div>
 <p>El primer elemento debe ser un <strong>objeto</strong>. Podrían ser más de uno.</p>
 <p>Es necesario nombrar el argumento <strong>‘file’</strong> definiendo ruta y nombre de archivo.</p>
 <p>Si en file solo se define el nombre del archivo, se guarda en el directorio de trabajo actual: <strong>getwd()</strong></p>

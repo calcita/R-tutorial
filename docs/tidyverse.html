@@ -24,7 +24,7 @@
 <meta name="author" content="Gabriela Mathieu" />
 
 
-<meta name="date" content="2020-04-30" />
+<meta name="date" content="2020-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -70,7 +70,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -242,7 +242,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tidyverse" class="section level1">
 <h1><span class="header-section-number">Capítulo 5</span> Tidyverse</h1>
-<p>El paquete tidyverse proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete base.</p>
+<p>El paquete <a href="https://www.tidyverse.org">tidyverse</a> es un conjunto de paquetes de R que comparten filosofía de diseño, gramática y estructura de datos. <em>tidyverse</em> proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete <em>base</em>.
+Un buen trabajo científico requiere de escribir un código claro y reproducible, este conjunto de paquetes ayudan para que esto sea posible.</p>
 <p>.center[
 <img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyverse.png" width="300px" />]</p>
 <div id="paquetes-1" class="section level2">
@@ -268,8 +269,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>La estructura de datos más importante en R es el <strong>data frame</strong>.</p>
 <p>Permite representar la información en forma de tabla, donde cada <strong>fila</strong> representa una <strong>observación</strong> y cada <strong>columna</strong> represente una <strong>variable</strong>.</p>
 <p>El paquete dplyr no provee ninguna funcionalidad que no pueda ser realizada con las funciones del paquete base, sin embargo, es más <strong>simple</strong> y <strong>rápido</strong> (está escrito en C++).</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
-<a class="sourceLine" id="cb50-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
+<a class="sourceLine" id="cb50-2" title="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <!-- - Todas las funciones del paquete tiene la particularidad de que su primer argumento es el data frame al que le realizará la operación, mientras que los subsiguiente argumentos describen como realizar tal operación. Finalmente el resultado de todas estas funciones es un nuevo data frame. -->
 <p><!-- dplyr::summarise() --></p>
 <!-- Calcula resumen de variables. -->

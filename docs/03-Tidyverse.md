@@ -1,6 +1,7 @@
 # Tidyverse
 
-El paquete tidyverse proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete base.
+El paquete [tidyverse](https://www.tidyverse.org) es un conjunto de paquetes de R que comparten filosofía de diseño, gramática y estructura de datos. *tidyverse* proporciona una forma unificada, armoniosa y más poderosa de trabajar con datos que la que ofrece el paquete *base*.
+Un buen trabajo científico requiere de escribir un código claro y reproducible, este conjunto de paquetes ayudan para que esto sea posible.
 
 .center[
 <img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/tidyverse.png" width="300px" />

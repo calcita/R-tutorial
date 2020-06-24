@@ -8,6 +8,10 @@
 
 # R Base
 
+<center>
+![](https://live.staticflickr.com/4682/39063699342_e9159bc269_n.jpg)
+</center>
+
 Base R refiere a la colección de funciones que vienen por defecto cuando instalamos R y queda disponibles para usar cada vez que abrimos el programa. Podemos decir que esas fuciones son las que contiene el paquete Base. El resto de las funciones vienen en paquetes que debemos instalar y luego en cada nueva sesión, cargarlos.
 
 # Objetos
