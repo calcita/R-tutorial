@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Capítulo 9 Control de versiones | R para análisis de datos y publicaciones</title>
+  <title>Capítulo 11 Control de versiones | R para análisis de datos</title>
   <meta name="description" content="Todo para que empieces a usar R." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Capítulo 9 Control de versiones | R para análisis de datos y publicaciones" />
+  <meta property="og:title" content="Capítulo 11 Control de versiones | R para análisis de datos" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://gabrielamathieu.info" />
   <meta property="og:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="calcita/R-tutorial" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Capítulo 9 Control de versiones | R para análisis de datos y publicaciones" />
+  <meta name="twitter:title" content="Capítulo 11 Control de versiones | R para análisis de datos" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
   <meta name="twitter:image" content="http://gabrielamathieu.infoIMG_20181221_143629.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Gabriela Mathieu" />
 
 
-<meta name="date" content="2020-03-03" />
+<meta name="date" content="2020-06-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="pipe.html"/>
-
+<link rel="next" href="paquetes-2.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,14 +50,7 @@
 
 
 
-<script src="libs/htmlwidgets-1.5/htmlwidgets.js"></script>
-<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-1.3.1/leaflet.js"></script>
-<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
-<script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
-<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
-<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
-<script src="libs/leaflet-binding-2.0.2/leaflet.js"></script>
+<link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -77,7 +70,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -140,77 +133,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
-<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="introducción.html"><a href="introducción.html#curva-de-aprendizaje"><i class="fa fa-check"></i><b>1.1</b> Curva de aprendizaje</a></li>
-<li class="chapter" data-level="1.2" data-path="introducción.html"><a href="introducción.html#ayuda"><i class="fa fa-check"></i><b>1.2</b> Ayuda</a></li>
-<li class="chapter" data-level="1.3" data-path="introducción.html"><a href="introducción.html#consola"><i class="fa fa-check"></i><b>1.3</b> Consola</a></li>
-<li class="chapter" data-level="1.4" data-path="introducción.html"><a href="introducción.html#prompt"><i class="fa fa-check"></i><b>1.4</b> Prompt</a></li>
-<li class="chapter" data-level="1.5" data-path="introducción.html"><a href="introducción.html#rstudio"><i class="fa fa-check"></i><b>1.5</b> Rstudio</a></li>
-<li class="chapter" data-level="1.6" data-path="introducción.html"><a href="introducción.html#script"><i class="fa fa-check"></i><b>1.6</b> Script</a></li>
-<li class="chapter" data-level="1.7" data-path="introducción.html"><a href="introducción.html#nuevo-script"><i class="fa fa-check"></i><b>1.7</b> Nuevo script</a></li>
-<li class="chapter" data-level="1.8" data-path="introducción.html"><a href="introducción.html#cómo-interactuamos-con-r"><i class="fa fa-check"></i><b>1.8</b> ¿Cómo interactuamos con R?</a></li>
-<li class="chapter" data-level="1.9" data-path="introducción.html"><a href="introducción.html#primeros-comandos"><i class="fa fa-check"></i><b>1.9</b> Primeros comandos</a></li>
-<li class="chapter" data-level="1.10" data-path="introducción.html"><a href="introducción.html#calculadora"><i class="fa fa-check"></i><b>1.10</b> Calculadora</a></li>
-<li class="chapter" data-level="1.11" data-path="introducción.html"><a href="introducción.html#funciones"><i class="fa fa-check"></i><b>1.11</b> Funciones</a></li>
-<li class="chapter" data-level="1.12" data-path="introducción.html"><a href="introducción.html#paquetes"><i class="fa fa-check"></i><b>1.12</b> Paquetes</a></li>
-<li class="chapter" data-level="1.13" data-path="introducción.html"><a href="introducción.html#consejos"><i class="fa fa-check"></i><b>1.13</b> Consejos</a></li>
-<li class="chapter" data-level="1.14" data-path="introducción.html"><a href="introducción.html#atajos-de-teclado"><i class="fa fa-check"></i><b>1.14</b> Atajos de teclado</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="qué-es-r.html"><a href="qué-es-r.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a><ul>
+<li class="chapter" data-level="2.1" data-path="qué-es-r.html"><a href="qué-es-r.html#curva-de-aprendizaje"><i class="fa fa-check"></i><b>2.1</b> Curva de aprendizaje</a></li>
+<li class="chapter" data-level="2.2" data-path="qué-es-r.html"><a href="qué-es-r.html#ayuda"><i class="fa fa-check"></i><b>2.2</b> Ayuda</a></li>
+<li class="chapter" data-level="2.3" data-path="qué-es-r.html"><a href="qué-es-r.html#consola"><i class="fa fa-check"></i><b>2.3</b> Consola</a></li>
+<li class="chapter" data-level="2.4" data-path="qué-es-r.html"><a href="qué-es-r.html#prompt"><i class="fa fa-check"></i><b>2.4</b> Prompt</a></li>
+<li class="chapter" data-level="2.5" data-path="qué-es-r.html"><a href="qué-es-r.html#rstudio"><i class="fa fa-check"></i><b>2.5</b> Rstudio</a></li>
+<li class="chapter" data-level="2.6" data-path="qué-es-r.html"><a href="qué-es-r.html#cómo-interactuamos-con-r"><i class="fa fa-check"></i><b>2.6</b> ¿Cómo interactuamos con R?</a></li>
+<li class="chapter" data-level="2.7" data-path="qué-es-r.html"><a href="qué-es-r.html#calculadora"><i class="fa fa-check"></i><b>2.7</b> Calculadora</a></li>
+<li class="chapter" data-level="2.8" data-path="qué-es-r.html"><a href="qué-es-r.html#funciones"><i class="fa fa-check"></i><b>2.8</b> Funciones</a></li>
+<li class="chapter" data-level="2.9" data-path="qué-es-r.html"><a href="qué-es-r.html#script"><i class="fa fa-check"></i><b>2.9</b> Script</a></li>
+<li class="chapter" data-level="2.10" data-path="qué-es-r.html"><a href="qué-es-r.html#nuevo-script"><i class="fa fa-check"></i><b>2.10</b> Nuevo script</a></li>
+<li class="chapter" data-level="2.11" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>2.11</b> Paquetes</a></li>
+<li class="chapter" data-level="2.12" data-path="qué-es-r.html"><a href="qué-es-r.html#consejos"><i class="fa fa-check"></i><b>2.12</b> Consejos</a></li>
+<li class="chapter" data-level="2.13" data-path="qué-es-r.html"><a href="qué-es-r.html#atajos-de-teclado"><i class="fa fa-check"></i><b>2.13</b> Atajos de teclado</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>2</b> Objetos</a><ul>
-<li class="chapter" data-level="2.1" data-path="objetos.html"><a href="objetos.html#tipo-de-objetos"><i class="fa fa-check"></i><b>2.1</b> Tipo de objetos</a></li>
-<li class="chapter" data-level="2.2" data-path="objetos.html"><a href="objetos.html#c"><i class="fa fa-check"></i><b>2.2</b> c()</a></li>
-<li class="chapter" data-level="2.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>2.3</b> Vector</a></li>
-<li class="chapter" data-level="2.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>2.4</b> Vector</a></li>
-<li class="chapter" data-level="2.5" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>2.5</b> Data frame</a></li>
-<li class="chapter" data-level="2.6" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>2.6</b> Explorar los datos</a></li>
-<li class="chapter" data-level="2.7" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>2.7</b> Guardar objeto en formato Rdata</a></li>
+<li class="chapter" data-level="3" data-path="r-base.html"><a href="r-base.html"><i class="fa fa-check"></i><b>3</b> R Base</a></li>
+<li class="chapter" data-level="4" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>4</b> Objetos</a><ul>
+<li class="chapter" data-level="4.1" data-path="objetos.html"><a href="objetos.html#tipo-de-objetos"><i class="fa fa-check"></i><b>4.1</b> Tipo de objetos</a></li>
+<li class="chapter" data-level="4.2" data-path="objetos.html"><a href="objetos.html#c"><i class="fa fa-check"></i><b>4.2</b> c()</a></li>
+<li class="chapter" data-level="4.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>4.3</b> Vector</a></li>
+<li class="chapter" data-level="4.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>4.4</b> Vector</a></li>
+<li class="chapter" data-level="4.5" data-path="objetos.html"><a href="objetos.html#ejemplo-vectores"><i class="fa fa-check"></i><b>4.5</b> Ejemplo vectores</a></li>
+<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.6</b> Data frame</a></li>
+<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.7</b> Explorar los datos</a></li>
+<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.8</b> Guardar objeto en formato Rdata</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a><ul>
-<li class="chapter" data-level="3.1" data-path="tidyverse.html"><a href="tidyverse.html#paquetes-1"><i class="fa fa-check"></i><b>3.1</b> Paquetes</a></li>
-<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
+<li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
+<li class="chapter" data-level="5.1" data-path="tidyverse.html"><a href="tidyverse.html#paquetes-1"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
+<li class="chapter" data-level="5.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>4</b> Trabajar en proyecto</a><ul>
-<li class="chapter" data-level="4.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>4.1</b> Crear proyecto</a></li>
-<li class="chapter" data-level="4.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>4.2</b> Abrir proyecto</a></li>
-<li class="chapter" data-level="4.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>4.3</b> Crear script</a></li>
-<li class="chapter" data-level="4.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>4.4</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="6" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>6</b> Trabajar en proyecto</a><ul>
+<li class="chapter" data-level="6.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>6.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="6.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>6.2</b> Abrir proyecto</a></li>
+<li class="chapter" data-level="6.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>6.3</b> Crear script</a></li>
+<li class="chapter" data-level="6.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>6.4</b> Flujo de trabajo</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Análisis de datos</a><ul>
-<li class="chapter" data-level="5.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#paquete-dplyr"><i class="fa fa-check"></i><b>5.1</b> Paquete dplyr</a></li>
-<li class="chapter" data-level="5.2" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#seleccionar-filas"><i class="fa fa-check"></i><b>5.2</b> Seleccionar filas</a></li>
-<li class="chapter" data-level="5.3" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#seleccionar-columnas"><i class="fa fa-check"></i><b>5.3</b> Seleccionar columnas</a></li>
-<li class="chapter" data-level="5.4" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>5.4</b> Renombrar variables</a></li>
-<li class="chapter" data-level="5.5" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#ordenar-casos-por-cierta-variable"><i class="fa fa-check"></i><b>5.5</b> Ordenar casos por cierta variable</a></li>
-<li class="chapter" data-level="5.6" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#modificar-o-crear-una-nueva-variable"><i class="fa fa-check"></i><b>5.6</b> Modificar o crear una nueva variable</a></li>
-<li class="chapter" data-level="5.7" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#agrupar-casos"><i class="fa fa-check"></i><b>5.7</b> Agrupar casos</a></li>
-<li class="chapter" data-level="5.8" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#resumir-los-datos"><i class="fa fa-check"></i><b>5.8</b> Resumir los datos</a></li>
-<li class="chapter" data-level="5.9" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.9</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="7" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>7</b> Análisis de datos</a><ul>
+<li class="chapter" data-level="7.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#explorar-datos"><i class="fa fa-check"></i><b>7.1</b> Explorar datos</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>6</b> Visualización</a></li>
-<li class="chapter" data-level="7" data-path="paquetes-2.html"><a href="paquetes-2.html"><i class="fa fa-check"></i><b>7</b> Paquetes</a></li>
-<li class="chapter" data-level="8" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>8</b> Pipe: <strong>%&gt;%</strong></a><ul>
-<li class="chapter" data-level="8.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>8.1</b> ¿Cómo sería preparar un mate en R?</a></li>
-<li class="chapter" data-level="8.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>8.2</b> %&gt;%</a></li>
+<li class="chapter" data-level="8" data-path="manipular-datos.html"><a href="manipular-datos.html"><i class="fa fa-check"></i><b>8</b> Manipular datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="manipular-datos.html"><a href="manipular-datos.html#acceder-a-las-variables"><i class="fa fa-check"></i><b>8.1</b> Acceder a las variables</a></li>
+<li class="chapter" data-level="8.2" data-path="manipular-datos.html"><a href="manipular-datos.html#paquete-dplyr"><i class="fa fa-check"></i><b>8.2</b> Paquete dplyr</a></li>
+<li class="chapter" data-level="8.3" data-path="manipular-datos.html"><a href="manipular-datos.html#seleccionar-filas"><i class="fa fa-check"></i><b>8.3</b> Seleccionar filas</a></li>
+<li class="chapter" data-level="8.4" data-path="manipular-datos.html"><a href="manipular-datos.html#seleccionar-columnas"><i class="fa fa-check"></i><b>8.4</b> Seleccionar columnas</a></li>
+<li class="chapter" data-level="8.5" data-path="manipular-datos.html"><a href="manipular-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>8.5</b> Renombrar variables</a></li>
+<li class="chapter" data-level="8.6" data-path="manipular-datos.html"><a href="manipular-datos.html#ordenar-casos-por-cierta-variable"><i class="fa fa-check"></i><b>8.6</b> Ordenar casos por cierta variable</a></li>
+<li class="chapter" data-level="8.7" data-path="manipular-datos.html"><a href="manipular-datos.html#modificar-o-crear-una-nueva-variable"><i class="fa fa-check"></i><b>8.7</b> Modificar o crear una nueva variable</a></li>
+<li class="chapter" data-level="8.8" data-path="manipular-datos.html"><a href="manipular-datos.html#agrupar-casos"><i class="fa fa-check"></i><b>8.8</b> Agrupar casos</a></li>
+<li class="chapter" data-level="8.9" data-path="manipular-datos.html"><a href="manipular-datos.html#resumir-los-datos"><i class="fa fa-check"></i><b>8.9</b> Resumir los datos</a></li>
+<li class="chapter" data-level="8.10" data-path="manipular-datos.html"><a href="manipular-datos.html#operadores-lógicos"><i class="fa fa-check"></i><b>8.10</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="8.11" data-path="manipular-datos.html"><a href="manipular-datos.html#evaluar-condiciones"><i class="fa fa-check"></i><b>8.11</b> Evaluar condiciones</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="control-de-versiones.html"><a href="control-de-versiones.html"><i class="fa fa-check"></i><b>9</b> Control de versiones</a><ul>
-<li class="chapter" data-level="9.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#qué-es-git"><i class="fa fa-check"></i><b>9.1</b> ¿Qué es git?</a></li>
-<li class="chapter" data-level="9.2" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio"><i class="fa fa-check"></i><b>9.2</b> Configurar git en Rstudio</a></li>
-<li class="chapter" data-level="9.3" data-path="control-de-versiones.html"><a href="control-de-versiones.html#registrarse-en-gitlab"><i class="fa fa-check"></i><b>9.3</b> Registrarse en gitlab</a></li>
-<li class="chapter" data-level="9.4" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio"><i class="fa fa-check"></i><b>9.4</b> Crear un repositorio</a></li>
-<li class="chapter" data-level="9.5" data-path="control-de-versiones.html"><a href="control-de-versiones.html#clonar-un-repositorio"><i class="fa fa-check"></i><b>9.5</b> Clonar un repositorio</a></li>
-<li class="chapter" data-level="9.6" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit"><i class="fa fa-check"></i><b>9.6</b> Commit</a></li>
-<li class="chapter" data-level="9.7" data-path="control-de-versiones.html"><a href="control-de-versiones.html#push"><i class="fa fa-check"></i><b>9.7</b> Push</a><ul>
-<li class="chapter" data-level="9.7.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#primer-commit-y-push"><i class="fa fa-check"></i><b>9.7.1</b> Primer commit y push</a></li>
+<li class="chapter" data-level="9" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>9</b> Visualización</a></li>
+<li class="chapter" data-level="10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>10</b> Pipe: <strong>%&gt;%</strong></a><ul>
+<li class="chapter" data-level="10.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>10.1</b> ¿Cómo sería preparar un mate en R?</a></li>
+<li class="chapter" data-level="10.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>10.2</b> %&gt;%</a></li>
 </ul></li>
-<li class="chapter" data-level="9.8" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull"><i class="fa fa-check"></i><b>9.8</b> Pull</a></li>
-<li class="chapter" data-level="9.9" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-proyecto-en-gitlab"><i class="fa fa-check"></i><b>9.9</b> Crear un proyecto en gitlab</a></li>
-<li class="chapter" data-level="9.10" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio-en-github"><i class="fa fa-check"></i><b>9.10</b> Crear un repositorio en github</a></li>
-<li class="chapter" data-level="9.11" data-path="control-de-versiones.html"><a href="control-de-versiones.html#instalar-git"><i class="fa fa-check"></i><b>9.11</b> Instalar git</a></li>
-<li class="chapter" data-level="9.12" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio-1"><i class="fa fa-check"></i><b>9.12</b> Configurar git en Rstudio</a></li>
-<li class="chapter" data-level="9.13" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit-y-push"><i class="fa fa-check"></i><b>9.13</b> Commit y push</a></li>
-<li class="chapter" data-level="9.14" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull-1"><i class="fa fa-check"></i><b>9.14</b> Pull</a></li>
-<li class="chapter" data-level="9.15" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>9.15</b> Historial</a></li>
-<li class="chapter" data-level="9.16" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>9.16</b> .gitignore</a></li>
+<li class="chapter" data-level="11" data-path="control-de-versiones.html"><a href="control-de-versiones.html"><i class="fa fa-check"></i><b>11</b> Control de versiones</a><ul>
+<li class="chapter" data-level="11.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#qué-es-git"><i class="fa fa-check"></i><b>11.1</b> ¿Qué es git?</a></li>
+<li class="chapter" data-level="11.2" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio"><i class="fa fa-check"></i><b>11.2</b> Configurar git en Rstudio</a></li>
+<li class="chapter" data-level="11.3" data-path="control-de-versiones.html"><a href="control-de-versiones.html#registrarse-en-gitlab"><i class="fa fa-check"></i><b>11.3</b> Registrarse en gitlab</a></li>
+<li class="chapter" data-level="11.4" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio"><i class="fa fa-check"></i><b>11.4</b> Crear un repositorio</a></li>
+<li class="chapter" data-level="11.5" data-path="control-de-versiones.html"><a href="control-de-versiones.html#clonar-un-repositorio"><i class="fa fa-check"></i><b>11.5</b> Clonar un repositorio</a></li>
+<li class="chapter" data-level="11.6" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit"><i class="fa fa-check"></i><b>11.6</b> Commit</a></li>
+<li class="chapter" data-level="11.7" data-path="control-de-versiones.html"><a href="control-de-versiones.html#push"><i class="fa fa-check"></i><b>11.7</b> Push</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#primer-commit-y-push"><i class="fa fa-check"></i><b>11.7.1</b> Primer commit y push</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull"><i class="fa fa-check"></i><b>11.8</b> Pull</a></li>
+<li class="chapter" data-level="11.9" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-proyecto-en-gitlab"><i class="fa fa-check"></i><b>11.9</b> Crear un proyecto en gitlab</a></li>
+<li class="chapter" data-level="11.10" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio-en-github"><i class="fa fa-check"></i><b>11.10</b> Crear un repositorio en github</a></li>
+<li class="chapter" data-level="11.11" data-path="control-de-versiones.html"><a href="control-de-versiones.html#instalar-git"><i class="fa fa-check"></i><b>11.11</b> Instalar git</a></li>
+<li class="chapter" data-level="11.12" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit-y-push"><i class="fa fa-check"></i><b>11.12</b> Commit y push</a></li>
+<li class="chapter" data-level="11.13" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull-1"><i class="fa fa-check"></i><b>11.13</b> Pull</a></li>
+<li class="chapter" data-level="11.14" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>11.14</b> Historial</a></li>
+<li class="chapter" data-level="11.15" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>11.15</b> .gitignore</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="paquetes-2.html"><a href="paquetes-2.html"><i class="fa fa-check"></i><b>12</b> Paquetes</a><ul>
+<li class="chapter" data-level="12.1" data-path="paquetes-2.html"><a href="paquetes-2.html#instalar-paquetes-desde-cran"><i class="fa fa-check"></i><b>12.1</b> Instalar paquetes desde CRAN</a></li>
+<li class="chapter" data-level="12.2" data-path="paquetes-2.html"><a href="paquetes-2.html#instalar-paquetes-desde-github"><i class="fa fa-check"></i><b>12.2</b> Instalar paquetes desde github</a></li>
+<li class="chapter" data-level="12.3" data-path="paquetes-2.html"><a href="paquetes-2.html#cargar"><i class="fa fa-check"></i><b>12.3</b> Cargar</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="programar-en-r.html"><a href="programar-en-r.html"><i class="fa fa-check"></i><b>13</b> Programar en R</a><ul>
+<li class="chapter" data-level="13.1" data-path="programar-en-r.html"><a href="programar-en-r.html#iteraciones"><i class="fa fa-check"></i><b>13.1</b> Iteraciones</a></li>
+<li class="chapter" data-level="13.2" data-path="programar-en-r.html"><a href="programar-en-r.html#funciones-map"><i class="fa fa-check"></i><b>13.2</b> Funciones map</a></li>
+<li class="chapter" data-level="13.3" data-path="programar-en-r.html"><a href="programar-en-r.html#crear-funciones"><i class="fa fa-check"></i><b>13.3</b> Crear funciones</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -224,7 +232,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R para análisis de datos y publicaciones</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R para análisis de datos</a>
           </h1>
         </div>
 
@@ -233,10 +241,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="control-de-versiones" class="section level1">
-<h1><span class="header-section-number">Capítulo 9</span> Control de versiones</h1>
+<h1><span class="header-section-number">Capítulo 11</span> Control de versiones</h1>
 <p>Un programa de control de versiones mantiene una copia de los cambios en el código u otro contenido. Esto es útil en caso de que necesitemos revertir algún cambio realizado.</p>
-<p>Seguramente todxs hemos implementado un control de versiones en nuestros proyectos. Por ejemplo, haciendo una tesis y nombrando por fecha al archivo hasta acumular decenas de archivos similares. Esto es un caos y nos brinda una falsa seguridad de que podremos recuperar algo que quitamos o cambiamos. ¿En qué versión estará? ¿En la del 10 de marzo o la del 11?</p>
-<p><img src="images/tesis.png" /></p>
+<p>Seguramente todxs hemos implementado un control de versiones en nuestros proyectos. Por ejemplo, haciendo una tesis y nombrando por fecha al archivo o por el avance alcanzado hasta acumular decenas de archivos similares. Esto tarde o temprano se convierte en un caos de archivos y nos brinda una falsa seguridad de que podremos recuperar algo que quitamos o cambiamos. ¿En qué versión estará? ¿En la de ayer o hoy de mañana?</p>
+<p><img src="images/tesis.png" style="width:50.0%" /></p>
 <p>Si usamos una plataforma como Dropbox estamos en una situación similar, contamos con un historial de archivos en caso de necesitarlo. O con Google Docs tenemos la opción de “version history” que viene a ser algo similar. Una ventaja de Google Docs respecto a Dropbox es que permite editar un mismo documento por varias personas a la vez.</p>
 <p>Pero ninguno de estos métodos de control de versiones es lo suficientemente eficiente y menos cuando de programar se trata. Por ello, existen software específicos para el control de versiones, uno de los más populares es git.</p>
 <p>¿Por qué es importante un software de contorl de versiones? Para revertir un cambio realizado y poder trabajar colaborativamente sobre un mismo proyecto sin preocuparnos que alguien borre algún archivo o parte del mismo. Nada se pierde, todo se recupera … ¿quiénes pensaron en la frase de Drexler? :notes:</p>
@@ -250,51 +258,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>compartir tus archivos en la web (github.com o gitlab.com)</li>
 </ul>
 <div id="qué-es-git" class="section level2">
-<h2><span class="header-section-number">9.1</span> ¿Qué es git?</h2>
+<h2><span class="header-section-number">11.1</span> ¿Qué es git?</h2>
 <p>Hagamos una analogía entre git y el e-mail.</p>
 <p>E-mail es un protocolo para enviar mensajes online, independientemente de cual servidor de e-mail uses (gmail, hotmail, adinet, etc.).</p>
 <p>Git es un protocolo para compartir versiones de tu código, independientemente de cual servidor git uses (github, gitlab, bitbucket).</p>
-<p>Así github.com es a git lo que gmail.com es a e-mail.</p>
+<p>Así github.com es a git lo que gmail.com es al e-mail.</p>
 </div>
 <div id="configurar-git-en-rstudio" class="section level2">
-<h2><span class="header-section-number">9.2</span> Configurar git en Rstudio</h2>
+<h2><span class="header-section-number">11.2</span> Configurar git en Rstudio</h2>
+<p>En primer lugar debemos indicarle a Rstudio dónde está el ejecutable de git en nuestra computadora.</p>
+<iframe src="https://player.vimeo.com/video/292760320" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
+</iframe>
+<p>La manera más sencilla de configurar git para usarlo a través de Rstudio es hacerlo en la terminal que allí se encuentra, independientemente del sistema operativo que tengamos.</p>
+<p>Para crear nuestra cuenta de gitlab usamos un nombre de usuarix y un e-mail, estas es la información que debemos proporcionar en la terminal. Estos comandos que escribimos no son comandos de R sino que serán interpretados por nuestro sistema operativo para configurar git.</p>
+<pre><code>git config --global user.name &quot;tu nombre&quot;
+git config --global user.email &quot;tumail@domain.com&quot;</code></pre>
+<p>El script que se en el siguiente gif lo usé para copia estos comandos como ayuda y no cometer un error al pegarlo en la terminal. Una vez allí pegué en la terminal la primera línea y sustituí “tu nombre” por “gmathieuuy” que fue el nombre que utilicé para crear mi cuenta y di enter. Luego sustituí “<a href="mailto:tumail@domain.com" class="email">tumail@domain.com</a>” por el mail “<a href="mailto:gmathieu@gmx.com" class="email">gmathieu@gmx.com</a>” y volví a hacer click en Enter. Así quedó configurado git para usarlo desde Rstudio.</p>
 <center>
 <img src="images/git/gitconfigrstudio.gif" />
 </center>
+<p>El terminal de RStudio proporciona acceso a la terminal del sistema. Lo que vemos de color verde loro es el nombre de usuarix de mi PC (antes del @) y el nombre de la PC (después del arroba). En celeste se describe la versión de R instalada. El signo de peso me habilita a escribir una orden. El $ es a la terminal lo que el prompt es a la consola de R.</p>
 </div>
 <div id="registrarse-en-gitlab" class="section level2">
-<h2><span class="header-section-number">9.3</span> Registrarse en gitlab</h2>
+<h2><span class="header-section-number">11.3</span> Registrarse en gitlab</h2>
 <center>
 <img src="images/git/creatagitlabaccount.gif" />
 </center>
 </div>
 <div id="crear-un-repositorio" class="section level2">
-<h2><span class="header-section-number">9.4</span> Crear un repositorio</h2>
+<h2><span class="header-section-number">11.4</span> Crear un repositorio</h2>
 <p>En gitlab se llama proyecto y en github se llama repositorio.</p>
 <center>
 <img src="images/git/createagitlabproject.gif" />
 </center>
 </div>
 <div id="clonar-un-repositorio" class="section level2">
-<h2><span class="header-section-number">9.5</span> Clonar un repositorio</h2>
+<h2><span class="header-section-number">11.5</span> Clonar un repositorio</h2>
 <center>
 <img src="images/git/clone.gif" />
 </center>
 </div>
 <div id="commit" class="section level2">
-<h2><span class="header-section-number">9.6</span> Commit</h2>
+<h2><span class="header-section-number">11.6</span> Commit</h2>
 </div>
 <div id="push" class="section level2">
-<h2><span class="header-section-number">9.7</span> Push</h2>
+<h2><span class="header-section-number">11.7</span> Push</h2>
 <div id="primer-commit-y-push" class="section level3">
-<h3><span class="header-section-number">9.7.1</span> Primer commit y push</h3>
+<h3><span class="header-section-number">11.7.1</span> Primer commit y push</h3>
 <center>
 <img src="images/git/commitandpush.gif" />
 </center>
 </div>
 </div>
 <div id="pull" class="section level2">
-<h2><span class="header-section-number">9.8</span> Pull</h2>
+<h2><span class="header-section-number">11.8</span> Pull</h2>
 <center>
 <img src="images/git/pull.gif" />
 </center>
@@ -312,41 +329,34 @@ Usar el comando git clone para bajar una copia del repositorio a tu computadora.
 </div>
 </div>
 <div id="crear-un-proyecto-en-gitlab" class="section level2">
-<h2><span class="header-section-number">9.9</span> Crear un proyecto en gitlab</h2>
-<iframe src="https://player.vimeo.com/video/292637965" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
+<h2><span class="header-section-number">11.9</span> Crear un proyecto en gitlab</h2>
 </div>
 <div id="crear-un-repositorio-en-github" class="section level2">
-<h2><span class="header-section-number">9.10</span> Crear un repositorio en github</h2>
+<h2><span class="header-section-number">11.10</span> Crear un repositorio en github</h2>
 </div>
 <div id="instalar-git" class="section level2">
-<h2><span class="header-section-number">9.11</span> Instalar git</h2>
+<h2><span class="header-section-number">11.11</span> Instalar git</h2>
 <p>git es el software de control de versiones. En distribuciones Linux suele venir instalado. En Windows se instala a través del ejecutable.</p>
 </div>
-<div id="configurar-git-en-rstudio-1" class="section level2">
-<h2><span class="header-section-number">9.12</span> Configurar git en Rstudio</h2>
-<iframe src="https://player.vimeo.com/video/292760320" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
-</iframe>
-</div>
 <div id="commit-y-push" class="section level2">
-<h2><span class="header-section-number">9.13</span> Commit y push</h2>
+<h2><span class="header-section-number">11.12</span> Commit y push</h2>
 <p>Para enviar los cambios que realizamos localmente primero debemos seleccionar los archivos modificados, creados o eliminados, luego hacer commit para lo cual es necesario escribir un mensaje que describa los cambios que realizamos.</p>
 <iframe src="https://player.vimeo.com/video/292639340" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen>
 </iframe>
 <p>Para que un mensaje del commit nos resulte útil debe describir brevemente lo que hicimos y no haber hecho muchas cosas antes de hacer un commit. Podemos volver a una versión anterior del código y para saber a cuál resulta muy útil ese mensaje.</p>
 </div>
 <div id="pull-1" class="section level2">
-<h2><span class="header-section-number">9.14</span> Pull</h2>
+<h2><span class="header-section-number">11.13</span> Pull</h2>
 <p>Descargar los cambios que otra persona o yo misma desde otra computadora realicé.</p>
 <!-- #b2e2e2 -->
 <p><img src="images/idea.png" style="width:2.0%" />
 Importante</p>
 </div>
 <div id="historial" class="section level2">
-<h2><span class="header-section-number">9.15</span> Historial</h2>
+<h2><span class="header-section-number">11.14</span> Historial</h2>
 </div>
 <div id="gitignore" class="section level2">
-<h2><span class="header-section-number">9.16</span> .gitignore</h2>
+<h2><span class="header-section-number">11.15</span> .gitignore</h2>
 <style>
 div.blue { background-color:#edf8b1; border-radius: 5px; padding: 20px;}
 </style>
@@ -364,8 +374,8 @@ div.blue { background-color:#edf8b1; border-radius: 5px; padding: 20px;}
           </div>
         </div>
       </div>
-<a href="pipe.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="pipe.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="paquetes-2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -384,12 +394,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -401,6 +410,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

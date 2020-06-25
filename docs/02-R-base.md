@@ -1,14 +1,18 @@
-<!-- # R y Rstudio -->
 
-<!-- ## Instalación  -->
-
-<!-- ## Actualización de versiones -->
 
 <!-- Now let's talk details. -->
 
 <!-- xfun -->
 
 <!-- https://cran.r-project.org/web/packages/xfun/vignettes/xfun.html -->
+
+# R Base
+
+<center>
+![](https://live.staticflickr.com/4682/39063699342_e9159bc269_n.jpg)
+</center>
+
+Base R refiere a la colección de funciones que vienen por defecto cuando instalamos R y queda disponibles para usar cada vez que abrimos el programa. Podemos decir que esas fuciones son las que contiene el paquete Base. El resto de las funciones vienen en paquetes que debemos instalar y luego en cada nueva sesión, cargarlos.
 
 # Objetos
 
@@ -20,8 +24,7 @@ Estos objetos se pueden modificar o manipular con **operadores** y **funciones**
 
 Bajo este término se esconde la simplicidad y flexibilidad de R. 
 
-Algunas de las clases más comunes de objetos son: 'integer', 'numeric', 'character',
-'logical' (son vectores), 'matrix', 'data.frame', 'list' y 'function'.
+Algunas de las clases más comunes de objetos son: 'integer', 'numeric', 'character', 'logical' (son vectores), 'matrix', 'data.frame', 'list' y 'function'.
 
 
 ## Tipo de objetos
@@ -134,6 +137,46 @@ class(w)
 ```
 
 
+## Ejemplo vectores
+
+Comparemos algunas características de R con otros software estadísticos como Stata y SPSS.
+Esta tabla la tomé de [Princeton University](https://imgv2-2-f.scribdassets.com/img/document/353774131/original/365bf63409/1573401036?v=1), la traduje y le agregué el año de creación.
+
+|Características | R | SPSS | Stata |
+|-----------------|-------|----------|----------------|
+| Año | 1993| 1968 | 1985|
+| Curva aprendizaje | Muy empinada | Plana  | Empinada |
+| Interfaz| Programación| Point and click | Programación/Point and click |
+| Manipulación de datos| Avanzada | Moderada | Avanzada |
+| Análisis de datos| Potente/Versátil | Potente | Potente|
+| Gráficos| Excelentes|Muy buenos | Muy buenos |
+|Software libre| 1| 0| 0 |
+|Costo| Gratuito| Muy costoso| Accesible |
+
+
+```r
+anio <- c(1993, 1968, 1985)
+software_libre <- c(T, F, F)
+costo <- c("gratuito", "costoso", "accesible")
+```
+
+
+```r
+length(anio)
+```
+
+```
+## [1] 3
+```
+
+```r
+class(anio)
+```
+
+```
+## [1] "numeric"
+```
+
 
 ## Data frame
 
@@ -142,13 +185,18 @@ class(w)
 
 ```r
 # vector numeric
-x <- c(15, 16, 17, 18)
+anio <- c(1993, 1968, 1985)
+
+# vector lógico
+
+software_libre <- c(T, F, F)
 
 # vector character
-w <- c("lunes", "martes", "miércoles", "jueves")
+costo <- c("gratuito", "costoso", "accesible")
+
 
 # data frame
-df <- data.frame(x, w)
+df <- data.frame(anio, software_libre, costo)
 class(df)
 ```
 
@@ -159,11 +207,15 @@ class(df)
 
 
 ```r
-class(df$x); class(df$w)
+class(df$anio); class(df$software_libre); class(df$costo)
 ```
 
 ```
 ## [1] "numeric"
+```
+
+```
+## [1] "logical"
 ```
 
 ```
@@ -195,7 +247,7 @@ summary()
 
 
 ```r
-save(h2018, file = "data/ech_h2018.Rdata") #<<
+save(df, file = "data/df.Rdata") #<<
 ```
 
 El primer elemento debe ser un **objeto**. Podrían ser más de uno.
