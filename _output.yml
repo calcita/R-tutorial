@@ -1,5 +1,6 @@
 bookdown::gitbook:
   css: style.css
+  highlight: pygments
   split_by: chapter
   config:
     toc:
@@ -7,7 +8,18 @@ bookdown::gitbook:
       before: |
         <li><a href="./">Starting with R</a></li>
       after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+        <li><a href="https://github.com/calcita" target="blank">Gabriela Mathieu CC-BY-SA</a></li>
+    search: yes
+    download: no
+    edit:
+      link: https://github.com/calcita/R-tutorial/edit/master/%s
+      text: "Suggest an edit"
+    sharing:
+      github: no
+      facebook: no
+      twitter: no
+      all: no
+always_allow_html: yes
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex

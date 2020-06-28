@@ -95,14 +95,6 @@ En gitlab se llama proyecto y en github se llama repositorio.
 ![](images/git/pull.gif)
 </center>
 
-
-
-   #edf8b1
-   
-div.blue { background-color:#efedf5; border-radius: 5px; padding: 20px;}
-</style>
-<div class = "blue">
-
 ![](images/document.png){ width=2% } **Objetivos**
 
 Después de completar esta lección serás capaz de:
@@ -116,7 +108,6 @@ Haber completado la sección de configuración de Git en tu computadora
 
 Haber creado una cuenta en Github.com y recordar usuario y contraseña.
 
-</div>
 
 ## Crear un proyecto en gitlab
 
@@ -152,18 +143,4 @@ Importante
 
 
 ## .gitignore
-<style>
-div.blue { background-color:#edf8b1; border-radius: 5px; padding: 20px;}
-</style>
-<div class = "yellow">
-
-![](images/work.png){ width=2% } **Ejercicio**
-
-
-</div>
-
-
-:::puzzle
-My content goes in here!
-:::
 

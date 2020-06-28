@@ -8,8 +8,13 @@
 
 # R Base
 
+<!--html_preserve--><script>
+  addClassKlippyTo("pre.r, pre.markdown");
+  addKlippy('left', 'top', 'auto', '1', 'Click to copy', 'Done');
+</script><!--/html_preserve-->
+
 <center>
-![](https://live.staticflickr.com/4682/39063699342_e9159bc269_n.jpg)
+![](https://live.staticflickr.com/4682/39063699342_e9159bc269_c_d.jpg)
 </center>
 
 Base R refiere a la colección de funciones que vienen por defecto cuando instalamos R y queda disponibles para usar cada vez que abrimos el programa. Podemos decir que esas fuciones son las que contiene el paquete Base. El resto de las funciones vienen en paquetes que debemos instalar y luego en cada nueva sesión, cargarlos.
@@ -39,8 +44,11 @@ La cantidad de clases de objetos es muy grande y crece permanentemente a medida 
 | Marco de datos    | dim() | diferentes |<!--html_preserve--><i class="fas  fa-ellipsis-v fa-3x " style="color:red;"></i><!--/html_preserve--><!--html_preserve--><i class="fas  fa-ellipsis-v fa-3x " style="color:blue;"></i><!--/html_preserve--> <!--html_preserve--><i class="fas  fa-ellipsis-v fa-3x " style="color:green;"></i><!--/html_preserve-->|
 | Lista   | length() | diferentes |<!--html_preserve--><i class="fas  fa-circle " style="color:red;"></i><!--/html_preserve--> <br> <!--html_preserve--><i class="fas  fa-circle " style="color:blue;"></i><!--/html_preserve--> <br> <!--html_preserve--><i class="fas  fa-circle " style="color:green;"></i><!--/html_preserve-->| 
 
+## Vectores 
 
-## c()
+![](images/vector.png)
+
+### c()
 
 - Crea un vector
 
@@ -180,10 +188,12 @@ class(anio)
 
 ## Data frame
 
+![](images/dataframe.png)
+
 - Puede verse como un conjunto de vectores de diferente tipo pero de igual largo.
 
 
-```r
+```{.r .klippy}
 # vector numeric
 anio <- c(1993, 1968, 1985)
 
@@ -203,6 +213,20 @@ class(df)
 ```
 ## [1] "data.frame"
 ```
+
+
+```r
+knitr::kable(df)
+```
+
+
+
+| anio|software_libre |costo     |
+|----:|:--------------|:---------|
+| 1993|TRUE           |gratuito  |
+| 1968|FALSE          |costoso   |
+| 1985|FALSE          |accesible |
+
 - En un conjunto de datos, cada variable/columna es un vector. 
 
 
