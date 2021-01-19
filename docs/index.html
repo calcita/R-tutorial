@@ -59,6 +59,68 @@
 <script src="libs/klippy-0.0.0.9500/js/klippy.min.js"></script>
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -77,85 +139,89 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefacio</a></li>
-<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="introducción.html"><a href="introducción.html#curva-de-aprendizaje"><i class="fa fa-check"></i><b>1.1</b> Curva de aprendizaje</a></li>
-<li class="chapter" data-level="1.2" data-path="introducción.html"><a href="introducción.html#ayuda"><i class="fa fa-check"></i><b>1.2</b> Ayuda</a></li>
-<li class="chapter" data-level="1.3" data-path="introducción.html"><a href="introducción.html#consola"><i class="fa fa-check"></i><b>1.3</b> Consola</a></li>
-<li class="chapter" data-level="1.4" data-path="introducción.html"><a href="introducción.html#prompt"><i class="fa fa-check"></i><b>1.4</b> Prompt</a></li>
-<li class="chapter" data-level="1.5" data-path="introducción.html"><a href="introducción.html#rstudio"><i class="fa fa-check"></i><b>1.5</b> Rstudio</a></li>
-<li class="chapter" data-level="1.6" data-path="introducción.html"><a href="introducción.html#cómo-interactuamos-con-r"><i class="fa fa-check"></i><b>1.6</b> ¿Cómo interactuamos con R?</a></li>
-<li class="chapter" data-level="1.7" data-path="introducción.html"><a href="introducción.html#calculadora"><i class="fa fa-check"></i><b>1.7</b> Calculadora</a></li>
-<li class="chapter" data-level="1.8" data-path="introducción.html"><a href="introducción.html#funciones"><i class="fa fa-check"></i><b>1.8</b> Funciones</a></li>
-<li class="chapter" data-level="1.9" data-path="introducción.html"><a href="introducción.html#script"><i class="fa fa-check"></i><b>1.9</b> Script</a></li>
-<li class="chapter" data-level="1.10" data-path="introducción.html"><a href="introducción.html#nuevo-script"><i class="fa fa-check"></i><b>1.10</b> Nuevo script</a></li>
-<li class="chapter" data-level="1.11" data-path="introducción.html"><a href="introducción.html#paquetes"><i class="fa fa-check"></i><b>1.11</b> Paquetes</a></li>
-<li class="chapter" data-level="1.12" data-path="introducción.html"><a href="introducción.html#consejos"><i class="fa fa-check"></i><b>1.12</b> Consejos</a></li>
-<li class="chapter" data-level="1.13" data-path="introducción.html"><a href="introducción.html#atajos-de-teclado"><i class="fa fa-check"></i><b>1.13</b> Atajos de teclado</a></li>
+<li class="chapter" data-level="1" data-path="introducción.html"><a href="introducción.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="qué-es-r.html"><a href="qué-es-r.html"><i class="fa fa-check"></i><b>2</b> ¿Qué es R?</a><ul>
+<li class="chapter" data-level="2.1" data-path="qué-es-r.html"><a href="qué-es-r.html#curva-de-aprendizaje"><i class="fa fa-check"></i><b>2.1</b> Curva de aprendizaje</a></li>
+<li class="chapter" data-level="2.2" data-path="qué-es-r.html"><a href="qué-es-r.html#ayuda"><i class="fa fa-check"></i><b>2.2</b> Ayuda</a></li>
+<li class="chapter" data-level="2.3" data-path="qué-es-r.html"><a href="qué-es-r.html#consola"><i class="fa fa-check"></i><b>2.3</b> Consola</a></li>
+<li class="chapter" data-level="2.4" data-path="qué-es-r.html"><a href="qué-es-r.html#prompt"><i class="fa fa-check"></i><b>2.4</b> Prompt</a></li>
+<li class="chapter" data-level="2.5" data-path="qué-es-r.html"><a href="qué-es-r.html#rstudio"><i class="fa fa-check"></i><b>2.5</b> Rstudio</a></li>
+<li class="chapter" data-level="2.6" data-path="qué-es-r.html"><a href="qué-es-r.html#cómo-interactuamos-con-r"><i class="fa fa-check"></i><b>2.6</b> ¿Cómo interactuamos con R?</a></li>
+<li class="chapter" data-level="2.7" data-path="qué-es-r.html"><a href="qué-es-r.html#calculadora"><i class="fa fa-check"></i><b>2.7</b> Calculadora</a></li>
+<li class="chapter" data-level="2.8" data-path="qué-es-r.html"><a href="qué-es-r.html#funciones"><i class="fa fa-check"></i><b>2.8</b> Funciones</a></li>
+<li class="chapter" data-level="2.9" data-path="qué-es-r.html"><a href="qué-es-r.html#script"><i class="fa fa-check"></i><b>2.9</b> Script</a></li>
+<li class="chapter" data-level="2.10" data-path="qué-es-r.html"><a href="qué-es-r.html#nuevo-script"><i class="fa fa-check"></i><b>2.10</b> Nuevo script</a></li>
+<li class="chapter" data-level="2.11" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>2.11</b> Paquetes</a></li>
+<li class="chapter" data-level="2.12" data-path="qué-es-r.html"><a href="qué-es-r.html#consejos"><i class="fa fa-check"></i><b>2.12</b> Consejos</a></li>
+<li class="chapter" data-level="2.13" data-path="qué-es-r.html"><a href="qué-es-r.html#atajos-de-teclado"><i class="fa fa-check"></i><b>2.13</b> Atajos de teclado</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-base.html"><a href="r-base.html"><i class="fa fa-check"></i><b>2</b> R Base</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-base.html"><a href="r-base.html#tipo-de-objetos"><i class="fa fa-check"></i><b>2.1</b> Tipo de objetos</a></li>
-<li class="chapter" data-level="2.2" data-path="r-base.html"><a href="r-base.html#vectores"><i class="fa fa-check"></i><b>2.2</b> Vectores</a><ul>
-<li class="chapter" data-level="2.2.1" data-path="r-base.html"><a href="r-base.html#c"><i class="fa fa-check"></i><b>2.2.1</b> c()</a></li>
+<li class="chapter" data-level="3" data-path="r-base.html"><a href="r-base.html"><i class="fa fa-check"></i><b>3</b> R Base</a></li>
+<li class="chapter" data-level="4" data-path="objetos.html"><a href="objetos.html"><i class="fa fa-check"></i><b>4</b> Objetos</a><ul>
+<li class="chapter" data-level="4.1" data-path="objetos.html"><a href="objetos.html#tipo-de-objetos"><i class="fa fa-check"></i><b>4.1</b> Tipo de objetos</a></li>
+<li class="chapter" data-level="4.2" data-path="objetos.html"><a href="objetos.html#vectores"><i class="fa fa-check"></i><b>4.2</b> Vectores</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="objetos.html"><a href="objetos.html#c"><i class="fa fa-check"></i><b>4.2.1</b> c()</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="r-base.html"><a href="r-base.html#vector"><i class="fa fa-check"></i><b>2.3</b> Vector</a></li>
-<li class="chapter" data-level="2.4" data-path="r-base.html"><a href="r-base.html#vector-1"><i class="fa fa-check"></i><b>2.4</b> Vector</a></li>
-<li class="chapter" data-level="2.5" data-path="r-base.html"><a href="r-base.html#ejemplo-vectores"><i class="fa fa-check"></i><b>2.5</b> Ejemplo vectores</a></li>
-<li class="chapter" data-level="2.6" data-path="r-base.html"><a href="r-base.html#data-frame"><i class="fa fa-check"></i><b>2.6</b> Data frame</a></li>
-<li class="chapter" data-level="2.7" data-path="r-base.html"><a href="r-base.html#explorar-los-datos"><i class="fa fa-check"></i><b>2.7</b> Explorar los datos</a></li>
-<li class="chapter" data-level="2.8" data-path="r-base.html"><a href="r-base.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>2.8</b> Guardar objeto en formato Rdata</a></li>
+<li class="chapter" data-level="4.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>4.3</b> Vector</a></li>
+<li class="chapter" data-level="4.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>4.4</b> Vector</a></li>
+<li class="chapter" data-level="4.5" data-path="objetos.html"><a href="objetos.html#ejemplo-vectores"><i class="fa fa-check"></i><b>4.5</b> Ejemplo vectores</a></li>
+<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.6</b> Data frame</a></li>
+<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.7</b> Explorar los datos</a></li>
+<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.8</b> Guardar objeto en formato Rdata</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>3</b> Tidyverse</a><ul>
-<li class="chapter" data-level="3.1" data-path="introducción.html"><a href="introducción.html#paquetes"><i class="fa fa-check"></i><b>3.1</b> Paquetes</a></li>
-<li class="chapter" data-level="3.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>3.2</b> dplyr</a></li>
+<li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
+<li class="chapter" data-level="5.1" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
+<li class="chapter" data-level="5.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>4</b> Trabajar en proyecto</a><ul>
-<li class="chapter" data-level="4.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>4.1</b> Crear proyecto</a></li>
-<li class="chapter" data-level="4.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>4.2</b> Abrir proyecto</a></li>
-<li class="chapter" data-level="4.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>4.3</b> Crear script</a></li>
-<li class="chapter" data-level="4.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>4.4</b> Flujo de trabajo</a></li>
+<li class="chapter" data-level="6" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>6</b> Trabajar en proyecto</a><ul>
+<li class="chapter" data-level="6.1" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-proyecto"><i class="fa fa-check"></i><b>6.1</b> Crear proyecto</a></li>
+<li class="chapter" data-level="6.2" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#abrir-proyecto"><i class="fa fa-check"></i><b>6.2</b> Abrir proyecto</a></li>
+<li class="chapter" data-level="6.3" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#crear-script"><i class="fa fa-check"></i><b>6.3</b> Crear script</a></li>
+<li class="chapter" data-level="6.4" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html#flujo-de-trabajo"><i class="fa fa-check"></i><b>6.4</b> Flujo de trabajo</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>5</b> Análisis de datos</a><ul>
-<li class="chapter" data-level="5.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#explorar-datos"><i class="fa fa-check"></i><b>5.1</b> Explorar datos</a></li>
-<li class="chapter" data-level="5.2" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#acceder-a-las-variables"><i class="fa fa-check"></i><b>5.2</b> Acceder a las variables</a></li>
-<li class="chapter" data-level="5.3" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#paquete-dplyr"><i class="fa fa-check"></i><b>5.3</b> Paquete dplyr</a></li>
-<li class="chapter" data-level="5.4" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#seleccionar-filas"><i class="fa fa-check"></i><b>5.4</b> Seleccionar filas</a></li>
-<li class="chapter" data-level="5.5" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#seleccionar-columnas"><i class="fa fa-check"></i><b>5.5</b> Seleccionar columnas</a></li>
-<li class="chapter" data-level="5.6" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>5.6</b> Renombrar variables</a></li>
-<li class="chapter" data-level="5.7" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#ordenar-casos-por-cierta-variable"><i class="fa fa-check"></i><b>5.7</b> Ordenar casos por cierta variable</a></li>
-<li class="chapter" data-level="5.8" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#modificar-o-crear-una-nueva-variable"><i class="fa fa-check"></i><b>5.8</b> Modificar o crear una nueva variable</a></li>
-<li class="chapter" data-level="5.9" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#agrupar-casos"><i class="fa fa-check"></i><b>5.9</b> Agrupar casos</a></li>
-<li class="chapter" data-level="5.10" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#resumir-los-datos"><i class="fa fa-check"></i><b>5.10</b> Resumir los datos</a></li>
-<li class="chapter" data-level="5.11" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#operadores-lógicos"><i class="fa fa-check"></i><b>5.11</b> Operadores lógicos</a></li>
-<li class="chapter" data-level="5.12" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#evaluar-condiciones"><i class="fa fa-check"></i><b>5.12</b> Evaluar condiciones</a></li>
+<li class="chapter" data-level="7" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html"><i class="fa fa-check"></i><b>7</b> Análisis de datos</a><ul>
+<li class="chapter" data-level="7.1" data-path="análisis-de-datos.html"><a href="análisis-de-datos.html#explorar-datos"><i class="fa fa-check"></i><b>7.1</b> Explorar datos</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>6</b> Visualización</a></li>
-<li class="chapter" data-level="7" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>7</b> Pipe: <strong>%&gt;%</strong></a><ul>
-<li class="chapter" data-level="7.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>7.1</b> ¿Cómo sería preparar un mate en R?</a></li>
-<li class="chapter" data-level="7.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>7.2</b> %&gt;%</a></li>
+<li class="chapter" data-level="8" data-path="manipular-datos.html"><a href="manipular-datos.html"><i class="fa fa-check"></i><b>8</b> Manipular datos</a><ul>
+<li class="chapter" data-level="8.1" data-path="manipular-datos.html"><a href="manipular-datos.html#acceder-a-las-variables"><i class="fa fa-check"></i><b>8.1</b> Acceder a las variables</a></li>
+<li class="chapter" data-level="8.2" data-path="manipular-datos.html"><a href="manipular-datos.html#paquete-dplyr"><i class="fa fa-check"></i><b>8.2</b> Paquete dplyr</a></li>
+<li class="chapter" data-level="8.3" data-path="manipular-datos.html"><a href="manipular-datos.html#seleccionar-filas"><i class="fa fa-check"></i><b>8.3</b> Seleccionar filas</a></li>
+<li class="chapter" data-level="8.4" data-path="manipular-datos.html"><a href="manipular-datos.html#seleccionar-columnas"><i class="fa fa-check"></i><b>8.4</b> Seleccionar columnas</a></li>
+<li class="chapter" data-level="8.5" data-path="manipular-datos.html"><a href="manipular-datos.html#renombrar-variables"><i class="fa fa-check"></i><b>8.5</b> Renombrar variables</a></li>
+<li class="chapter" data-level="8.6" data-path="manipular-datos.html"><a href="manipular-datos.html#ordenar-casos-por-cierta-variable"><i class="fa fa-check"></i><b>8.6</b> Ordenar casos por cierta variable</a></li>
+<li class="chapter" data-level="8.7" data-path="manipular-datos.html"><a href="manipular-datos.html#modificar-o-crear-una-nueva-variable"><i class="fa fa-check"></i><b>8.7</b> Modificar o crear una nueva variable</a></li>
+<li class="chapter" data-level="8.8" data-path="manipular-datos.html"><a href="manipular-datos.html#agrupar-casos"><i class="fa fa-check"></i><b>8.8</b> Agrupar casos</a></li>
+<li class="chapter" data-level="8.9" data-path="manipular-datos.html"><a href="manipular-datos.html#resumir-los-datos"><i class="fa fa-check"></i><b>8.9</b> Resumir los datos</a></li>
+<li class="chapter" data-level="8.10" data-path="manipular-datos.html"><a href="manipular-datos.html#operadores-lógicos"><i class="fa fa-check"></i><b>8.10</b> Operadores lógicos</a></li>
+<li class="chapter" data-level="8.11" data-path="manipular-datos.html"><a href="manipular-datos.html#evaluar-condiciones"><i class="fa fa-check"></i><b>8.11</b> Evaluar condiciones</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="control-de-versiones.html"><a href="control-de-versiones.html"><i class="fa fa-check"></i><b>8</b> Control de versiones</a><ul>
-<li class="chapter" data-level="8.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#qué-es-git"><i class="fa fa-check"></i><b>8.1</b> ¿Qué es git?</a></li>
-<li class="chapter" data-level="8.2" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio"><i class="fa fa-check"></i><b>8.2</b> Configurar git en Rstudio</a></li>
-<li class="chapter" data-level="8.3" data-path="control-de-versiones.html"><a href="control-de-versiones.html#registrarse-en-gitlab"><i class="fa fa-check"></i><b>8.3</b> Registrarse en gitlab</a></li>
-<li class="chapter" data-level="8.4" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio"><i class="fa fa-check"></i><b>8.4</b> Crear un repositorio</a></li>
-<li class="chapter" data-level="8.5" data-path="control-de-versiones.html"><a href="control-de-versiones.html#clonar-un-repositorio"><i class="fa fa-check"></i><b>8.5</b> Clonar un repositorio</a></li>
-<li class="chapter" data-level="8.6" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit"><i class="fa fa-check"></i><b>8.6</b> Commit</a></li>
-<li class="chapter" data-level="8.7" data-path="control-de-versiones.html"><a href="control-de-versiones.html#push"><i class="fa fa-check"></i><b>8.7</b> Push</a><ul>
-<li class="chapter" data-level="8.7.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#primer-commit-y-push"><i class="fa fa-check"></i><b>8.7.1</b> Primer commit y push</a></li>
+<li class="chapter" data-level="9" data-path="visualización.html"><a href="visualización.html"><i class="fa fa-check"></i><b>9</b> Visualización</a></li>
+<li class="chapter" data-level="10" data-path="pipe.html"><a href="pipe.html"><i class="fa fa-check"></i><b>10</b> Pipe: <strong>%&gt;%</strong></a><ul>
+<li class="chapter" data-level="10.1" data-path="pipe.html"><a href="pipe.html#cómo-sería-preparar-un-mate-en-r"><i class="fa fa-check"></i><b>10.1</b> ¿Cómo sería preparar un mate en R?</a></li>
+<li class="chapter" data-level="10.2" data-path="pipe.html"><a href="pipe.html#section"><i class="fa fa-check"></i><b>10.2</b> %&gt;%</a></li>
 </ul></li>
-<li class="chapter" data-level="8.8" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull"><i class="fa fa-check"></i><b>8.8</b> Pull</a></li>
-<li class="chapter" data-level="8.9" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-proyecto-en-gitlab"><i class="fa fa-check"></i><b>8.9</b> Crear un proyecto en gitlab</a></li>
-<li class="chapter" data-level="8.10" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio-en-github"><i class="fa fa-check"></i><b>8.10</b> Crear un repositorio en github</a></li>
-<li class="chapter" data-level="8.11" data-path="control-de-versiones.html"><a href="control-de-versiones.html#instalar-git"><i class="fa fa-check"></i><b>8.11</b> Instalar git</a></li>
-<li class="chapter" data-level="8.12" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit-y-push"><i class="fa fa-check"></i><b>8.12</b> Commit y push</a></li>
-<li class="chapter" data-level="8.13" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull-1"><i class="fa fa-check"></i><b>8.13</b> Pull</a></li>
-<li class="chapter" data-level="8.14" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>8.14</b> Historial</a></li>
-<li class="chapter" data-level="8.15" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>8.15</b> .gitignore</a></li>
+<li class="chapter" data-level="11" data-path="control-de-versiones.html"><a href="control-de-versiones.html"><i class="fa fa-check"></i><b>11</b> Control de versiones</a><ul>
+<li class="chapter" data-level="11.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#qué-es-git"><i class="fa fa-check"></i><b>11.1</b> ¿Qué es git?</a></li>
+<li class="chapter" data-level="11.2" data-path="control-de-versiones.html"><a href="control-de-versiones.html#configurar-git-en-rstudio"><i class="fa fa-check"></i><b>11.2</b> Configurar git en Rstudio</a></li>
+<li class="chapter" data-level="11.3" data-path="control-de-versiones.html"><a href="control-de-versiones.html#registrarse-en-gitlab"><i class="fa fa-check"></i><b>11.3</b> Registrarse en gitlab</a></li>
+<li class="chapter" data-level="11.4" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio"><i class="fa fa-check"></i><b>11.4</b> Crear un repositorio</a></li>
+<li class="chapter" data-level="11.5" data-path="control-de-versiones.html"><a href="control-de-versiones.html#clonar-un-repositorio"><i class="fa fa-check"></i><b>11.5</b> Clonar un repositorio</a></li>
+<li class="chapter" data-level="11.6" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit"><i class="fa fa-check"></i><b>11.6</b> Commit</a></li>
+<li class="chapter" data-level="11.7" data-path="control-de-versiones.html"><a href="control-de-versiones.html#push"><i class="fa fa-check"></i><b>11.7</b> Push</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="control-de-versiones.html"><a href="control-de-versiones.html#primer-commit-y-push"><i class="fa fa-check"></i><b>11.7.1</b> Primer commit y push</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="introducción.html"><a href="introducción.html#paquetes"><i class="fa fa-check"></i><b>9</b> Paquetes</a><ul>
-<li class="chapter" data-level="9.1" data-path="paquetes.html"><a href="paquetes.html"><i class="fa fa-check"></i><b>9.1</b> Instalar paquetes desde CRAN</a></li>
-<li class="chapter" data-level="9.2" data-path="paquetes.html"><a href="paquetes.html#instalar-paquetes-desde-github"><i class="fa fa-check"></i><b>9.2</b> Instalar paquetes desde github</a></li>
-<li class="chapter" data-level="9.3" data-path="paquetes.html"><a href="paquetes.html#cargar"><i class="fa fa-check"></i><b>9.3</b> Cargar</a></li>
+<li class="chapter" data-level="11.8" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull"><i class="fa fa-check"></i><b>11.8</b> Pull</a></li>
+<li class="chapter" data-level="11.9" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-proyecto-en-gitlab"><i class="fa fa-check"></i><b>11.9</b> Crear un proyecto en gitlab</a></li>
+<li class="chapter" data-level="11.10" data-path="control-de-versiones.html"><a href="control-de-versiones.html#crear-un-repositorio-en-github"><i class="fa fa-check"></i><b>11.10</b> Crear un repositorio en github</a></li>
+<li class="chapter" data-level="11.11" data-path="control-de-versiones.html"><a href="control-de-versiones.html#instalar-git"><i class="fa fa-check"></i><b>11.11</b> Instalar git</a></li>
+<li class="chapter" data-level="11.12" data-path="control-de-versiones.html"><a href="control-de-versiones.html#commit-y-push"><i class="fa fa-check"></i><b>11.12</b> Commit y push</a></li>
+<li class="chapter" data-level="11.13" data-path="control-de-versiones.html"><a href="control-de-versiones.html#pull-1"><i class="fa fa-check"></i><b>11.13</b> Pull</a></li>
+<li class="chapter" data-level="11.14" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>11.14</b> Historial</a></li>
+<li class="chapter" data-level="11.15" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>11.15</b> .gitignore</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>12</b> Paquetes</a><ul>
+<li class="chapter" data-level="12.1" data-path="paquetes.html"><a href="paquetes.html"><i class="fa fa-check"></i><b>12.1</b> Instalar paquetes desde CRAN</a></li>
+<li class="chapter" data-level="12.2" data-path="paquetes.html"><a href="paquetes.html#instalar-paquetes-desde-github"><i class="fa fa-check"></i><b>12.2</b> Instalar paquetes desde github</a></li>
+<li class="chapter" data-level="12.3" data-path="paquetes.html"><a href="paquetes.html#cargar"><i class="fa fa-check"></i><b>12.3</b> Cargar</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/calcita" target="blank">Gabriela Mathieu CC-BY-SA</a></li>

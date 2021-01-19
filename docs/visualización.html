@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Capítulo 9 Visualización | R para análisis de datos</title>
   <meta name="description" content="Todo para que empieces a usar R." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Capítulo 9 Visualización | R para análisis de datos" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="https://gabrielamathieu.info" />
-  <meta property="og:image" content="https://gabrielamathieu.infoIMG_20181221_143629.jpg" />
+  <meta property="og:url" content="http://gabrielamathieu.rbind.io/" />
+  
   <meta property="og:description" content="Todo para que empieces a usar R." />
   <meta name="github-repo" content="calcita/R-tutorial" />
 
@@ -19,18 +19,18 @@
   <meta name="twitter:title" content="Capítulo 9 Visualización | R para análisis de datos" />
   
   <meta name="twitter:description" content="Todo para que empieces a usar R." />
-  <meta name="twitter:image" content="https://gabrielamathieu.infoIMG_20181221_143629.jpg" />
+  
 
 <meta name="author" content="Gabriela Mathieu" />
 
 
-<meta name="date" content="2020-06-28" />
+<meta name="date" content="2021-01-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+  
 <link rel="prev" href="manipular-datos.html"/>
 <link rel="next" href="pipe.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
 <link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
@@ -74,7 +76,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -167,7 +169,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.8</b> Guardar objeto en formato Rdata</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
-<li class="chapter" data-level="5.1" data-path="tidyverse.html"><a href="tidyverse.html#paquetes-1"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
+<li class="chapter" data-level="5.1" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
 <li class="chapter" data-level="5.2" data-path="tidyverse.html"><a href="tidyverse.html#dplyr"><i class="fa fa-check"></i><b>5.2</b> dplyr</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="trabajar-en-proyecto.html"><a href="trabajar-en-proyecto.html"><i class="fa fa-check"></i><b>6</b> Trabajar en proyecto</a><ul>
@@ -216,10 +218,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="11.14" data-path="control-de-versiones.html"><a href="control-de-versiones.html#historial"><i class="fa fa-check"></i><b>11.14</b> Historial</a></li>
 <li class="chapter" data-level="11.15" data-path="control-de-versiones.html"><a href="control-de-versiones.html#gitignore"><i class="fa fa-check"></i><b>11.15</b> .gitignore</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="paquetes-2.html"><a href="paquetes-2.html"><i class="fa fa-check"></i><b>12</b> Paquetes</a><ul>
-<li class="chapter" data-level="12.1" data-path="paquetes-2.html"><a href="paquetes-2.html#instalar-paquetes-desde-cran"><i class="fa fa-check"></i><b>12.1</b> Instalar paquetes desde CRAN</a></li>
-<li class="chapter" data-level="12.2" data-path="paquetes-2.html"><a href="paquetes-2.html#instalar-paquetes-desde-github"><i class="fa fa-check"></i><b>12.2</b> Instalar paquetes desde github</a></li>
-<li class="chapter" data-level="12.3" data-path="paquetes-2.html"><a href="paquetes-2.html#cargar"><i class="fa fa-check"></i><b>12.3</b> Cargar</a></li>
+<li class="chapter" data-level="12" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>12</b> Paquetes</a><ul>
+<li class="chapter" data-level="12.1" data-path="paquetes.html"><a href="paquetes.html"><i class="fa fa-check"></i><b>12.1</b> Instalar paquetes desde CRAN</a></li>
+<li class="chapter" data-level="12.2" data-path="paquetes.html"><a href="paquetes.html#instalar-paquetes-desde-github"><i class="fa fa-check"></i><b>12.2</b> Instalar paquetes desde github</a></li>
+<li class="chapter" data-level="12.3" data-path="paquetes.html"><a href="paquetes.html#cargar"><i class="fa fa-check"></i><b>12.3</b> Cargar</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/calcita" target="blank">Gabriela Mathieu CC-BY-SA</a></li>
@@ -457,7 +459,6 @@ gitbook.start({
 "github": false,
 "facebook": false,
 "twitter": false,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
@@ -474,6 +475,10 @@ gitbook.start({
 "text": "Suggest an edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
