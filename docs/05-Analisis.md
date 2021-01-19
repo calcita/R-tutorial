@@ -1,10 +1,32 @@
 # Análisis de datos
 
+
+
 <center>
 ![Barcelona](images/barcelona/201706_Barcelona_088_lnz.jpg)
 </center>
 
 Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en [Inside Airbnb](http://data.insideairbnb.com). La elección de los datos no responde a hacerle publicidad a esta empresa, simplemente los elegí porque contiene variables interesantes.
+
+Trabajaremos con los datos de alojamientos en Barcelona de Airbnb al 10 de enero de 2020. Son datos abiertos disponibles en http://insideairbnb.com/get-the-data.html.  Son datos abiertos con licencia Creative Commons CC0 1.0 Universal "Public Domain Dedication.
+
+| Archivos | Descripción|
+|---------|------------|
+|listings.csv| listado de alojamientos disponibles | 
+|reviews.csv | evaluaciones de personas alojadas |
+|neighbourhoods.csv | listado de barrios |
+|neighbourhoods.geojson | información geográfica de los barrios |
+  
+¿Cómo funciona Airbnb?
+
+Quienes se hospedan pueden elegir entre casas/apartamentos enteros, solo cuartos privados o cuartos compartidos (room_type). Luego de la estadía deben dejar una evaluación (review). 
+Los alojamientos varían en precio, mínimo de días de estadía, los días disponible, etc. 
+
+
+<div class="figure" style="text-align: center">
+<img src="https://live.staticflickr.com/804/26168540077_e7b1d01739_c_d.jpg" alt="Lisboa" width="280px" />
+<p class="caption">(\#fig:unnamed-chunk-2)Lisboa</p>
+</div>
 
 <!-- http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/neighbourhoods.geojson -->
 
@@ -82,6 +104,92 @@ Acá puedes ver la descripción de las variables que contiene la base.
 |availability_365 | disponibilidad en el  año | numérica |
 
 Exploremos una variable character como lo es *room_type* y una numeric como *price*.
+
+
+
+
+
+
+
+
+```r
+listado <- read.csv("data/listings.csv", stringsAsFactors = FALSE)
+```
+
+
+Visualizar los datos
+
+
+```r
+# ver el objeto en otra ventana
+View(listado)
+```
+
+<!-- ![](img/view.gif) -->
+
+Las funciones dim(), names() y str() admiten un data frame como argumento. 
+
+
+```r
+dim(listado) # cantidad de filas y columnas
+nrow(listado) # cantidad de filas
+ncol(listado) # cantidad de columnas
+```
+
+
+```r
+names(listado) # nombre de variables
+```
+
+
+```r
+str(listado) # estructura de la base
+```
+
+La función summary() admite un data frame como argumento pero también una variable.
+
+```r
+summary(listado) # resumen descriptivo de variables
+```
+
+Variables numéricas
+
+Para acceder a una variable de un data frame es necesario escribir  <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >&lt;objeto&gt;$&lt;variable&gt;</span>
+
+
+```r
+# Máximo
+max(listado$price) 
+```
+
+```r
+# Mínimo
+min(listado$price) 
+```
+
+```r
+# Promedio
+mean(listado$price) 
+```
+
+
+
+```r
+# Mediana
+median(listado$price) 
+```
+
+
+```r
+# Varianza
+var(listado$price) 
+```
+
+```r
+# Desvío estándar
+sd(listado$price) 
+```
+
 
 # Manipular datos 
 

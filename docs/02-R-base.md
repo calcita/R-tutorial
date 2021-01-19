@@ -13,6 +13,8 @@
   addKlippy('left', 'top', 'auto', '1', 'Click to copy', 'Done');
 </script><!--/html_preserve-->
 
+
+
 <center>
 ![](https://live.staticflickr.com/4682/39063699342_e9159bc269_c_d.jpg)
 </center>
@@ -46,7 +48,10 @@ La cantidad de clases de objetos es muy grande y crece permanentemente a medida 
 
 ## Vectores 
 
-![](images/vector.png){ width=5% } 
+![](images/vector.png){ width=15% } 
+
+Un vector es una <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >colección de uno o más objetos del mismo tipo</span> (números o caracteres pero no ambos). Un escalar también es un vector en R.
+
 
 ### c()
 
@@ -100,8 +105,7 @@ class(y) # numeric porque contiene decimales
 
 ## Vector
 
-Para el caso de "palabras" ("strings"), la clase "character" es la que utiliza R para manejar este tipo de objetos. Al igual que en la mayoría de los lenguajes de programación, R utiliza las comillas 
-dobles (") o simples (') para delimitar un string. 
+Para el caso de "palabras" ("strings"), la clase "character" es la que utiliza R para manejar este tipo de objetos. Al igual que en la mayoría de los lenguajes de programación, R utiliza las comillas dobles (") o simples (') para delimitar un string. 
 
 <!-- # Nótese que al usar las comillas se puede incluir cualquier caracter dentro,  -->
 <!-- # sin tener que preocuparse de que R lo interprete como un comando. Es decir,  -->
@@ -185,10 +189,74 @@ class(anio)
 ## [1] "numeric"
 ```
 
+## Coerción
+
+Como mencionamos anteriormente, estos elementos deben ser todos de la misma clase. Si se combinan objetos de diferente clase, R reasigna los elementos a la clase apropiada. Si contiene números y texto el vector será de clase `character`.
+
+La coerción es necesaria para el funcionamiento correcto de R. Al mismo tiempo puede ser una fuente de errores si no se tiene en cuenta.
+
+Un texto sin comillas en R es un objeto (siempre que cumpla las reglas de un nombre de objeto).
+
+
+## Vectorización
+
+R vectoriza las operaciones de manera que si sumo un número a un vector numérico, a cada elemento del vector le sumará ese número. Esta propiedad es una ventaja ya que permite evitar loops en muchas de situaciones y de esta manera se obtiene un código más 'limpio' y eficiente.
+
+
+```r
+x <- -1:4 
+x
+```
+
+```
+## [1] -1  0  1  2  3  4
+```
+
+El operador  <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >:</span> sirve para generar vectores numéricos
+
+
+```r
+x + 5 # adiciono 5 
+```
+
+```
+## [1] 4 5 6 7 8 9
+```
+
+
+```r
+x * 3 # multiplico por 3 
+```
+
+```
+## [1] -3  0  3  6  9 12
+```
+
+## Funciones descriptivas de un vector numérico
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >length(x)</span>: devuelve la cantidad de elementos de x
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >sort(x, decreasing = F)</span>: ordena los elementos de manera creciente 
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >sum(x)</span>: devuelve la suma de los elementos de x
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >max(x)</span>: máximo
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >min(x)</span>: mínimo
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >mean(x)</span>: promedio aritmético de x
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >median(x)</span>: mediana de x
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >sd(x)</span>: desvío estándar de x
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >var(x)</span>: varianza de x
+
+<span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;" >summary(x)</span>: resumen descriptivo de x (mínimo, máximo, media, mediana, cuartiles)
 
 ## Data frame
 
-![](images/dataframe.png){ width=5% } 
+![](images/dataframe.png){ width=15% } 
 
 - Puede verse como un conjunto de vectores de diferente tipo pero de igual largo.
 
@@ -219,13 +287,32 @@ class(df)
 knitr::kable(df)
 ```
 
-
-
-| anio|software_libre |costo     |
-|----:|:--------------|:---------|
-| 1993|TRUE           |gratuito  |
-| 1968|FALSE          |costoso   |
-| 1985|FALSE          |accesible |
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> anio </th>
+   <th style="text-align:left;"> software_libre </th>
+   <th style="text-align:left;"> costo </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1993 </td>
+   <td style="text-align:left;"> TRUE </td>
+   <td style="text-align:left;"> gratuito </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1968 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> costoso </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 1985 </td>
+   <td style="text-align:left;"> FALSE </td>
+   <td style="text-align:left;"> accesible </td>
+  </tr>
+</tbody>
+</table>
 
 - En un conjunto de datos, cada variable/columna es un vector. 
 
@@ -267,11 +354,11 @@ str()
 summary()
 ```
 
-## Guardar objeto en formato Rdata
+## Guardar objeto en formato RData
 
 
 ```r
-save(df, file = "data/df.Rdata") 
+save(df, file = "data/df.RData") 
 ```
 
 El primer elemento debe ser un **objeto**. Podrían ser más de uno.

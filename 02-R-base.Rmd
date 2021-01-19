@@ -12,6 +12,12 @@
 klippy::klippy(position = c('top', 'left'), tooltip_message = 'Click to copy', tooltip_success = 'Done')
 ```
 
+```{r, include=FALSE, echo = FALSE}
+text_spec2 <- function(x = "x"){
+  kableExtra::text_spec(x, background = "#b3e2cd", bold = F)
+}
+```
+
 <center>
 ![](https://live.staticflickr.com/4682/39063699342_e9159bc269_c_d.jpg)
 </center>
@@ -45,7 +51,10 @@ La cantidad de clases de objetos es muy grande y crece permanentemente a medida 
 
 ## Vectores 
 
-![](images/vector.png){ width=5% } 
+![](images/vector.png){ width=15% } 
+
+Un vector es una `r text_spec2("colección de uno o más objetos del mismo tipo")` (números o caracteres pero no ambos). Un escalar también es un vector en R.
+
 
 ### c()
 
@@ -75,8 +84,7 @@ class(y) # numeric porque contiene decimales
 
 ## Vector
 
-Para el caso de "palabras" ("strings"), la clase "character" es la que utiliza R para manejar este tipo de objetos. Al igual que en la mayoría de los lenguajes de programación, R utiliza las comillas 
-dobles (") o simples (') para delimitar un string. 
+Para el caso de "palabras" ("strings"), la clase "character" es la que utiliza R para manejar este tipo de objetos. Al igual que en la mayoría de los lenguajes de programación, R utiliza las comillas dobles (") o simples (') para delimitar un string. 
 
 <!-- # Nótese que al usar las comillas se puede incluir cualquier caracter dentro,  -->
 <!-- # sin tener que preocuparse de que R lo interprete como un comando. Es decir,  -->
@@ -123,10 +131,59 @@ length(anio)
 class(anio)
 ```
 
+## Coerción
+
+Como mencionamos anteriormente, estos elementos deben ser todos de la misma clase. Si se combinan objetos de diferente clase, R reasigna los elementos a la clase apropiada. Si contiene números y texto el vector será de clase `character`.
+
+La coerción es necesaria para el funcionamiento correcto de R. Al mismo tiempo puede ser una fuente de errores si no se tiene en cuenta.
+
+Un texto sin comillas en R es un objeto (siempre que cumpla las reglas de un nombre de objeto).
+
+
+## Vectorización
+
+R vectoriza las operaciones de manera que si sumo un número a un vector numérico, a cada elemento del vector le sumará ese número. Esta propiedad es una ventaja ya que permite evitar loops en muchas de situaciones y de esta manera se obtiene un código más 'limpio' y eficiente.
+
+```{r vecto}
+x <- -1:4 
+x
+```
+
+El operador  `r text_spec2(":")` sirve para generar vectores numéricos
+
+```{r}
+x + 5 # adiciono 5 
+```
+
+```{r}
+x * 3 # multiplico por 3 
+```
+
+## Funciones descriptivas de un vector numérico
+
+`r text_spec2("length(x)")`: devuelve la cantidad de elementos de x
+
+`r text_spec2("sort(x, decreasing = F)")`: ordena los elementos de manera creciente 
+
+`r text_spec2("sum(x)")`: devuelve la suma de los elementos de x
+
+`r text_spec2("max(x)")`: máximo
+
+`r text_spec2("min(x)")`: mínimo
+
+`r text_spec2("mean(x)")`: promedio aritmético de x
+
+`r text_spec2("median(x)")`: mediana de x
+
+`r text_spec2("sd(x)")`: desvío estándar de x
+
+`r text_spec2("var(x)")`: varianza de x
+
+`r text_spec2("summary(x)")`: resumen descriptivo de x (mínimo, máximo, media, mediana, cuartiles)
 
 ## Data frame
 
-![](images/dataframe.png){ width=5% } 
+![](images/dataframe.png){ width=15% } 
 
 - Puede verse como un conjunto de vectores de diferente tipo pero de igual largo.
 
@@ -177,10 +234,10 @@ str()
 summary()
 ```
 
-## Guardar objeto en formato Rdata
+## Guardar objeto en formato RData
 
 ```{r eval=FALSE, echo=TRUE, message=FALSE, warning=FALSE}
-save(df, file = "data/df.Rdata") 
+save(df, file = "data/df.RData") 
 ```
 
 El primer elemento debe ser un **objeto**. Podrían ser más de uno.

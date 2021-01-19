@@ -164,9 +164,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>4.3</b> Vector</a></li>
 <li class="chapter" data-level="4.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>4.4</b> Vector</a></li>
 <li class="chapter" data-level="4.5" data-path="objetos.html"><a href="objetos.html#ejemplo-vectores"><i class="fa fa-check"></i><b>4.5</b> Ejemplo vectores</a></li>
-<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.6</b> Data frame</a></li>
-<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.7</b> Explorar los datos</a></li>
-<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.8</b> Guardar objeto en formato Rdata</a></li>
+<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#coerción"><i class="fa fa-check"></i><b>4.6</b> Coerción</a></li>
+<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#vectorización"><i class="fa fa-check"></i><b>4.7</b> Vectorización</a></li>
+<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#funciones-descriptivas-de-un-vector-numérico"><i class="fa fa-check"></i><b>4.8</b> Funciones descriptivas de un vector numérico</a></li>
+<li class="chapter" data-level="4.9" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.9</b> Data frame</a></li>
+<li class="chapter" data-level="4.10" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.10</b> Explorar los datos</a></li>
+<li class="chapter" data-level="4.11" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.11</b> Guardar objeto en formato RData</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
 <li class="chapter" data-level="5.1" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
@@ -251,10 +254,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Esta forma no es robusta, podría cambiar más adelante el orden de las variables o cambiar el nombre y debería actualizar el índice para no cometer errores.</p>
 <p>Por nombre</p>
 <p>df$price</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> datos) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb57-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(</a>
-<a class="sourceLine" id="cb57-3" title="3">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> price)</a>
-<a class="sourceLine" id="cb57-4" title="4">  )</a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> datos) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb75-2" title="2"><span class="st">  </span><span class="kw">geom_boxplot</span>(</a>
+<a class="sourceLine" id="cb75-3" title="3">    <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> price)</a>
+<a class="sourceLine" id="cb75-4" title="4">  )</a></code></pre></div>
 </div>
 <div id="paquete-dplyr" class="section level2">
 <h2><span class="header-section-number">8.2</span> Paquete dplyr</h2>

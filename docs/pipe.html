@@ -164,9 +164,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>4.3</b> Vector</a></li>
 <li class="chapter" data-level="4.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>4.4</b> Vector</a></li>
 <li class="chapter" data-level="4.5" data-path="objetos.html"><a href="objetos.html#ejemplo-vectores"><i class="fa fa-check"></i><b>4.5</b> Ejemplo vectores</a></li>
-<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.6</b> Data frame</a></li>
-<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.7</b> Explorar los datos</a></li>
-<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.8</b> Guardar objeto en formato Rdata</a></li>
+<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#coerción"><i class="fa fa-check"></i><b>4.6</b> Coerción</a></li>
+<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#vectorización"><i class="fa fa-check"></i><b>4.7</b> Vectorización</a></li>
+<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#funciones-descriptivas-de-un-vector-numérico"><i class="fa fa-check"></i><b>4.8</b> Funciones descriptivas de un vector numérico</a></li>
+<li class="chapter" data-level="4.9" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.9</b> Data frame</a></li>
+<li class="chapter" data-level="4.10" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.10</b> Explorar los datos</a></li>
+<li class="chapter" data-level="4.11" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.11</b> Guardar objeto en formato RData</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
 <li class="chapter" data-level="5.1" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
@@ -268,17 +271,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/icons8-mate-100.png" /></p>
 </div>
 </div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1"><span class="co"># Mate con &#39;pipe&#39;</span></a>
-<a class="sourceLine" id="cb58-2" title="2"></a>
-<a class="sourceLine" id="cb58-3" title="3">mate <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb58-4" title="4"><span class="st">        </span><span class="kw">poner_yerba</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb58-5" title="5"><span class="st">        </span><span class="kw">hinchar</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb58-6" title="6"><span class="st">        </span><span class="kw">colocar_bombilla</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb58-7" title="7"><span class="st">        </span><span class="kw">cebar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="co"># Mate con &#39;pipe&#39;</span></a>
+<a class="sourceLine" id="cb76-2" title="2"></a>
+<a class="sourceLine" id="cb76-3" title="3">mate <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-4" title="4"><span class="st">        </span><span class="kw">poner_yerba</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-5" title="5"><span class="st">        </span><span class="kw">hinchar</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-6" title="6"><span class="st">        </span><span class="kw">colocar_bombilla</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-7" title="7"><span class="st">        </span><span class="kw">cebar</span>()</a></code></pre></div>
 <p><br><br></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1"><span class="co"># Mate sin &#39;pipe&#39;</span></a>
-<a class="sourceLine" id="cb59-2" title="2"></a>
-<a class="sourceLine" id="cb59-3" title="3"><span class="kw">cebar</span>(<span class="kw">colocar_bombilla</span>(<span class="kw">hinchar</span>(<span class="kw">poner_yerba</span>(mate))))</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="co"># Mate sin &#39;pipe&#39;</span></a>
+<a class="sourceLine" id="cb77-2" title="2"></a>
+<a class="sourceLine" id="cb77-3" title="3"><span class="kw">cebar</span>(<span class="kw">colocar_bombilla</span>(<span class="kw">hinchar</span>(<span class="kw">poner_yerba</span>(mate))))</a></code></pre></div>
 <p><br><br>
 ¿Cuál código te parece más claro?
 <!-- --- -->

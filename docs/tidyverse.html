@@ -164,9 +164,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="objetos.html"><a href="objetos.html#vector"><i class="fa fa-check"></i><b>4.3</b> Vector</a></li>
 <li class="chapter" data-level="4.4" data-path="objetos.html"><a href="objetos.html#vector-1"><i class="fa fa-check"></i><b>4.4</b> Vector</a></li>
 <li class="chapter" data-level="4.5" data-path="objetos.html"><a href="objetos.html#ejemplo-vectores"><i class="fa fa-check"></i><b>4.5</b> Ejemplo vectores</a></li>
-<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.6</b> Data frame</a></li>
-<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.7</b> Explorar los datos</a></li>
-<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.8</b> Guardar objeto en formato Rdata</a></li>
+<li class="chapter" data-level="4.6" data-path="objetos.html"><a href="objetos.html#coerción"><i class="fa fa-check"></i><b>4.6</b> Coerción</a></li>
+<li class="chapter" data-level="4.7" data-path="objetos.html"><a href="objetos.html#vectorización"><i class="fa fa-check"></i><b>4.7</b> Vectorización</a></li>
+<li class="chapter" data-level="4.8" data-path="objetos.html"><a href="objetos.html#funciones-descriptivas-de-un-vector-numérico"><i class="fa fa-check"></i><b>4.8</b> Funciones descriptivas de un vector numérico</a></li>
+<li class="chapter" data-level="4.9" data-path="objetos.html"><a href="objetos.html#data-frame"><i class="fa fa-check"></i><b>4.9</b> Data frame</a></li>
+<li class="chapter" data-level="4.10" data-path="objetos.html"><a href="objetos.html#explorar-los-datos"><i class="fa fa-check"></i><b>4.10</b> Explorar los datos</a></li>
+<li class="chapter" data-level="4.11" data-path="objetos.html"><a href="objetos.html#guardar-objeto-en-formato-rdata"><i class="fa fa-check"></i><b>4.11</b> Guardar objeto en formato RData</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="tidyverse.html"><a href="tidyverse.html"><i class="fa fa-check"></i><b>5</b> Tidyverse</a><ul>
 <li class="chapter" data-level="5.1" data-path="qué-es-r.html"><a href="qué-es-r.html#paquetes"><i class="fa fa-check"></i><b>5.1</b> Paquetes</a></li>
@@ -272,8 +275,8 @@ Un buen trabajo científico requiere de escribir un código claro y reproducible
 <p>La estructura de datos más importante en R es el <strong>data frame</strong>.</p>
 <p>Permite representar la información en forma de tabla, donde cada <strong>fila</strong> representa una <strong>observación</strong> y cada <strong>columna</strong> represente una <strong>variable</strong>.</p>
 <p>El paquete dplyr no provee ninguna funcionalidad que no pueda ser realizada con las funciones del paquete base, sin embargo, es más <strong>simple</strong> y <strong>rápido</strong> (está escrito en C++).</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
-<a class="sourceLine" id="cb51-2" title="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1"><span class="co"># install.packages(&quot;dplyr&quot;)</span></a>
+<a class="sourceLine" id="cb57-2" title="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <!-- - Todas las funciones del paquete tiene la particularidad de que su primer argumento es el data frame al que le realizará la operación, mientras que los subsiguiente argumentos describen como realizar tal operación. Finalmente el resultado de todas estas funciones es un nuevo data frame. -->
 <p><!-- dplyr::summarise() --></p>
 <!-- Calcula resumen de variables. -->
