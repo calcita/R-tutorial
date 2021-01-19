@@ -46,7 +46,7 @@ La cantidad de clases de objetos es muy grande y crece permanentemente a medida 
 
 ## Vectores 
 
-![](images/vector.png)
+![](images/vector.png){ width=5% } 
 
 ### c()
 
@@ -188,7 +188,7 @@ class(anio)
 
 ## Data frame
 
-![](images/dataframe.png)
+![](images/dataframe.png){ width=5% } 
 
 - Puede verse como un conjunto de vectores de diferente tipo pero de igual largo.
 
@@ -271,14 +271,14 @@ summary()
 
 
 ```r
-save(df, file = "data/df.Rdata") #<<
+save(df, file = "data/df.Rdata") 
 ```
 
 El primer elemento debe ser un **objeto**. Podrían ser más de uno.
 
 Es necesario nombrar el argumento **'file'** definiendo ruta y nombre de archivo.
 
-Si en file solo se define el nombre del archivo, se guarda en el directorio de trabajo actual: **getwd()**
+Si en **file** solo se define el nombre del archivo, se guarda en el directorio de trabajo actual: **getwd()**
 
 El **nombre** del objeto y el archivo pueden coincidir, pero no necesariamente.
 

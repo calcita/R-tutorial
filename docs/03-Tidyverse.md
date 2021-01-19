@@ -63,4 +63,8 @@ library(dplyr)
 
 <!-- Si la variable tiene datos faltantes se puede calcular el promedio sin considerarlos -->
 
-
+<!-- tally -->
+<!-- count -->
+<!-- add_count -->
+<!-- add_tally -->
+<!-- fechas -->

@@ -1,6 +1,6 @@
 # Introducción
 
-![](https://www.flickr.com/photos/mapa_mundi/39094478621/in/album-72157691090232215/)
+<!-- ![](https://www.flickr.com/photos/mapa_mundi/39094478621/in/album-72157691090232215/) -->
 
 Este tutorial pretende guiarte para aprender a usar R y Rstudio, correr comandos de R, crear objetos en R, escribir tus propias funciones de R y scripts, cargar y usar paquetes de R, analizar y graficar datos.
 
