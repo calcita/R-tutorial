@@ -50,8 +50,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
 <link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
@@ -76,7 +74,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -252,7 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/barcelona/201706_Barcelona_088_lnz.jpg" alt="Barcelona" />
 </center>
 <p>Ejemplificaremos con datos de alojamientos de Airbnb en la ciudad de Barcelona, España, disponibles en <a href="http://data.insideairbnb.com">Inside Airbnb</a>. La elección de los datos no responde a hacerle publicidad a esta empresa, simplemente los elegí porque contiene variables interesantes.</p>
-<p>Trabajaremos con los datos de alojamientos en Barcelona de Airbnb al 10 de enero de 2020. Son datos abiertos disponibles en <a href="http://insideairbnb.com/get-the-data.html" class="uri">http://insideairbnb.com/get-the-data.html</a>. Son datos abiertos con licencia Creative Commons CC0 1.0 Universal "Public Domain Dedication.</p>
+<p>Trabajaremos con los datos de alojamientos en Barcelona de Airbnb al 10 de enero de 2020. Son datos abiertos disponibles en <a href="http://insideairbnb.com/get-the-data.html" class="uri">http://insideairbnb.com/get-the-data.html</a>. Son datos abiertos con licencia Creative Commons CC0 1.0 Universal &quot;Public Domain Dedication.</p>
 <table>
 <thead>
 <tr class="header">
@@ -290,11 +288,11 @@ Figure 5.1: Lisboa
 </div>
 <!-- http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/neighbourhoods.geojson -->
 <p>Accedemos a los datos desde la url o de manera local si ya los descargamos en la computadora. Está disponible el listado de alojamientos con sus características en un archivo csv y la información geográfica de los barrios en un formato geojson. Primero trabajaremos con el listado de alojamientos.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">ruta &lt;-<span class="st"> &quot;http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/listings.csv&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(ruta)</a></code></pre></div>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">datos &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(ruta)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">ruta &lt;-<span class="st"> &quot;http://data.insideairbnb.com/spain/catalonia/barcelona/2020-02-16/visualisations/listings.csv&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">datos &lt;-<span class="st"> </span><span class="kw">read.csv</span>(ruta)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">datos &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(ruta)</a></code></pre></div>
 <p>Pero si previamente los bajamos, podemos importarlos desde la carpeta data del proyecto</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">datos &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;data/listings.csv&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">datos &lt;-<span class="st"> </span>readr<span class="op">::</span><span class="kw">read_csv</span>(<span class="st">&quot;data/listings.csv&quot;</span>)</a></code></pre></div>
 <div id="explorar-datos" class="section level2">
 <h2><span class="header-section-number">5.1</span> Explorar datos</h2>
 <p>Lo primero que conviene hacer, sobre todo si no hemos trabajado antes con estos datos, es explorarlos. Las funciones básicas que dispone R para esto son las siguientes:</p>
@@ -305,17 +303,17 @@ Figure 5.1: Lisboa
 <li>summary(): brinda un resumen estadístico de cada variable cuando se aplica a un data.frame o de la variable en particular indicada. Si la variable es numérica se muestra el mínimo, máximo y los cuartiles. En caso de una variable de texto se muestra una tabla de los valores que toma.</li>
 <li>names(): brinda el listado de nombres de variables.</li>
 </ul>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" title="1"><span class="co"># primeros casos</span></a>
-<a class="sourceLine" id="cb61-2" title="2"><span class="kw">head</span>(datos)</a>
-<a class="sourceLine" id="cb61-3" title="3"></a>
-<a class="sourceLine" id="cb61-4" title="4"><span class="co"># ver los datos</span></a>
-<a class="sourceLine" id="cb61-5" title="5"><span class="kw">View</span>(datos)</a>
-<a class="sourceLine" id="cb61-6" title="6"></a>
-<a class="sourceLine" id="cb61-7" title="7"><span class="co"># resumen estadistico</span></a>
-<a class="sourceLine" id="cb61-8" title="8"><span class="kw">summary</span>(datos)</a>
-<a class="sourceLine" id="cb61-9" title="9"></a>
-<a class="sourceLine" id="cb61-10" title="10"><span class="co"># nombres de variables</span></a>
-<a class="sourceLine" id="cb61-11" title="11"><span class="kw">names</span>(datos)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1"><span class="co"># primeros casos</span></a>
+<a class="sourceLine" id="cb61-2" data-line-number="2"><span class="kw">head</span>(datos)</a>
+<a class="sourceLine" id="cb61-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb61-4" data-line-number="4"><span class="co"># ver los datos</span></a>
+<a class="sourceLine" id="cb61-5" data-line-number="5"><span class="kw">View</span>(datos)</a>
+<a class="sourceLine" id="cb61-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb61-7" data-line-number="7"><span class="co"># resumen estadistico</span></a>
+<a class="sourceLine" id="cb61-8" data-line-number="8"><span class="kw">summary</span>(datos)</a>
+<a class="sourceLine" id="cb61-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb61-10" data-line-number="10"><span class="co"># nombres de variables</span></a>
+<a class="sourceLine" id="cb61-11" data-line-number="11"><span class="kw">names</span>(datos)</a></code></pre></div>
 <p>Acá puedes ver la descripción de las variables que contiene la base.</p>
 <p><strong>Tabla de variables</strong></p>
 <table>
@@ -410,33 +408,33 @@ Figure 5.1: Lisboa
 </tbody>
 </table>
 <p>Exploremos una variable character como lo es <em>room_type</em> y una numeric como <em>price</em>.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">listado &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/listings.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">listado &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/listings.csv&quot;</span>, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <p>Visualizar los datos</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1"><span class="co"># ver el objeto en otra ventana</span></a>
-<a class="sourceLine" id="cb63-2" title="2"><span class="kw">View</span>(listado)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1"><span class="co"># ver el objeto en otra ventana</span></a>
+<a class="sourceLine" id="cb63-2" data-line-number="2"><span class="kw">View</span>(listado)</a></code></pre></div>
 <!-- ![](img/view.gif) -->
 <p>Las funciones dim(), names() y str() admiten un data frame como argumento.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1"><span class="kw">dim</span>(listado) <span class="co"># cantidad de filas y columnas</span></a>
-<a class="sourceLine" id="cb64-2" title="2"><span class="kw">nrow</span>(listado) <span class="co"># cantidad de filas</span></a>
-<a class="sourceLine" id="cb64-3" title="3"><span class="kw">ncol</span>(listado) <span class="co"># cantidad de columnas</span></a></code></pre></div>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1"><span class="kw">names</span>(listado) <span class="co"># nombre de variables</span></a></code></pre></div>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1"><span class="kw">str</span>(listado) <span class="co"># estructura de la base</span></a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1"><span class="kw">dim</span>(listado) <span class="co"># cantidad de filas y columnas</span></a>
+<a class="sourceLine" id="cb64-2" data-line-number="2"><span class="kw">nrow</span>(listado) <span class="co"># cantidad de filas</span></a>
+<a class="sourceLine" id="cb64-3" data-line-number="3"><span class="kw">ncol</span>(listado) <span class="co"># cantidad de columnas</span></a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1"><span class="kw">names</span>(listado) <span class="co"># nombre de variables</span></a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1"><span class="kw">str</span>(listado) <span class="co"># estructura de la base</span></a></code></pre></div>
 <p>La función summary() admite un data frame como argumento pero también una variable.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1"><span class="kw">summary</span>(listado) <span class="co"># resumen descriptivo de variables</span></a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1"><span class="kw">summary</span>(listado) <span class="co"># resumen descriptivo de variables</span></a></code></pre></div>
 <p>Variables numéricas</p>
 <p>Para acceder a una variable de un data frame es necesario escribir <span style="     border-radius: 4px; padding-right: 4px; padding-left: 4px; background-color: #b3e2cd !important;">&lt;objeto&gt;$&lt;variable&gt;</span></p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1"><span class="co"># Máximo</span></a>
-<a class="sourceLine" id="cb68-2" title="2"><span class="kw">max</span>(listado<span class="op">$</span>price) </a></code></pre></div>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1"><span class="co"># Mínimo</span></a>
-<a class="sourceLine" id="cb69-2" title="2"><span class="kw">min</span>(listado<span class="op">$</span>price) </a></code></pre></div>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1"><span class="co"># Promedio</span></a>
-<a class="sourceLine" id="cb70-2" title="2"><span class="kw">mean</span>(listado<span class="op">$</span>price) </a></code></pre></div>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1"><span class="co"># Mediana</span></a>
-<a class="sourceLine" id="cb71-2" title="2"><span class="kw">median</span>(listado<span class="op">$</span>price) </a></code></pre></div>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" title="1"><span class="co"># Varianza</span></a>
-<a class="sourceLine" id="cb72-2" title="2"><span class="kw">var</span>(listado<span class="op">$</span>price) </a></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1"><span class="co"># Desvío estándar</span></a>
-<a class="sourceLine" id="cb73-2" title="2"><span class="kw">sd</span>(listado<span class="op">$</span>price) </a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1"><span class="co"># Máximo</span></a>
+<a class="sourceLine" id="cb68-2" data-line-number="2"><span class="kw">max</span>(listado<span class="op">$</span>price) </a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1"><span class="co"># Mínimo</span></a>
+<a class="sourceLine" id="cb69-2" data-line-number="2"><span class="kw">min</span>(listado<span class="op">$</span>price) </a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1"><span class="co"># Promedio</span></a>
+<a class="sourceLine" id="cb70-2" data-line-number="2"><span class="kw">mean</span>(listado<span class="op">$</span>price) </a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1"><span class="co"># Mediana</span></a>
+<a class="sourceLine" id="cb71-2" data-line-number="2"><span class="kw">median</span>(listado<span class="op">$</span>price) </a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1"><span class="co"># Varianza</span></a>
+<a class="sourceLine" id="cb72-2" data-line-number="2"><span class="kw">var</span>(listado<span class="op">$</span>price) </a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1"><span class="co"># Desvío estándar</span></a>
+<a class="sourceLine" id="cb73-2" data-line-number="2"><span class="kw">sd</span>(listado<span class="op">$</span>price) </a></code></pre></div>
 </div>
 </div>
             </section>

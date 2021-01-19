@@ -50,8 +50,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
 <link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
@@ -76,7 +74,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -271,17 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="https://raw.githubusercontent.com/calcita/Curso-rECH/master/images/icons8-mate-100.png" /></p>
 </div>
 </div>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" title="1"><span class="co"># Mate con &#39;pipe&#39;</span></a>
-<a class="sourceLine" id="cb76-2" title="2"></a>
-<a class="sourceLine" id="cb76-3" title="3">mate <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb76-4" title="4"><span class="st">        </span><span class="kw">poner_yerba</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb76-5" title="5"><span class="st">        </span><span class="kw">hinchar</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb76-6" title="6"><span class="st">        </span><span class="kw">colocar_bombilla</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb76-7" title="7"><span class="st">        </span><span class="kw">cebar</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="co"># Mate con &#39;pipe&#39;</span></a>
+<a class="sourceLine" id="cb76-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb76-3" data-line-number="3">mate <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb76-4" data-line-number="4"><span class="st">        </span><span class="kw">poner_yerba</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-5" data-line-number="5"><span class="st">        </span><span class="kw">hinchar</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-6" data-line-number="6"><span class="st">        </span><span class="kw">colocar_bombilla</span>() <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb76-7" data-line-number="7"><span class="st">        </span><span class="kw">cebar</span>()</a></code></pre></div>
 <p><br><br></p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1"><span class="co"># Mate sin &#39;pipe&#39;</span></a>
-<a class="sourceLine" id="cb77-2" title="2"></a>
-<a class="sourceLine" id="cb77-3" title="3"><span class="kw">cebar</span>(<span class="kw">colocar_bombilla</span>(<span class="kw">hinchar</span>(<span class="kw">poner_yerba</span>(mate))))</a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="co"># Mate sin &#39;pipe&#39;</span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3"><span class="kw">cebar</span>(<span class="kw">colocar_bombilla</span>(<span class="kw">hinchar</span>(<span class="kw">poner_yerba</span>(mate))))</a></code></pre></div>
 <p><br><br>
 ¿Cuál código te parece más claro?
 <!-- --- -->

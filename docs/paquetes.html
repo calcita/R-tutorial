@@ -50,8 +50,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
 <script src="libs/clipboard-1.7.1/clipboard.min.js"></script>
 <link href="libs/primer-tooltips-1.4.0/build.css" rel="stylesheet" />
@@ -76,7 +74,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(title);
+  { content: attr(data-line-number);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -254,39 +252,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Para instalar un paquete desde el repositorio oficial</li>
 </ul>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb79-2" title="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb79-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
+<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
+<a class="sourceLine" id="cb79-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>) </a></code></pre></div>
 <p>Por ejemplo, para instalar el paquete ‘readr’ ejecutamos lo siguiente:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb80-2" title="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb80-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
+<a class="sourceLine" id="cb80-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
+<a class="sourceLine" id="cb80-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>) </a></code></pre></div>
 <p>Para instalar más de un paquete a la vez, es necesario concatenar los nombres de los paquetes en un vector, para ello, usamos la función c().</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb81-2" title="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb81-3" title="3"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>, <span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>)) </a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
+<a class="sourceLine" id="cb81-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>, <span class="st">&quot;&lt;NOMBRE PAQUETE&gt;&quot;</span>)) </a></code></pre></div>
 <p>Por ejemplo, podemos instalar ‘readr’ y ‘haven’:</p>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
-<a class="sourceLine" id="cb82-2" title="2"><span class="co"># se hace una única vez</span></a>
-<a class="sourceLine" id="cb82-3" title="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;haven&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; desde el repositorio CRAN</span></a>
+<a class="sourceLine" id="cb82-2" data-line-number="2"><span class="co"># se hace una única vez</span></a>
+<a class="sourceLine" id="cb82-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&quot;readr&quot;</span>, <span class="st">&quot;haven&quot;</span>) </a></code></pre></div>
 </div>
 <div id="instalar-paquetes-desde-github" class="section level2">
 <h2><span class="header-section-number">12.2</span> Instalar paquetes desde github</h2>
 <p>Si en lugar de cargarlo del repositorio oficial, porque allí no se encuentra o bien por que queremos instalar una versión más reciente, debemos usar el paquete devtools (debe estar instalado) y usar la función install.github(), si el paquete está alojado en github (es lo más común). Como único argumento de la función, entre comillas, indicamos nombre de usuarix de quien lo desarrolló y nombre del paquete:</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1"><span class="co"># instalamos el paquete &#39;readr&#39; alojado en github</span></a>
-<a class="sourceLine" id="cb83-2" title="2"><span class="co"># es del usuario hadley (Hadley Wickham). </span></a>
-<a class="sourceLine" id="cb83-3" title="3">devtools<span class="op">::</span><span class="kw">install.github</span>(<span class="st">&quot;/&lt;NOMBRE USUARIX&gt;/&lt;NOMBRE PAQUETE&gt;&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; alojado en github</span></a>
+<a class="sourceLine" id="cb83-2" data-line-number="2"><span class="co"># es del usuario hadley (Hadley Wickham). </span></a>
+<a class="sourceLine" id="cb83-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">install.github</span>(<span class="st">&quot;/&lt;NOMBRE USUARIX&gt;/&lt;NOMBRE PAQUETE&gt;&quot;</span>) </a></code></pre></div>
 <p>En el caso del paquete ‘readr’ desarrollado por Hadley Wickham, está alojado en github y el usuario es ‘hadley’.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1"><span class="co"># instalamos el paquete &#39;readr&#39; alojado en github</span></a>
-<a class="sourceLine" id="cb84-2" title="2"><span class="co"># es del usuario hadley (Hadley Wickham). </span></a>
-<a class="sourceLine" id="cb84-3" title="3">devtools<span class="op">::</span><span class="kw">install.github</span>(<span class="st">&quot;/hadley/readr&quot;</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co"># instalamos el paquete &#39;readr&#39; alojado en github</span></a>
+<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="co"># es del usuario hadley (Hadley Wickham). </span></a>
+<a class="sourceLine" id="cb84-3" data-line-number="3">devtools<span class="op">::</span><span class="kw">install.github</span>(<span class="st">&quot;/hadley/readr&quot;</span>) </a></code></pre></div>
 </div>
 <div id="cargar" class="section level2">
 <h2><span class="header-section-number">12.3</span> Cargar</h2>
 <ul>
 <li>Para que un paquete quede disponible debemos cargarlo en cada sesión (cada vez que abrimos Rstudio), usando la función library() e indicando como único argumento el nombre del paquete, esta vez sin comillas.</li>
 </ul>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" title="1"><span class="kw">library</span>(readr) </a></code></pre></div>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="kw">library</span>(readr) </a></code></pre></div>
 
 </div>
 </div>

@@ -256,3 +256,15 @@ Para profundizar sobre el uso de paquetes ve a la sección ...
 </center>
 
 ![](images/teclas.png)
+
+<!-- :::bombilla -->
+<!-- My content goes in here! -->
+<!-- ::: -->
+
+<!-- :::cohete -->
+<!-- My content goes in here! -->
+<!-- ::: -->
+
+<!-- :::ok -->
+<!-- My content goes in here! -->
+<!-- ::: -->

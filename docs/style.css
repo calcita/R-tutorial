@@ -1,6 +1,6 @@
 /* -----------div tips------------- */
 
-  div.puzzle, div.fyi, div.demo, div.note {
+  div.bombilla, div.fyi, div.cohete, div.ok {
     padding: 1em;
     margin: 1em 0;
     padding-left: 100px;
@@ -13,20 +13,24 @@
     border: solid 5px #dfedff;
   }
 
-div.puzzle {
-  background-image: url("Your-turn.png");
+div.bombilla {
+  background-image: url("images/bombilla.png");
+  font-family: "Caveat";
+  background-color: #b3e2cd;
 }
 
 div.fyi {
- background-image: url("fyi.png");
+ background-image: url("images/information.png");
 }
 
-div.demo {
-  background-image: url("work.png");
+div.cohete {
+  background-image: url("images/cohete.png");
+  background-color: #fdcdac;
 }
 
-div.note {
-  background-image: url("lightbulb.png");
+div.ok {
+  background-image: url("images/ok.png");
+  background-color: #ffffb3;
 }
 
 
